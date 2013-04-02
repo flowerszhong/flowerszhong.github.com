@@ -2,7 +2,7 @@
 layout: post
 title: Jekyll Blog 主题 theOne 1.0
 description: 基于简单而又有轻量的理念，<a href="http://www.pizn.net" target="_blank">PIZn</a> 设计并编写了这个主题。下面介绍文章页的一些标签使用方法。
-keyword: pizn theme, Black Cube
+keyword: mzhong site default page
 ---
 
 ###"IMG"标签：
