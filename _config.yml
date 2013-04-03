@@ -2,7 +2,7 @@ markdown:         rdiscount
 pygments:         true
 paginate:         4
 
-title:            The One Theme
+title:            Mzhong's Site
 url:              http://flowerszhong.github.com
 feed:             /atom.xml
 author:
