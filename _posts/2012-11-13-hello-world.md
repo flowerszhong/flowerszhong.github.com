@@ -6,6 +6,7 @@ keyword: mzhong site default page
 ---
 
 ###"IMG"标签：
+hello world
 <img src="{{ site.url }}/images/yujinxiang.jpeg" alt="thumb" >
 
 ###"BLACKQUERY"标签：
