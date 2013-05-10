@@ -54,29 +54,33 @@ pros:
 * Supports multiple JavaScript test frameworks
 
 cons:  
-* Doesn't show results for os or browser version. Only browser names.* It* *  does however print out the version in the test results.
+* Doesn't show results for os or browser version. Only browser names.* It does however print out the version in the test results.
 * No history of previous test results
 * Very low project activity
 
 
 ###7.[JsUnit](https://github.com/pivotal/jsunit)
-Pros   
+Pros  
+
 * can be invoked from an ant build file
 * launches browser to run the tests
 * Eclipse plug-in
 
-Cons  
+Cons    
+
 * launches browser to run the tests
 * Does not support js file to write the unit test code: it has to be -embedded inside an html file
 * it has not been updated for a few years
 
 ###8.[RhinoUnit](http://code.google.com/p/rhinounit)
 Pros  
+
 * ant driven
 * supports js file
 * very simple to use
 
-Cons 
+Cons
+ 
 * Simulation of JavaScript engine: not advanced enough to support our code: I tried to run test code working with JsUnit: I encountered issue when loading our common JavaScript files
 
 ###9.Jasmine  
