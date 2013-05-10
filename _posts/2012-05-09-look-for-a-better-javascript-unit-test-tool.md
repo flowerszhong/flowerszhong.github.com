@@ -1,6 +1,6 @@
 ---
 layout: post
-title: First GitHub Page
+title: Look For A Better JS Unit Test Framework
 description: mzhong
 keyword: mzhong site default page
 ---
@@ -18,15 +18,15 @@ keyword: mzhong site default page
 ###3.[Javascript Unit Test Framework知多少？](http://en.wikipedia.org/wiki/List_of_unit_testing_frameworks#JavaScript) 
 
 
-###4.comparisons
+###4.Comparisons
 
--是否支持异步测试
--是否支持浏览器
--是否支持无头测试
--测试运行速度
--覆盖率计算
--提供IDE插件
--语言倾向性
+* 是否支持异步测试
+* 是否支持浏览器
+* 是否支持无头测试
+* 测试运行速度
+* 覆盖率计算
+* 提供IDE插件
+* 语言倾向性
 
 
 ###5.QUnit
@@ -45,39 +45,39 @@ Some people at Google have also started on a distributed JavaScript tool, JsTest
 
 pros:
 
--Supports all major browsers/operating systems
--Run on multiple clients at once
--Don't need to run server/clients on development computer (no need for IE)
--Run tests from command line (jar) (can be integrated in ant/maven)
--Eclipse plugin
--IntelliJ plugin
--Supports multiple JavaScript test frameworks
+* Supports all major browsers/operating systems
+* Run on multiple clients at once
+* Don't need to run server/clients on development computer (no need for IE)
+* Run tests from command line (jar) (can be integrated in ant/maven)
+* Eclipse plugin* 
+* IntelliJ plugin
+* Supports multiple JavaScript test frameworks
 cons:
 
--Doesn't show results for os or browser version. Only browser names. -It does however print out the version in the test results.
--No history of previous test results
--Very low project activity
+* Doesn't show results for os or browser version. Only browser names.* It* *  does however print out the version in the test results.
+* No history of previous test results
+* Very low project activity
 
 
 ###7.[JsUnit](https://github.com/pivotal/jsunit)
 Pros 
--can be invoked from an ant build file
--launches browser to run the tests
--Eclipse plug-in
+* can be invoked from an ant build file
+* launches browser to run the tests
+* Eclipse plug-in
 
 Cons
--launches browser to run the tests
--Does not support js file to write the unit test code: it has to be -embedded inside an html file
--it has not been updated for a few years
+* launches browser to run the tests
+* Does not support js file to write the unit test code: it has to be -embedded inside an html file
+* it has not been updated for a few years
 
 ###8.[RhinoUnit](http://code.google.com/p/rhinounit)
 Pros
--ant driven
--supports js file
--very simple to use
+* ant driven
+* supports js file
+* very simple to use
 
 Cons
--Simulation of JavaScript engine: not advanced enough to support our code: I tried to run test code working with JsUnit: I encountered issue when loading our common JavaScript files
+* Simulation of JavaScript engine: not advanced enough to support our code: I tried to run test code working with JsUnit: I encountered issue when loading our common JavaScript files
 
 ###9.Jasmine
 This is a test-runner that might interest developers familiar with Ruby or Ruby on Rails. The syntax is based on RSpec that's used for testing in Rails projects.
@@ -88,7 +88,7 @@ Project home: [https://github.com/pivotal/jasmine/](https://github.com/pivotal/j
 
 
 ####Read More 
--[Look for a better Javascript Unit Framework](http://stackoverflow.com/questions/300855/looking-for-a-better-javascript-unit-test-tool)
+* [Look for a better Javascript Unit Framework](http://stackoverflow.com/questions/300855/looking-for-a-better-javascript-unit-test-tool)
 
 
 
