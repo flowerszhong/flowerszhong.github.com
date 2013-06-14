@@ -38,6 +38,27 @@ QUnit shares some history with TestSwarm (above):
 
 >QUnit was originally developed by John Resig as part of jQuery. In 2008 it got its own home, name and API documentation, allowing others to use it for their unit testing as well. At the time it still dependended on jQuery. A rewrite in 2009 fixed that, now QUnit runs completelty standalone. QUnit's assertion methods follow the CommonJS Unit Testing specification, which was to some degree influenced by QUnit.
 
+Writing QUnit tests for asynchronous code is made possible using the start() and `stop() methods, which programmatically set the start and stop points during such tests. Here’s a simple example: 
+
+<pre>
+test("An async test", function(){
+   stop();
+   expect( 1 );
+   $.ajax({
+        url: "/test",
+        dataType: "json",
+        success: function( data ){
+            deepEqual(data, {
+               topic: "hello",
+               message: "hi there!"
+            });
+            start();
+        }
+    });
+});
+</pre>
+
+
 Project home: [http://qunitjs.com/](http://qunitjs.com/) 
 
 ###6.[JsTestDriver](http://code.google.com/p/js-test-driver/) 

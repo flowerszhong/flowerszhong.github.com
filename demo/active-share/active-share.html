@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <!--<script type="text/javascript" src="lib/jquery-1.7.1.min.js"></script>-->
+    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+    <!--<script type="text/javascript" src="d3.js"></script>-->
+    <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+    <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
+    <style>
+        .unit{
+            line-height: 24px;
+        }
+        .green{
+            color: green;
+        }
+        #fund,#index{
+            width:80px;
+        }
+        .description{
+            float: right;
+            width:480px;
+            height:260px;
+            margin-right: 50px;
+        }
+    </style>
+    <title>Active Share</title>
+</head>
+<body>
+    <img src="imgs/active-share.png" alt="active share" class="description">
+    <table class="table table-bordered" style="width:600px;">
+        <caption></caption>
+        <thead>
+            <tr>
+                <th>field name</th>
+                <th>value</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Overlap :</td>
+                <td>
+                    <input type="text" name="overlap" id="overlap"> <b class="unit">%</b>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Not Held by Index:
+                    <br>
+                    <label for="" class="green">(Exclude by Index)</label>
+                </td>
+                <td>
+                    <input type="text" name="not-held-by-index" id="not-held-by-index"> <b class="unit">%</b>
+                </td>
+            </tr>
+            <tr>
+                <td>Overweight by Fund :</td>
+                <td>
+                    <input type="text" name="overweight-by-fund" id="overweight-by-fund">
+                    <b class="unit">%</b>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    Not Held by Fund :
+                    <br>
+                    <label for="" class="green">(Exclude by Fund)</label>
+                </td>
+                <td>
+                    <input type="text" name="not-held-by-fund" id="not-held-by-fund">
+                    <b class="unit">%</b>
+                </td>
+            </tr>
+
+            <tr>
+                <td>Underweight by Fund :</td>
+                <td>
+                    <input type="text" name="underweight-by-fund" id="underweight-by-fund">
+                    <b class="unit">%</b>
+                </td>
+            </tr>
+
+            <tr>
+                <td colspan="2">
+                    fund = Overlap + Overweight by Fund + Excluded by Index;
+                    <input type="text" name="fund" id="fund"></td>
+
+            </tr>
+            <tr>
+                <td colspan="2">
+                    index = Overlap + Underweight by Fund + Exclude by Fund;
+                    <input type="text" name="index" id="index"></td>
+            </tr>
+        </tbody>
+        <footer>
+            <tr>
+                <td></td>
+                <td>
+                    <input type="button" value="Draw" id="draw" class="btn btn-large"></td>
+            </tr>
+        </footer>
+    </table>
+
+    <div class="chart-wrap"></div>
+    <!-- <svg width="800" height="400">
+        <defs>
+            <clipPath id="_fund">
+                <circle cx="200" cy="200" r="50"></circle>
+            </clipPath>
+            <clipPath id="_index">
+                <circle cx="320" cy="200" r="100"></circle>
+            </clipPath>
+        </defs>
+    
+        <circle id="fund" cx="200" cy="200" r="50" style="fill: #9eaa38;"></circle>
+        <circle id="index" cx="320" cy="200" r="100" style="fill: #e96726;"></circle>
+        <circle id="overweight-by-fund" clip-path="url(#_fund)" cx="215" cy="200" r="50" style="fill: #bcc24b;"></circle>
+        <circle id="underweight-by-fund" clip-path="url(#_index)" cx="170" cy="200" r="100" style="fill: #54668c;stroke:#ed9258;stroke-width:4px;"></circle>
+        <circle id="fund-index-intersection" clip-path="url(#_fund)" cx="320" cy="200" r="100" style="fill: #54668c;stroke:#fff;"></circle>
+        <circle id="index-fund-intersection" clip-path="url(#_index)" cx="200" cy="200" r="50" style="fill: #54668c;stroke:#fff;"></circle>
+    </svg> -->
+
+    <script>
+    $(function() {
+
+
+        var LABELS = {
+            "fund": "Exclude by Index",
+            "index": " Exclude by Fund",
+            "fund-index-intersection": "Overlap",
+            "index-fund-intersection": "Overlap",
+            "underweight-by-fund": "Underweight by Fund",
+            "overweight-by-fund": "Overweight by Fund"
+        }
+
+        var w = 800,
+            h = 400;
+
+        var svg = d3.select(".chart-wrap").append("svg:svg")
+            .attr("width", w)
+            .attr("height", h);
+
+        var defs = svg.append("svg:defs");
+
+
+        // <clipPath id="_fund">
+        //     <circle cx="200" cy="200" r="50"></circle>
+        // </clipPath>
+        // <clipPath id="_index">
+        //     <circle cx="320" cy="200" r="100"></circle>
+        // </clipPath>
+
+        // <circle id="fund" cx="200" cy="200" r="50" style="fill: #9eaa38;"></circle>
+        // <circle id="index" cx="320" cy="200" r="100" style="fill: #e96726;"></circle>
+        // <circle id="overweight-by-fund" clip-path="url(#_fund)" cx="215" cy="200" r="50" style="fill: #bcc24b;"></circle>
+        // <circle id="underweight-by-fund" clip-path="url(#_index)" cx="170" cy="200" r="100" style="fill: #54668c;stroke:#ed9258;stroke-width:4px;"></circle>
+        // <circle id="fund-index-intersection" clip-path="url(#_fund)" cx="320" cy="200" r="100" style="fill: #54668c;stroke:#fff;"></circle>
+        // <circle id="index-fund-intersection" clip-path="url(#_index)" cx="200" cy="200" r="50" style="fill: #54668c;stroke:#fff;"></circle>
+
+        var tooltip = d3.select("body")
+            .append("div")
+            .style("position", "absolute")
+            .style("z-index", "10")
+            .style("visibility", "hidden")
+            .text("a simple tooltip");
+
+        defs.append("svg:clipPath")
+            .attr("id", "_fund")
+            .append("svg:circle")
+            .attr("cx", 200)
+            .attr("cy", 200)
+            .attr("r", 50);
+
+        defs.append("svg:clipPath")
+            .attr("id", "_index")
+            .append("svg:circle")
+            .attr("cx", 320)
+            .attr("cy", 200)
+            .attr("r", 100);
+
+        svg.append("svg:circle")
+            .attr("id", "fund")
+            .attr("cx", 200)
+            .attr("cy", 200)
+            .attr("r", 50)
+            .style("fill", "#9eaa38");
+
+        svg.append("svg:circle")
+            .attr("id", "index")
+            .attr("cx", 320)
+            .attr("cy", 200)
+            .attr("r", 100)
+            .style("fill", "#e96726");
+
+        svg.append("svg:circle")
+            .attr("id", "overweight-by-fund")
+            .attr("clip-path", "url(#_fund)")
+            .attr("cx", 215)
+            .attr("cy", 200)
+            .attr("r", 50)
+            .style("fill", "#bcc24b");
+
+        svg.append("svg:circle")
+            .attr("id", "underweight-by-fund")
+            .attr("clip-path", "url(#_index)")
+            .attr("cx", 170)
+            .attr("cy", 200)
+            .attr("r", 100)
+            .style("fill", "#54668c")
+            .style("stroke", "#ed9258")
+            .style("stroke-width", "4px");
+
+
+        // <circle id="fund-index-intersection" clip-path="url(#_fund)" cx="320" cy="200" r="100" style="fill: #54668c;stroke:#fff;"></circle>
+        // <circle id="index-fund-intersection" clip-path="url(#_index)" cx="200" cy="200" r="50" style="fill: #54668c;stroke:#fff;"></circle>
+        svg.append("svg:circle")
+            .attr("id", "fund-index-intersection")
+            .attr("clip-path", "url(#_fund)")
+            .attr("cx", 320)
+            .attr("cy", 200)
+            .attr("r", 100)
+            .style("fill", "#54668c")
+            .style("stroke", "#fff");
+
+        svg.append("svg:circle")
+            .attr("id", "index-fund-intersection")
+            .attr("clip-path", "url(#_index)")
+            .attr("cx", 200)
+            .attr("cy", 200)
+            .attr("r", 50)
+            .style("fill", "#54668c")
+            .style("stroke", "#fff");
+
+        svg.selectAll("circle").on("mouseover", function() {
+            return tooltip.style("visibility", "visible").text(LABELS[this.id]);
+        }).on("mousemove", function() {
+            return tooltip.style("top", (event.pageY - 10) + "px").style("left", (event.pageX + 10) + "px");
+        }).on("mouseout", function() {
+            return tooltip.style("visibility", "hidden");
+        });
+    });
+    </script>
+</body>
+</html>
