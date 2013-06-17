@@ -48,7 +48,7 @@ function distance (r1, r2, s1) {
         // console.log("area : " + _area);
         // console.log("radius1 : " + r1);
         // console.log("radius2 : " + r2);
-        console.log("distance :" + d);
+        // console.log("distance :" + d);
     };
 
     return d;
@@ -56,7 +56,7 @@ function distance (r1, r2, s1) {
 }
 
 function range (r1, r2, s1) {
-    var min = 0,
+    var min = 1,
         max = r1+r2;
 
         if(r1 == r2){

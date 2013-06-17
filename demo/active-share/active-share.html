@@ -6,6 +6,7 @@
     <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
     <!--<script type="text/javascript" src="d3.js"></script>-->
     <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+    <script src="../circles-intersection/js/util.js"></script>
     <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
     <style>
         .unit{
@@ -23,12 +24,28 @@
             height:260px;
             margin-right: 50px;
         }
+        .chart-wrap{
+            float: right;
+            width:600px;
+            height: 400px;
+            clear: both;
+        }
+        input{
+            width: 120px;
+        }
+        #r2,#s1,#fund-own,#index-own{
+            width:30px;
+        }
+       #chart{
+        float: left;
+       }
     </style>
     <title>Active Share</title>
 </head>
 <body>
     <img src="imgs/active-share.png" alt="active share" class="description">
-    <table class="table table-bordered" style="width:600px;">
+    <div class="chart-wrap"></div>
+    <table class="table table-bordered" style="width:500px;">
         <caption></caption>
         <thead>
             <tr>
@@ -38,71 +55,103 @@
         </thead>
         <tbody>
             <tr>
-                <td>Overlap :</td>
+                <td>Fund Circle Radius:</td>
                 <td>
-                    <input type="text" name="overlap" id="overlap"> <b class="unit">%</b>
+                    <input type="text" name="r1" id="r1" readonly value="50">
+                </td>
+            </tr>
+            <tr>
+                <td>Index Circle Radius:</td>
+                <td>
+                    <input type="range" name="r2-range" id="r2-range" value="51" min="50" max="300" step="1">
+                    <input type="text" name="r2" id="r2" value="50" readonly>
+                    <label>(50-300)</label>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Overlap for Fund
+                    <br>
+                    <label for="" class="green">(Intersection / Fund Circle)</label>
+                </td>
+                <td>
+                    <input type="range" name="s1-range" id="s1-range" value="0.2" min="0.01" max="1" step="0.01">
+                    <input type="text" name="s1" id="s1" readonly value="20"> <b class="unit">%</b>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    Overlap for Index
+                    <br>
+                    <label for="" class="green">(Intersection / Index Circle)</label>
+                </td>
+                <td>
+                    <input type="text" name="s2" id="s2" readonly value="20"> <b class="unit">%</b>
                 </td>
             </tr>
             <tr>
                 <td>
                     Not Held by Index:
                     <br>
-                    <label for="" class="green">(Exclude by Index)</label>
+                    <label for="" class="green">(Overweight by Fund)</label>
                 </td>
                 <td>
-                    <input type="text" name="not-held-by-index" id="not-held-by-index"> <b class="unit">%</b>
+                    <input type="range" name="fund-own-range" id="fund-own-range" value="0.51" min="0.01" max="1" step="0.01">
+                    <input type="text" name="fund-own" id="fund-own" value="50" readonly> <b class="unit">%</b>
                 </td>
             </tr>
-            <tr>
+            <!-- <tr>
                 <td>Overweight by Fund :</td>
                 <td>
                     <input type="text" name="overweight-by-fund" id="overweight-by-fund">
                     <b class="unit">%</b>
                 </td>
-            </tr>
+            </tr> -->
 
             <tr>
                 <td>
                     Not Held by Fund :
                     <br>
-                    <label for="" class="green">(Exclude by Fund)</label>
+                    <label for="" class="green">(Underweight by Fund)</label>
                 </td>
                 <td>
-                    <input type="text" name="not-held-by-fund" id="not-held-by-fund">
+                    <input type="range" name="index-own-range" id="index-own-range" value="0.51" min="0.01" max="1" step="0.01">
+                    <input type="text" name="index-own" id="index-own" readonly value="50">
                     <b class="unit">%</b>
                 </td>
             </tr>
 
-            <tr>
-                <td>Underweight by Fund :</td>
-                <td>
-                    <input type="text" name="underweight-by-fund" id="underweight-by-fund">
-                    <b class="unit">%</b>
-                </td>
-            </tr>
+<!--             <tr>
+    <td>Underweight by Fund :</td>
+    <td>
+        <input type="text" name="underweight-by-fund" id="underweight-by-fund">
+        <b class="unit">%</b>
+    </td>
+</tr> -->
 
-            <tr>
+            <!-- <tr>
                 <td colspan="2">
                     fund = Overlap + Overweight by Fund + Excluded by Index;
                     <input type="text" name="fund" id="fund"></td>
-
+            
             </tr>
             <tr>
                 <td colspan="2">
                     index = Overlap + Underweight by Fund + Exclude by Fund;
                     <input type="text" name="index" id="index"></td>
-            </tr>
+            </tr> -->
         </tbody>
-        <footer>
+        <tfoot>
             <tr>
                 <td></td>
                 <td>
                     <input type="button" value="Draw" id="draw" class="btn btn-large"></td>
             </tr>
-        </footer>
+        </tfoot>
     </table>
 
-    <div class="chart-wrap"></div>
+    
     <!-- <svg width="800" height="400">
         <defs>
             <clipPath id="_fund">
@@ -120,6 +169,10 @@
         <circle id="fund-index-intersection" clip-path="url(#_fund)" cx="320" cy="200" r="100" style="fill: #54668c;stroke:#fff;"></circle>
         <circle id="index-fund-intersection" clip-path="url(#_index)" cx="200" cy="200" r="50" style="fill: #54668c;stroke:#fff;"></circle>
     </svg> -->
+
+    <div id="chart">
+        
+    </div>
 
     <script>
     $(function() {
@@ -240,6 +293,178 @@
             return tooltip.style("visibility", "hidden");
         });
     });
+
+    
+    </script>
+
+
+    <script>
+    $(function () {
+        var $r2 = $("#r2"),
+            $r2range = $("#r2-range"),
+            $s1 = $("#s1"),
+            $s1range = $("#s1-range"),
+            $s2 = $("#s2"),
+            $fundOwn = $("#fund-own"),
+            $fundOwnRange = $("#fund-own-range"),
+            $indexOwn = $("#index-own"),
+            $indexOwnRange = $("#index-own-range");
+
+        $r2range.change(function () {
+            var r1 = 50;
+            var r2 = parseInt(this.value,10);
+            var s1 = parseFloat($s1range.val());
+            var s2 = scale(r1,r2,s1);
+            console.log(r1, r2, s1);
+            $r2.val(r2);
+            $s2.val(s2*100);
+        });
+
+        $s1range.change(function () {
+            var r1 = 50;
+            var r2 = $r2range.val(),
+                s1 = this.value;
+            var s2 = scale(r1, r2, s1);
+            $s1.val(s1*100);
+            $s2.val(s2*100);
+        });
+
+        $fundOwnRange.change(function () {
+            $fundOwn.val(this.value *100);
+        });
+
+        $indexOwnRange.change(function () {
+            $indexOwn.val(this.value * 100);
+        })
+
+
+
+
+        function scale (r1, r2, s1) { 
+            r2 = parseInt(r2,10);
+            s1 = parseFloat(s1);
+            var s2 = (r1 * r1 * s1)/(r2 * r2);
+            return s2;
+        }
+
+
+        $("#draw").click(function () {
+            var r1  = 50,
+                r2 = parseInt($r2.val(),10),
+                s1 = parseFloat($s1.val())/100,
+                s2 = parseFloat($s2.val())/100;
+            var fundScale = parseFloat($fundOwn.val())/100,
+                indexScale = parseFloat($indexOwn.val())/100;
+            var d = distance(r1, r2, s1);
+
+            var d1 = distance(r1,r1,fundScale),
+                d2 = distance(r2,r2,indexScale);
+            // console.log(r1, r2, d, d1, d2);
+            draw(r1, r2, d, d1, d2);
+        });
+
+
+        function draw (r1, r2, d, d1, d2 ) {
+            var _LABELS = {
+                "c1": "Exclude by Index",
+                "c2": " Exclude by Fund",
+                "fund-index-intersection": "Overlap",
+                "index-fund-intersection": "Overlap",
+                "underweight-by-fund": "Underweight by Fund",
+                "overweight-by-fund": "Overweight by Fund"
+            }
+
+            var w = 600,
+                h = 400;
+
+            $("#chart").empty();
+            var svg = d3.select("#chart").append("svg:svg")
+                .attr("width", w)
+                .attr("height", h);
+
+            var defs = svg.append("svg:defs");
+
+            var tooltip = d3.select("body")
+                .append("div")
+                .style("position", "absolute")
+                .style("z-index", "10")
+                .style("visibility", "hidden")
+                .text("a simple tooltip");
+
+            defs.append("svg:clipPath")
+                .attr("id", "_c1")
+                .append("svg:circle")
+                .attr("cx", 200)
+                .attr("cy", 200)
+                .attr("r", r1);
+
+            defs.append("svg:clipPath")
+                .attr("id", "_c2")
+                .append("svg:circle")
+                .attr("cx", 200+d)
+                .attr("cy", 200)
+                .attr("r", r2);
+
+            svg.append("svg:circle")
+                .attr("id", "c1")
+                .attr("cx", 200)
+                .attr("cy", 200)
+                .attr("r", r1)
+                .style("fill", "#9eaa38");
+
+            svg.append("svg:circle")
+                .attr("id", "c2")
+                .attr("cx", 200+d)
+                .attr("cy", 200)
+                .attr("r", r2)
+                .style("fill", "#e96726");
+
+            svg.append("svg:circle")
+                .attr("id", "overweight-by-fund")
+                .attr("clip-path", "url(#_c1)")
+                .attr("cx", 200 + d1)
+                .attr("cy", 200)
+                .attr("r", r1)
+                .style("fill", "#bcc24b");
+
+            svg.append("svg:circle")
+                .attr("id", "underweight-by-fund")
+                .attr("clip-path", "url(#_c2)")
+                .attr("cx", 200 + d - d1)
+                .attr("cy", 200)
+                .attr("r", r2)
+                .style("fill", "#54668c")
+                .style("stroke", "#ed9258")
+                .style("stroke-width", "4px");
+
+            svg.append("svg:circle")
+                .attr("id", "fund-index-intersection")
+                .attr("clip-path", "url(#_c1)")
+                .attr("cx", 200 + d)
+                .attr("cy", 200)
+                .attr("r", r2)
+                .style("fill", "#54668c")
+                .style("stroke", "#fff");
+
+            svg.append("svg:circle")
+                .attr("id", "index-fund-intersection")
+                .attr("clip-path", "url(#_c2)")
+                .attr("cx", 200)
+                .attr("cy", 200)
+                .attr("r", r1)
+                .style("fill", "#54668c")
+                .style("stroke", "#fff");
+
+            svg.selectAll("circle").on("mouseover", function() {
+                return tooltip.style("visibility", "visible").text(_LABELS[this.id]);
+            }).on("mousemove", function() {
+                return tooltip.style("top", (event.pageY - 10) + "px").style("left", (event.pageX + 10) + "px");
+            }).on("mouseout", function() {
+                return tooltip.style("visibility", "hidden");
+            });
+        }
+
+    })
     </script>
 </body>
 </html>
