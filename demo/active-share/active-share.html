@@ -414,14 +414,19 @@
                 indexScale = 1 - parseFloat($indexOwn.val())/100;//underweight by fund + overlap
             var d = distance(r1, r2, s1),
                 d0 = distance(r2, r2, s2);
-            if(d>d0){
-                d0 = d+1;
+            // if(d>d0){
+            //     d0 = d-4;
+            // }
+
+            var d1 = distance(r1,r2,fundScale),
+                d2 = distance(r2,r2,indexScale);
+                console.log(d1);
+            if(d1 >= d){
+                d1 = d + 4;
             }
 
-            var d1 = distance(r1,r1,fundScale),
-                d2 = distance(r2,r2,indexScale);
-            // console.log(r1, r2, d, d1, d2);
-            draw(r1, r2, d, d0,d1, d2);
+            console.log(r1, r2, d, d0, d1, d2);
+            draw(r1, r2, d, d0, d1, d2);
         });
 
 
@@ -485,7 +490,8 @@
                 .attr("clip-path", "url(#_c1)")
                 .attr("cx", 200 + d1)
                 .attr("cy", 200)
-                .attr("r", r1)
+                // .attr("r", r1)
+                .attr("r", r2)
                 .style("fill", "#bcc24b");
 
             svg.append("svg:circle")
