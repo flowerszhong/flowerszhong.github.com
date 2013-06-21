@@ -53,7 +53,7 @@ $(function() {
     });
 
     console.log(x_extent);
-    x.domain([x_extent[0]-1000000000,x_extent[1]+90000000000]);
+    x.domain([x_extent[0]-20000000000,x_extent[1]+20000000000]);
 
 
     // y.domain(d3.extent(buysellData, function(d) {
@@ -62,7 +62,7 @@ $(function() {
     y.domain([0,500]);
 
     var circle = svg.append("g")
-        .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
+        // .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
         .selectAll("circle")
         .data(buysellData);
 
@@ -120,7 +120,7 @@ $(function() {
                 + " Top : " + top + "<br>"
                 + " Bottom : " + bottom;  
 
-        console.log(date,top,bottom);
+        // console.log(date,top,bottom);
         var content = tooltip.select(".tool-tip-content");
             content.html(s);
     }).on("mouseout",function (d) {

@@ -35,8 +35,8 @@
         // }
 
         var data = {
-            average : [],//to be draw line
-            buysell : []//for 
+            average : [],//to be line
+            buysell : []//to be circles
         }
 
         var range = _dateRange;
@@ -45,11 +45,9 @@
         for (var i = range[0]; i <= range[1]; i = i+ _quater) {
             var _averageData = {
                 "date" : i,
-                "weight" : randomRange(0,20),
                 "a1" : randomRange(400,440),
                 "a2" : randomRange(300,340),
-                "name" : _HOLDINGS[randomRange(0,126)],
-                "type" : Math.random()>0.5 ? "buy" : "sell"
+                "name" : _HOLDINGS[randomRange(0,126)]
             }
             data.average.push(_averageData);
 
@@ -72,7 +70,7 @@
 
         };
 
-        console.log(JSON.stringify(data));
+        // console.log(JSON.stringify(data));
         return data;  
     };
 
