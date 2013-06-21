@@ -52,7 +52,7 @@
             data.average.push(_averageData);
 
 
-            var j = randomRange(1,10);
+            var j = randomRange(1,5);
             while(j>0){
                 var _v = randomRange(100,480);
                 var _d = {
