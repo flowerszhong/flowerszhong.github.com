@@ -59,7 +59,7 @@
                     "date" : i,
                     "weight" : randomRange(0,20),
                     "name" : _HOLDINGS[randomRange(0,126)],
-                    "type" : Math.random()>0.5? "buy" : "sell",
+                    "type" : Math.random() > 0.5? "buy" : "sell",
                     "value" : _v,
                     "top" : _v < 460 ? _v + 20: 460,
                     "bottom" : _v > 40 ? _v - 20 : 20 
@@ -70,7 +70,7 @@
 
         };
 
-        // console.log(JSON.stringify(data));
+        console.log(JSON.stringify(data));
         return data;  
     };
 

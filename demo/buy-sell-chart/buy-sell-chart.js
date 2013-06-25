@@ -55,14 +55,49 @@ $(function() {
     console.log(x_extent);
     x.domain([x_extent[0]-20000000000,x_extent[1]+20000000000]);
 
-
     // y.domain(d3.extent(buysellData, function(d) {
     //     return d.value;
     // }));
+    
     y.domain([0,500]);
+
+
+    var topAndBottom = svg.append("g")
+        .attr("class","tops-bottoms")
+        .selectAll("polyline")
+        .data(buysellData);
+
+    topAndBottom.enter().append("polyline")
+        .attr("points",function (d) {
+            var top = y(d.top),
+                bottom = y(d.bottom);
+
+            var diff = bottom - top;
+            var v = x(d.date);
+            
+            var x_diff = 6;
+
+            var point1 = (v - x_diff) + "," + top,
+                point2 = (v + x_diff) + "," + top,
+                point3 = v + "," + top,
+                point4 = v + "," + (top + diff),
+                point5 = (v - x_diff) + "," + (top + diff),
+                point6 = (v + x_diff) + "," + (top + diff);
+            var arr = [point1,point2,point3,point4,point5,point6];
+            var points = arr.join(" ");
+            return points;
+        })
+        .attr("class",function (d) {
+            var type = "top-bottom-" + d.name;
+            return type;
+        })
+        .style("fill","none")
+        .style("stroke","green")
+        .style("stroke-width",1);
 
     var circle = svg.append("g")
         // .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
+        .attr("class","circles")
         .selectAll("circle")
         .data(buysellData);
 
@@ -77,7 +112,14 @@ $(function() {
             var name = d.name;
             return type + " " + name;
         })
+        .attr("z-index",function (d) {
+            return 9999 - d.weight;
+        })
+        .style("position" ,"relative")
         .style("opacity",0.5);
+
+
+        
         
     svg.append("g")
         .attr("class", "x axis")
@@ -111,6 +153,8 @@ $(function() {
             .style("opacity",1);
         tooltip.style("visibility", "visible");
 
+        svg.selectAll(".top-bottom-" + name).style("display","block");
+
         var date = iso(new Date(d.date)),
             top = d.top,
             bottom = d.bottom;
@@ -120,7 +164,6 @@ $(function() {
                 + " Top : " + top + "<br>"
                 + " Bottom : " + bottom;  
 
-        // console.log(date,top,bottom);
         var content = tooltip.select(".tool-tip-content");
             content.html(s);
     }).on("mouseout",function (d) {
@@ -129,6 +172,7 @@ $(function() {
         svg.selectAll("." + name)
             .style("stroke-width","1px")
             .style("opacity",0.5);
+         svg.selectAll(".top-bottom-" + name).style("display","none");
     }).on("mousemove", function() {
         return tooltip.style("top", (event.pageY) + "px").style("left", (event.pageX + 10) + "px");
     });
