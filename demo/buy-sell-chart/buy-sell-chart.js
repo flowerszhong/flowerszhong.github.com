@@ -14,13 +14,36 @@ $(function() {
     var y = d3.scale.linear()
         .range([height, 0]);
 
+    var y_extent = d3.extent(buysellData, function(d) {
+        return d.value;
+    });
+    console.log(y_extent);
+
+    // x.domain(d3.extent(averageData, function(d) {
+    //     return d.date;
+    // }));
+    var x_extent = d3.extent(averageData,function (d) {
+        return d.date;
+    });
+
+    console.log(x_extent);
+    x.domain([x_extent[0]-20000000000,x_extent[1]+20000000000]);
+    console.log(x.ticks(3));
+
+    // y.domain(d3.extent(buysellData, function(d) {
+    //     return d.value;
+    // }));
+    
+    y.domain([0,500]);
+
     var xAxis = d3.svg.axis()
         .scale(x)
         .orient("bottom");
 
     var yAxis = d3.svg.axis()
         .scale(y)
-        .orient("left");
+        .orient("left")
+        .ticks(1);
 
     var line1 = d3.svg.line().x(function(d) {
         return x(d.date);
@@ -40,26 +63,7 @@ $(function() {
         .append("g")
             .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-    var y_extent = d3.extent(buysellData, function(d) {
-        return d.value;
-    });
-    console.log(y_extent);
-
-    // x.domain(d3.extent(averageData, function(d) {
-    //     return d.date;
-    // }));
-    var x_extent = d3.extent(averageData,function (d) {
-        return d.date;
-    });
-
-    console.log(x_extent);
-    x.domain([x_extent[0]-20000000000,x_extent[1]+20000000000]);
-
-    // y.domain(d3.extent(buysellData, function(d) {
-    //     return d.value;
-    // }));
-    
-    y.domain([0,500]);
+   
 
 
     var topAndBottom = svg.append("g")

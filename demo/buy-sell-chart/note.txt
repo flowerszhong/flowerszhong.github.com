@@ -1,0 +1,11 @@
+axis.ticks(count)
+显示刻度个数，如只显示一头一尾两个刻度 axis.ticks(2);
+ps:只是很奇怪，这个方法也出现在liner.scale等对象里，貌似不好用
+
+custom date format:http://bl.ocks.org/mbostock/4149176
+
+
+var x = d3.time.scale()
+        .rangeRound([20,width - 20]);
+
+rangeRound跟range方法类似，range开头的方法都类似吧，但是rangeRound会有刻度的translate量取整
