@@ -134,7 +134,7 @@
 
         function draw (r1,r2,d) {
             var w = 800,
-                h = 400;
+                h = 600;
             $(".chart-wrap").empty();
             var svg = d3.select(".chart-wrap").append("svg:svg")
                 .attr("width", w)
@@ -155,6 +155,18 @@
                 .attr("cx", 200 + d)
                 .attr("cy", 200)
                 .attr("r", r2);
+
+            defs.append("g:pattern")
+                .attr("id", "slash-pattern")
+                .attr("patternUnits", "userSpaceOnUse")
+                .attr("width", "500")
+                .attr("height", "500")
+                .append("g:image")
+                .attr("xlink:href", "slash-bg.jpg")
+                .attr("x", 0)
+                .attr("y", 0)
+                .attr("width", 500)
+                .attr("height", 500);
 
             svg.append("svg:circle")
                 .attr("id", "fund")
@@ -178,6 +190,22 @@
                 .attr("r", 50)
                 .style("fill", "#54668c")
                 .style("stroke", "#fff");
+
+            var colors = {
+                "fund" : "#9eaa38",
+                "index" : "#e96726",
+                "index-fund-intersection" : "#54668c"
+            };
+
+            svg.selectAll("circle")
+                .on("mouseover",function () {
+                    d3.select(this).style("fill","url(#slash-pattern)");
+                })
+                .on("mouseout",function () {
+                    console.log(this.id);
+                    d3.select(this).style("fill",colors[this.id]);
+                });
+                
         }
     })
 

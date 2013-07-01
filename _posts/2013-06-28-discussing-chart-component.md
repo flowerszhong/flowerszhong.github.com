@@ -1,0 +1,72 @@
+---
+layout: post
+title: How to draw a chart?
+description: mzhong
+keyword: mzhong site
+---
+
+## Discussing Chart Component
+
+### Story Background
+### 有罪推定/无罪推定
+>有罪推定 : 主要是指未经司法机关依法判决有罪，对刑事诉讼过程中的被追诉人，推定其为实际犯罪人。  
+
+>无罪推定 : 是国际通行的刑事诉讼基本准则，简单地说是指任何人在未经证实和判决有罪之前，应视其无罪。 
+
+*易用性（文档｜代码 ，易读，易理解，易扩展） 
+*可用性 
+*合理性  
+
+###易用性  
+####文档  
+* wiki:chartbase (20%,一个抽象类)
+* w3c svg essential knowledge (60%,主要是基础知识) 
+* 是什么原因造成文档的现状？
+* [demo](http://mercury-dev.morningstar.com/ct/trunk/tools/demo-chart/chart.htm?common)
+
+####代码
+* 是否做过code review?谁做的?应该怎么读这个代码？
+* lines of code 
+    * chartcore.js 6867 (这是个什么概念？贴到word上有277 pages)
+    * bubble.js 1306
+    * barchart.js 1921
+    * extendbarchart.js 2405
+    * linechart.js 1798
+    * returnbarchart.js 1787 
+    * serieschart.js 2680
+    * simplechart.js 1250
+    * stylemap.js 1985
+    * techchart.js 3471
+    * not alone,based on jquery & jquey.plugin 20000
+* 可读性 
+    * so big so long function
+    * too many if else
+    * 性能 
+    * 太多别名（造成开发不便）
+    * API不友好 
+    * 命名混乱  : (NS,dispather,autohideLabel,loadremove)
+
+###可用性
+####simple shapes
+####complex shapes
+    *path
+    *pie
+
+####common component
+    *scale
+    *range
+    *axis
+####complex component
+
+###合理性
+####设计
+* 复杂
+* 统一格式
+
+####实施
+* 实现较少
+* 数据格式复杂 
+* 配置复杂
+* toString,CssManager 是干什么的？
+
+question1 :单独的画一yAxis或xAxis?
