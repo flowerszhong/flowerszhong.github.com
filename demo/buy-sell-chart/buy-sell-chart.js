@@ -34,11 +34,16 @@ $(function() {
     //     return d.value;
     // }));
     
-    y.domain([0,500]);
+    y.domain([0,500.992354781254]).nice();
 
     var xAxis = d3.svg.axis()
         .scale(x)
-        .orient("bottom");
+        .orient("bottom")
+        // .tickPadding(6)
+        .tickSubdivide(5)
+        .tickPadding(10);
+        // .tickSize(15, 10, 0)
+        // .ticks(d3.time.years, 3);
 
     var yAxis = d3.svg.axis()
         .scale(y)
@@ -62,8 +67,6 @@ $(function() {
             .attr("height", height + margin.top + margin.bottom)
         .append("g")
             .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-
-   
 
 
     var topAndBottom = svg.append("g")

@@ -1,6 +1,7 @@
 axis.ticks(count)
-显示刻度个数，如只显示一头一尾两个刻度 axis.ticks(2);
+显示刻度个数，如只显示一头一尾两个刻度 axis.ticks(1);
 ps:只是很奇怪，这个方法也出现在liner.scale等对象里，貌似不好用
+scale.ticks(d3.time.minutes, 15) 如果是时间刻度的话，第一个参数可以指定时间相关的年月日，后面设置步长
 
 custom date format:http://bl.ocks.org/mbostock/4149176
 
@@ -9,3 +10,21 @@ var x = d3.time.scale()
         .rangeRound([20,width - 20]);
 
 rangeRound跟range方法类似，range开头的方法都类似吧，但是rangeRound会有刻度的translate量取整
+
+
+axis.tickSubdivide([count])，就是给每一个刻度再分段;
+
+axis.tickSize([major[​[, minor], end]]) 这个是设置tick的大小，
+eg:axis.tickSize(6, 3, 0); // sets major to 6, minor to 3, and end to 0
+主刻度是6px,sub刻度是3px,结束的刻度是0px;
+
+nice:
+xy.scale.linear().domain([]).nice();
+
+tickFormat
+d3.svg.axis().scale(x).ticks(d3.time.days).tickFormat(formatDate).orient("bottom")
+
+
+axis.tickPadding([padding])
+主要是刻度跟label之间相隔的像素，默认为3px;
+Set or get the padding between ticks and tick labels. If padding is specified, sets the padding to the specified value in pixels and returns the axis. If padding is not specified, returns the current padding which defaults to 3 pixels.
