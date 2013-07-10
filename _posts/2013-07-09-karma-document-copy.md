@@ -5,9 +5,8 @@ description: mzhong
 keyword: mzhong site
 ---
 
-##Karma
-#####Spectacular Test Runner for JavaScript  
-
+##Karma -- Spectacular Test Runner for JavaScript  
+------
 ###Installation 
 Karma runs on Node.js and is available as a node module via NPM.
 
@@ -18,19 +17,19 @@ First, you need to install Node.js. There are installers for both Mac and Window
 ####Global Installation
 
 This is the recommended way. It will install Karma into your global node_modules directory and create a symlink to its binary. 
->$ npm install -g karma
->
->\#Start Karma
->$ karma start  
+>$ npm install -g karma  
+>  
+>\#Start Karma    
+>$ karma start      
 
 ####Local Installation
 
 A local installation will install Karma into your current directory's node_modules. That allows you to have different versions for different projects.
-> $ npm install karma 
+> $ npm install karma     
 >
-> \# Start Karma
-> $ ./node_modules/.bin/karma start
-
+> \# Start Karma   
+> $ ./node_modules/.bin/karma start     
+------
 ### Configuration 
 In order to serve you well, Karma needs to know about your project. That's done through a configuration file.  
 
@@ -40,8 +39,9 @@ For an example file, see test/client/karma.conf.js which contains most of the op
 
 You can write the config file by hand or copy paste it from another project. 
 A third way is to use karma init to generate it.  
-> \# This will ask you a few questions and generate a new config file
-> \# called my.conf.js
+> \# This will ask you a few questions and generate a new config file  
+
+> \# called my.conf.js  
 > $ karma init my.conf.js  
 
 
@@ -49,10 +49,10 @@ A third way is to use karma init to generate it.
 
 When starting Karma, you can pass a path to the configuration file as an argument.  
 By default, Karma will look for karma.conf.js in the current directory.  
-> \# Start Karma using your configuration
-> $ karma start my.conf.js
+> \# Start Karma using your configuration     
+> $ karma start my.conf.js    
 
-For more info about configuration file, see the [configuration file docs][config-file].
+For more info about configuration file, see the [configuration file docs][config-file].  
 
 
 
@@ -61,10 +61,10 @@ For more info about configuration file, see the [configuration file docs][config
 Some of the configurations can be specified as a command line argument, which overrides the configuration from the config file.
 Try *karma start --help* if you want to see all available options.
 
-
+------
 ### Troubleshooting
-You are having some problems with the great Karma? Look no further. Known problems and solutions are collected here so you don't have to figure them out again and again.  
-If you can't find solution to your problem here, feel free to ask on the [mailing list][mail-list].  
+You are having some problems with the great Karma? Look no further. Known problems and solutions are collected here so you don't have to figure them out again and again.    
+If you can't find solution to your problem here, feel free to ask on the [mailing list][mail-list].     
 Before complaining, please make sure you are on the latest version.  
 
 
@@ -76,8 +76,8 @@ Before complaining, please make sure you are on the latest version.
 * Use chocolatey for installation of tools. It helps. A lot. 
 ##### Specific problems
 * Chrome won't start. (Issues: #202, #74)
-    1.Set CHROME_BIN like this
-        > \> export CHROME_BIN='C:\Program Files (x86)\Google\Chrome\Application\chrome.exe'
+    1.Set CHROME_BIN like this     
+        > \> export CHROME_BIN='C:\Program Files (x86)\Google\Chrome\Application\chrome.exe'    
     2.Increase the timeout from 5000ms to 10000ms. At 5000ms, timeouts occurred and the retry logic kicks in and eventually resolves after two to three tries.  
 
 #### Unix
@@ -85,15 +85,160 @@ Before complaining, please make sure you are on the latest version.
 #####Tips & Tricks
 In the event that your tests fail or freeze, this may be the result of a browser having a display message show up, a browser update prompt or extension-related conflict that needs to be taken care of. 
 
-
+------
 ###Configuration File
-In order to serve you well, Karma needs to know about your project. That's done through a configuration file.   
-For an example configuration, see [test/client/karma.conf.js][karma-config-js] which contains most of the options.   
-This document contains a list of all available options, as well as their command line equivalents. 
+In order to serve you well, Karma needs to know about your project. That's done through a configuration file.     
+For an example configuration, see [test/client/karma.conf.js][karma-config-js] which contains most of the options.      
+This document contains a list of all available options, as well as their command line equivalents.    
+
+####autoWatch ##
+
+**Type:** Boolean     
+**Default:**  false   
+**CLI:** --auto-watch, --no-auto-watch    
+**Description:** Enable or disable watching files and executing the tests whenever one of these files changes.   
+
+
+#### basePath  
+
+**Type:** String      
+**Default:** ''     
+**Description:** Base path, that will be used to resolve all relative paths defined in *files* and *exclude*. If basePath is a relative path, it will be resolved to the *\_\_dirname* of the configuration file.    
+
+#### browsers  
+
+**Type:** Array  
+**Default:** []  
+**CLI:**  --browsers Chrome,Firefox     
+**Possible Values:**       
+    * Chrome      
+    * ChromeCanary      
+    * Firefox    
+    * Opera           
+    * Safari   
+    * PhantomJS     
+**Description:**   A list of browsers to launch and capture. Once Karma is shut down, it will shut down these browsers as well. You can capture any browser manually just by opening a url, where Karma's web server is listening.            
+See [config/browsers][config-browsers] for more.           
+
+####captureTimeout   
+
+**Type:** Number   
+**Default:** 60000    
+**Description:** Timeout for capturing a browser (in ms).    
+
+If any browser does not get captured within the timeout, Karma will kill it and try to launch it again. After *three attempts* to capture it, Karma will give up.    
+
+####colors  
+
+**Type:** Boolean  
+**Default:** true    
+**CLI:**  --colors, --no-colors     
+**Description:**  Enable or disable colors in the output (reporters and logs).  
+
+
+####exclude
+
+**Type:** Array   
+**Default:** []           
+**Description:**  List of files/patterns to exclude from loaded files(for script tags).
+
+
+####hostname  
+
+**Type:** String     
+**Default:** 'localhost'      
+**Description:**  Hostname to be used when capturing browsers.      
+
+####logLevel
+
+**Type:** Constant         
+**Default:** LOG_INFO            
+**CLI:** --log-level debug             
+**Possible values:**                  
+    * LOG_DISABLE     
+    * LOG_ERROR    
+    * LOG_WARN    
+    * LOG_INFO    
+    * LOG_DEBUG    
+**Description:** Level of logging.      
+
+####loggers
+
+**Type:** Array     
+**Default:** [{type: 'console'}]      
+**Description:**   A list of log appenders to be used. See the documentation for [log4js][log4js] for more information.   
+
+####port
+
+**Type:** Number    
+**Default:** 9876    
+**CLI:** --port 9876   
+**Description:** The port where the webserver will be listening.   
+
+####preprocessors
+
+**Type:** Object     
+**Default:** {'.coffee': 'coffee'}        
+**Description:** A map of preprocessors to use. See [config/preprocessors][preprocessors] for more.  
+
+
+####proxies   
+
+**Type:** Object    
+**Default:** {}       
+**Description:** A map of path-proxy pairs.  
+**Example:**   
+      > proxies =  {     
+      >      '/static': 'http://gstatic.com',   
+      >      '/web': 'http://localhost:9000'         
+      > };   
+
+####reportSlowerThan
+
+**Type:** Number         
+**Default:** 0     
+**Description:** Karma will report all the tests that are slower than given time limit (in ms). This is disabled by default.    
+
+####reporters
+
+**Type:** Array   
+**Default:** ['progress']    
+**CLI:** --reporters progress,growl    
+**Possible Values:**        
+    +  dots  
+    +  progress  
+    +  junit  
+    +  growl  
+    +  coverage    
+**Description:** A list of reporters to use.    
+
+####runnerPort
+
+**Type:** Number    
+**Default:** 9100     
+**CLI:** --runner-port 9100       
+**Description:** The port where the server will be listening. This is only used when you are using *karma run*.    
+
+####singleRun
+
+**Type:** Boolean    
+**Default:** false    
+**CLI:** --single-run, no-single-run
+Description: Continuous Integration mode.
+If _true_, it captures browsers, runs tests and exits with 0 exit code (if all tests passed) or 1 exit code (if any test failed).    
+
+####urlRoot
+
+**Type:** String     
+**Default:** '/'     
+**Description:** The base url, where Karma runs.    
+All the Karma's urls get prefixed with the _urlRoot_. This is helpful when using proxies, as sometimes you might want to proxy a url that is already taken by Karma.
 
 
 
-
+[preprocessors]:http://karma-runner.github.io/0.8/config/preprocessors.html
+[log4js]:https://github.com/nomiddlename/log4js-node
+[config-browsers]: http://karma-runner.github.io/0.8/config/browsers.html
 [karma-config-js]: https://github.com/karma-runner/karma/blob/master/test/client/karma.conf.js
 [config-file]: http://karma-runner.github.io/0.8/config/configuration-file.html
 [mail-list]: https://groups.google.com/forum/#!forum/karma-users
