@@ -77,7 +77,7 @@ Before complaining, please make sure you are on the latest version.
 ##### Specific problems
 * Chrome won't start. (Issues: #202, #74)
     1.Set CHROME_BIN like this     
-        > \> export CHROME_BIN='C:\Program Files (x86)\Google\Chrome\Application\chrome.exe'    
+    > \> export CHROME_BIN='C:\Program Files (x86)\Google\Chrome\Application\chrome.exe'    
     2.Increase the timeout from 5000ms to 10000ms. At 5000ms, timeouts occurred and the retry logic kicks in and eventually resolves after two to three tries.  
 
 #### Unix
@@ -91,7 +91,7 @@ In order to serve you well, Karma needs to know about your project. That's done 
 For an example configuration, see [test/client/karma.conf.js][karma-config-js] which contains most of the options.      
 This document contains a list of all available options, as well as their command line equivalents.    
 
-####autoWatch ##
+####autoWatch
 
 **Type:** Boolean     
 **Default:**  false   
@@ -108,16 +108,19 @@ This document contains a list of all available options, as well as their command
 #### browsers  
 
 **Type:** Array  
-**Default:** []  
+**Default:**    []  
 **CLI:**  --browsers Chrome,Firefox     
-**Possible Values:**       
+__Possible Values:__ 
+
+
 * Chrome      
 * ChromeCanary      
 * Firefox    
 * Opera           
 * Safari   
-* PhantomJS     
-**Description:**   A list of browsers to launch and capture. Once Karma is shut down, it will shut down these browsers as well. You can capture any browser manually just by opening a url, where Karma's web server is listening.            
+* PhantomJS   
+
+__Description:__  A list of browsers to launch and capture. Once Karma is shut down, it will shut down these browsers as well. You can capture any browser manually just by opening a url, where Karma's web server is listening.            
 See [config/browsers][config-browsers] for more.           
 
 ####captureTimeout   
@@ -139,7 +142,7 @@ If any browser does not get captured within the timeout, Karma will kill it and 
 ####exclude
 
 **Type:** Array   
-**Default:** []           
+**Default:**    []           
 **Description:**  List of files/patterns to exclude from loaded files(for script tags).
 
 
@@ -154,18 +157,20 @@ If any browser does not get captured within the timeout, Karma will kill it and 
 **Type:** Constant         
 **Default:** LOG_INFO            
 **CLI:** --log-level debug             
-**Possible values:**                  
+**Possible values:**  
+
 * LOG_DISABLE     
 * LOG_ERROR    
 * LOG_WARN    
 * LOG_INFO    
 * LOG_DEBUG    
+
 **Description:** Level of logging.      
 
 ####loggers
 
 **Type:** Array     
-**Default:** [{type: 'console'}]      
+**Default:**    [{type: 'console'}]      
 **Description:**   A list of log appenders to be used. See the documentation for [log4js][log4js] for more information.   
 
 ####port
@@ -189,8 +194,8 @@ If any browser does not get captured within the timeout, Karma will kill it and 
 **Description:** A map of path-proxy pairs.  
 **Example:**   
 > proxies =  {     
->      '/static': 'http://gstatic.com',   
->      '/web': 'http://localhost:9000'         
+> '/static': 'http://gstatic.com',   
+> '/web': 'http://localhost:9000'         
 > };   
 
 ####reportSlowerThan
