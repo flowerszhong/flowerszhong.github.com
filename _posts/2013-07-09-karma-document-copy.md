@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Karma Document Copy
+title: Karma Document
 description: mzhong
 keyword: mzhong site
 ---
@@ -76,9 +76,9 @@ Before complaining, please make sure you are on the latest version.
 * Use chocolatey for installation of tools. It helps. A lot. 
 ##### Specific problems
 * Chrome won't start. (Issues: #202, #74)
-    1.Set CHROME_BIN like this     
-    > \> export CHROME_BIN='C:\Program Files (x86)\Google\Chrome\Application\chrome.exe'    
-    2.Increase the timeout from 5000ms to 10000ms. At 5000ms, timeouts occurred and the retry logic kicks in and eventually resolves after two to three tries.  
+1.Set CHROME_BIN like this     
+    \> export CHROME_BIN='C:\Program Files (x86)\Google\Chrome\Application\chrome.exe'    
+2.Increase the timeout from 5000ms to 10000ms. At 5000ms, timeouts occurred and the retry logic kicks in and eventually resolves after two to three tries.  
 
 #### Unix
 
