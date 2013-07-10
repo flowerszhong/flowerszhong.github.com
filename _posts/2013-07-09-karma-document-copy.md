@@ -111,12 +111,12 @@ This document contains a list of all available options, as well as their command
 **Default:** []  
 **CLI:**  --browsers Chrome,Firefox     
 **Possible Values:**       
-    * Chrome      
-    * ChromeCanary      
-    * Firefox    
-    * Opera           
-    * Safari   
-    * PhantomJS     
+* Chrome      
+* ChromeCanary      
+* Firefox    
+* Opera           
+* Safari   
+* PhantomJS     
 **Description:**   A list of browsers to launch and capture. Once Karma is shut down, it will shut down these browsers as well. You can capture any browser manually just by opening a url, where Karma's web server is listening.            
 See [config/browsers][config-browsers] for more.           
 
@@ -155,11 +155,11 @@ If any browser does not get captured within the timeout, Karma will kill it and 
 **Default:** LOG_INFO            
 **CLI:** --log-level debug             
 **Possible values:**                  
-    * LOG_DISABLE     
-    * LOG_ERROR    
-    * LOG_WARN    
-    * LOG_INFO    
-    * LOG_DEBUG    
+* LOG_DISABLE     
+* LOG_ERROR    
+* LOG_WARN    
+* LOG_INFO    
+* LOG_DEBUG    
 **Description:** Level of logging.      
 
 ####loggers
@@ -188,10 +188,10 @@ If any browser does not get captured within the timeout, Karma will kill it and 
 **Default:** {}       
 **Description:** A map of path-proxy pairs.  
 **Example:**   
-      > proxies =  {     
-      >      '/static': 'http://gstatic.com',   
-      >      '/web': 'http://localhost:9000'         
-      > };   
+> proxies =  {     
+>      '/static': 'http://gstatic.com',   
+>      '/web': 'http://localhost:9000'         
+> };   
 
 ####reportSlowerThan
 
@@ -205,11 +205,11 @@ If any browser does not get captured within the timeout, Karma will kill it and 
 **Default:** ['progress']    
 **CLI:** --reporters progress,growl    
 **Possible Values:**        
-    +  dots  
-    +  progress  
-    +  junit  
-    +  growl  
-    +  coverage    
++  dots  
++  progress  
++  junit  
++  growl  
++  coverage    
 **Description:** A list of reporters to use.    
 
 ####runnerPort

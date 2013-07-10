@@ -35,7 +35,7 @@ mark { background: #FFFB99; }
 pre, code { font-family: "Courier New", Courier, monospace; overflow-x: auto; vertical-align: middle; }
 code { vertical-align:top;}
 small { font-size: 12px; color: #888; }
-hr { border: 3px solid #f4f3f3; clear: both; max-width: 300px; border-radius: 5px; margin: 35px 0 35px 90px; }
+hr { border: 2px solid #f4f3f3; clear: both; border-radius: 5px; }
 ::selection         {background: rgba(0, 0, 0, .1);}
 ::-moz-selection    {background: rgba(0, 0, 0, .1);}
 img::selection      {background: none; width: 100%; }
