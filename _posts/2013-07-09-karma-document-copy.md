@@ -28,7 +28,8 @@ A local installation will install Karma into your current directory's node_modul
 > $ npm install karma     
 >
 > \# Start Karma   
-> $ ./node_modules/.bin/karma start     
+> $ ./node_modules/.bin/karma start       
+
 ------
 ### Configuration 
 In order to serve you well, Karma needs to know about your project. That's done through a configuration file.  
