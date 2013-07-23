@@ -27,10 +27,10 @@ This is the recommended way. It will install Karma into your global node_modules
 A local installation will install Karma into your current directory's node_modules. That allows you to have different versions for different projects.
 > $ npm install karma     
 >
-> \# Start Karma   
-> $ ./node_modules/.bin/karma start       
+> \# Start Karma    
+> $ ./node_modules/.bin/karma start         
 
-------
+--------
 ### Configuration 
 In order to serve you well, Karma needs to know about your project. That's done through a configuration file.  
 
@@ -41,7 +41,6 @@ For an example file, see test/client/karma.conf.js which contains most of the op
 You can write the config file by hand or copy paste it from another project. 
 A third way is to use karma init to generate it.  
 > \# This will ask you a few questions and generate a new config file  
-
 > \# called my.conf.js  
 > $ karma init my.conf.js  
 
@@ -50,8 +49,8 @@ A third way is to use karma init to generate it.
 
 When starting Karma, you can pass a path to the configuration file as an argument.  
 By default, Karma will look for karma.conf.js in the current directory.  
-> \# Start Karma using your configuration     
-> $ karma start my.conf.js    
+> \# Start Karma using your configuration       
+> $ karma start my.conf.js     
 
 For more info about configuration file, see the [configuration file docs][config-file].  
 

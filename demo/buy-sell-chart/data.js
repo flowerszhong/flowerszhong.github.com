@@ -19,7 +19,7 @@
     }
     var _HOLDINGS = _buildHoldings(PORTFOLIOS);
 
-    var _dateRange = [508896000000, Date.now()],
+    var _dateRange = [Date.parse(new Date("2011-01-01")), Date.now()],
         _valueRange = [0,100];
 
 

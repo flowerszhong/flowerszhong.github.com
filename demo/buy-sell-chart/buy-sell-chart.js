@@ -8,6 +8,29 @@ $(function() {
 
     var parseDate = d3.time.format("%d-%b-%y").parse;
 
+
+
+    var customTimeFormat = timeFormat([
+      [d3.time.format("%Y"), function() { return true; }],
+      [d3.time.format("%B"), function(d) { return d.getMonth(); }],
+      [d3.time.format("%b %d"), function(d) { return d.getDate() != 1; }],
+      [d3.time.format("%a %d"), function(d) { return d.getDay() && d.getDate() != 1; }],
+      [d3.time.format("%I %p"), function(d) { return d.getHours(); }],
+      [d3.time.format("%I:%M"), function(d) { return d.getMinutes(); }],
+      [d3.time.format(":%S"), function(d) { return d.getSeconds(); }],
+      [d3.time.format(".%L"), function(d) { return d.getMilliseconds(); }]
+    ]);
+
+
+
+    function timeFormat(formats) {
+      return function(date) {
+        var i = formats.length - 1, f = formats[i];
+        while (!f[1](date)) f = formats[--i];
+        return f[0](date);
+      };
+    }
+
     var x = d3.time.scale()
         .range([0, width]);
 
@@ -40,8 +63,11 @@ $(function() {
         .scale(x)
         .orient("bottom")
         // .tickPadding(6)
-        .tickSubdivide(5)
-        .tickPadding(10);
+        // .tickSubdivide(5)
+        // .ticks(d3.time.years)
+        .ticks(d3.time.months, 3);
+        // .tickFormat(customTimeFormat);
+        // .tickPadding(10);
         // .tickSize(15, 10, 0)
         // .ticks(d3.time.years, 3);
 
