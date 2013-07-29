@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <!--<script type="text/javascript" src="lib/jquery-1.7.1.min.js"></script>
 -->
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
 <!--<script type="text/javascript" src="d3.js"></script>
 -->
 <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
@@ -35,7 +35,7 @@
         input{
             width: 120px;
         }
-        #r2,#s1,#fund-own,#index-own{
+        #r2,#s1,#fund-own,#index-own,#negative{
             width:30px;
         }
        #chart{
@@ -113,6 +113,16 @@
         <td>
             <input type="text" name="overweight-by-fund" id="overweight" value="30" readonly>
             <b class="unit">%</b>
+        </td>
+    </tr>
+
+    <tr class="lightblue">
+        <td>
+            Negative in Fund
+        </td>
+        <td>
+            <input type="range" name="negative-range" id="negative-range" value="0.01" min="0.009" max="0.2" step="0.001">
+            <input type="text" name="negative" id="negative" readonly value="1"> <b class="unit">%</b>
         </td>
     </tr>
 
@@ -314,6 +324,9 @@
         var $overweightByFund = $("#overweight"),
             $underweightByFund = $("#underweight");
 
+
+       
+
         $r2range.change(function () {
             var r1 = 50;
             var r2 = parseInt(this.value,10);
@@ -396,6 +409,14 @@
 
         });
 
+        var $negativeRange = $("#negative-range"),
+            $negative = $("#negative");
+
+        $negativeRange.change(function () {
+            $negative.val(this.value * 100);
+        });
+
+
         function scale (r1, r2, s1) { 
             r2 = parseInt(r2,10);
             s1 = parseFloat(s1);
@@ -417,6 +438,11 @@
             //     d0 = d-4;
             // }
 
+            var negativeScale = 1 -  $("#negative-range").val();
+
+            var negativeDistance = distance(r1,r1,negativeScale);
+
+
             var d1 = distance(r1,r2,fundScale),
                 d2 = distance(r2,r2,indexScale);
                 console.log(d1);
@@ -424,20 +450,21 @@
                 d1 = d + 4;
             }
 
-            console.log(r1, r2, d, d0, d1, d2);
-            draw(r1, r2, d, d0, d1, d2);
+            console.log(r1, r2, d, d0, d1, d2, negativeDistance);
+            draw(r1, r2, d, d0, d1, d2, negativeDistance);
         });
 
 
-        function draw (r1, r2, d, d0, d1, d2 ) {
+        function draw (r1, r2, d, d0, d1, d2 ,negativeDistance) {
             var _LABELS = {
                 "c1": "Exclude by Index",
                 "c2": " Exclude by Fund",
                 "overlap-fund": "Overlap of Fund",
                 "overlap-index": "Overlap of Index",
                 "underweight-by-fund": "Underweight by Fund",
-                "overweight-by-fund": "Overweight by Fund"
-            }
+                "overweight-by-fund": "Overweight by Fund",
+                "negative-in-fund" : "Negative in Fund"
+            };
 
             var w = 600,
                 h = 400;
@@ -471,6 +498,16 @@
                 .attr("r", r2);
 
             svg.append("svg:circle")
+                .attr("id","negative-in-fund")
+                .attr("cx",200 - negativeDistance)
+                .attr("cy",200)
+                .attr("r",r1)
+                .attr("stroke-dasharray", "1,3")
+                .style("stroke","#91928c")
+                .style("stroke-width",2)
+                .style("fill","#fff");
+
+            svg.append("svg:circle")
                 .attr("id", "c1")
                 .attr("cx", 200)
                 .attr("cy", 200)
@@ -482,7 +519,10 @@
                 .attr("cx", 200+d)
                 .attr("cy", 200)
                 .attr("r", r2)
+               
                 .style("fill", "#e96726");
+
+
 
             svg.append("svg:circle")
                 .attr("id", "overweight-by-fund")
