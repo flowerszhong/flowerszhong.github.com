@@ -35,6 +35,14 @@ function distance (r1, r2, s1) {
         min = r.min,
         max = r.max;
 
+    if(s1<0.00001){
+        return r1 + r2;
+    }
+
+    if(s1>=0.99999){
+        return 0;
+    }
+
     for (var i = min; i < max; i++) {
         d = i;
         var _area = area(r1,r2,d);
