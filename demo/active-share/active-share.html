@@ -81,7 +81,7 @@
             <label for="" class="green">(Intersection / Fund Circle)</label>
         </td>
         <td>
-            <input type="range" name="s1-range" id="s1-range" value="0.2" min="0" max="1" step="0.01">
+            <input type="range" name="s1-range" id="s1-range" value="0.2" min="0" max="1.01" step="0.01">
             <input type="text" name="s1" id="s1" readonly value="20"> <b class="unit">%</b>
         </td>
     </tr>
@@ -103,7 +103,7 @@
             <label for="" class="green">(Excluded by Index)</label>
         </td>
         <td>
-            <input type="range" name="fund-own-range" id="fund-own-range" value="0.5" min="0.01" max="1" step="0.01">
+            <input type="range" name="fund-own-range" id="fund-own-range" value="0.5" min="0" max="1" step="0.01">
             <input type="text" name="fund-own" id="fund-own" value="50" readonly>
             <b class="unit">%</b>
         </td>
@@ -121,7 +121,7 @@
             Negative in Fund
         </td>
         <td>
-            <input type="range" name="negative-range" id="negative-range" value="0.01" min="0.009" max="0.2" step="0.001">
+            <input type="range" name="negative-range" id="negative-range" value="0.01" min="0" max="0.2" step="0.001">
             <input type="text" name="negative" id="negative" readonly value="1"> <b class="unit">%</b>
         </td>
     </tr>
@@ -133,7 +133,7 @@
             <label for="" class="green">(Excluded by Fund)</label>
         </td>
         <td>
-            <input type="range" name="index-own-range" id="index-own-range" value="0.5" min="0.01" max="1" step="0.01">
+            <input type="range" name="index-own-range" id="index-own-range" value="0.5" min="0" max="1.01" step="0.01">
             <input type="text" name="index-own" id="index-own" readonly value="50">
             <b class="unit">%</b>
         </td>
@@ -351,7 +351,7 @@
             var s2 = parseFloat(this.value)/100;
             var notHoldbyFund = parseFloat($indexOwnRange.val());
 
-            if((notHoldbyFund + s2) >= 1){
+            if((notHoldbyFund + s2) > 1){
                 return false;
             }else{
                 var underweightByFund = (1 - notHoldbyFund -s2) *100;
@@ -368,7 +368,7 @@
             // var s2 = scale(r1, r2, s1);
 
             var notHoldbyIndex = parseFloat($fundOwnRange.val());
-            if((notHoldbyIndex + s1) >= 1){
+            if((notHoldbyIndex + s1) > 1){
                 this.value = parseFloat($s1.val())/100;
                 return false;
             }else{
@@ -385,7 +385,7 @@
         $fundOwnRange.change(function () {
             var s1 = parseFloat($s1.val())/100;
             var notHoldbyIndex = parseFloat(this.value);
-            if((notHoldbyIndex + s1) >= 1){
+            if((notHoldbyIndex + s1) > 1){
                 this.value = parseFloat($fundOwn.val())/100;
                 return false;
             }else{
@@ -399,7 +399,7 @@
             var s2 = parseFloat($s2.val())/100;
             var notHoldbyFund = parseFloat(this.value);
 
-            if((notHoldbyFund + s2) >= 1){
+            if((notHoldbyFund + s2) > 1){
                 this.value = parseFloat( $indexOwn.val())/100;
             }else{
                 $indexOwn.val(this.value * 100);
