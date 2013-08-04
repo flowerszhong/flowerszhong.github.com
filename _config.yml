@@ -20,13 +20,13 @@ follow:
 description:      matthew.zhong's site
 
 indexContent:     true
-imageLink:        http://www.pizn.net/static/images/20121109Monutain.jpg
+imageLink:        http://flowerszhong.github.io/avatar.png
 
 
 style:            /css/style.css
 blogName:         mzhong
 blogDesc:         matthew.zhong's site
-favicon:          /favicon.ico
+favicon:          /colors.ico
 theme:            default
 
 disqus:           mzhongblog
