@@ -530,3 +530,10 @@ h1, h2, h3, h4, h5, h6{ font-weight: 500; color:#333; }
     }
     .post table th, .post table td { border: 1px solid #ddd; padding: 2px 0px; }
 }
+
+
+
+/* plugin */
+p.ds-powered-by{
+  display: none;
+}
