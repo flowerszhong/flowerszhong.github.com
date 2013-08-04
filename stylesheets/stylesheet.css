@@ -429,3 +429,10 @@ Small Device Styles
   }
 
 }
+
+
+/* plugin */
+p.ds-powered-by{
+  display: none;
+}
+
