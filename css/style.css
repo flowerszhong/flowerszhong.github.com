@@ -360,6 +360,7 @@ li[class^="icon-"].icon-large:before, li[class*=" icon-"].icon-large:before {
 #content { width: 100%;}
 #head { width: 320px; min-height: 400px; height: auto;  position: fixed; left: 0; top: 5px; font-weight: 700; text-align: center; }
 #logo { margin: .8em auto 1.8em auto; width: 200px; height: 200px; border-radius: 100px 100px; background: #f8f8f8; }
+#logo:hover { margin: .8em auto 1.8em auto; width: 200px; height: 200px; border-radius: 100px 100px; background:url(color.svg) #f8f8f8; }
 #logo h1 { font-family: 'JennaSue'; font-size: 80px; font-size: 48px\9; width: 200px; overflow: hidden;  line-height: 200px; text-align: center; text-shadow: -1px 2px 3px #a0a0a0; }
 #logo h2 { font-weight: 400; font-family:'JennaSue'; font-size:  30px; font-size: 20px\9; color: #898989; line-height: 50px; padding-bottom: .3em; border-bottom: 1px dotted #d8d8d8; }
 #nav { margin: 6em auto 2em auto; }
