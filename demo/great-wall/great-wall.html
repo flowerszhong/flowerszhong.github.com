@@ -12,16 +12,18 @@
 
 <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
 <style>
-    path.area{
-        fill:#fff;
-        stroke:gray;
-        pointer-event:none;
-    }
-
     path.line{
         fill:none;
         stroke:gray;
         pointer-event:none;
+    }
+
+    line.bar{
+        stroke:#fff;
+    }
+
+    line.bar.hover{
+        stroke : #ddd;
     }
 
 </style>
@@ -30,7 +32,6 @@
 <body>
 <h3>Great Wall Chart</h3>
 <div class="chart"></div>
-
 <script>
     $(function () {
         var length = mockdata.length;
@@ -40,7 +41,8 @@
 
         var parseDate = d3.time.format("%d-%b-%y").parse;
 
-        var barWidth = parseInt(width/length+1);
+        var barWidth = parseInt(width/length)+4;
+        var halfBarWidth = parseInt(barWidth/2);
         console.log(barWidth);
 
         var x = d3.time.scale()
@@ -57,19 +59,12 @@
             .scale(y)
             .orient("left");
 
-        var area = d3.svg.area()
-            .x(function(d) { return x(d.date); })
-            .y0(height)
-            .y1(function(d) { return y(d.y); })
-            .interpolate("step-after");
-
         var svg = d3.select("body").append("svg")
             .attr("width", width + margin.left + margin.right)
             .attr("height", height + margin.top + margin.bottom)
           .append("g")
             .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-       
 
         x.domain(d3.extent(mockdata, function(d) { return d.date; }));
         y.domain([0, d3.max(mockdata, function(d) { return d.y; })]);
@@ -79,50 +74,44 @@
             .y(function(d) { return y(d.y); })
             .interpolate("step-after");
 
-       
-
-        // svg.append("g")
-        //   .attr("class","bars")
-        //   .selectAll("line")
-        //   .data(mockdata)
-        //   .enter()
-        //   .append('line')
-        //   .attr("x1",function (d,i) {
-        //       return x(d.date) + barWidth/2
-        //   })
-        //   .attr("x2",function (d) {
-        //       return x(d.date) + barWidth/2
-        //   })
-        //   .attr("y1",function (d) {
-        //       return 0;
-        //   })
-        //   .attr("y2",function (d) {
-        //       return height;
-        //   })
-        //   .style("stroke","#000")
-        //   .style("stroke-width",barWidth)
-        //   .attr("class","bar");
+        svg.append("g")
+          .attr("class","bars")
+          .selectAll("line")
+          .data(mockdata)
+          .enter()
+          .append('line')
+          .attr("x1",function (d,i) {
+              return x(d.date) + halfBarWidth
+          })
+          .attr("x2",function (d) {
+              return x(d.date) + halfBarWidth
+          })
+          .attr("y1",function (d) {
+              return 0;
+          })
+          .attr("y2",function (d) {
+              return height;
+          })
+          .style("stroke-width",barWidth)
+          .attr("class","bar");
 
         svg.selectAll("line").on("mouseover",function (d) {
-                console.log(d);
+                d3.select(this)
+                    .attr("class","bar hover");
+            }).on("mouseout",function () {
+                d3.select(this)
+                    .attr("class","bar");
             });
-
-        // svg.append("path")
-        //   .datum(mockdata)
-        //   .attr("class", "area")
-        //   .attr("d", area);
 
         svg.append("path")
           .datum(mockdata)
           .attr("class", "line")
           .attr("d", line);
-       
 
         svg.append("g")
           .attr("class", "x axis")
           .attr("transform", "translate(0," + height + ")")
           .call(xAxis);
-
        
         svg.append("g")
             .attr("class", "y axis")
@@ -134,11 +123,7 @@
             .style("text-anchor", "end")
             .text("Price ($)");
 
-            });
-
-        
-
-
-    </script>
+   });
+</script>
 </body>
 </html>

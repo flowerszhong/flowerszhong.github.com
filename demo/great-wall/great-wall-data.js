@@ -15,7 +15,7 @@
 		var range = _dateRange;
 		var _month = 86400 * 1000 * 30;
 		var _quater = _month * 3;
-		for (var i = range[0]; i <= range[1]; i = i + _quater) {
+		for (var i = range[0]; i < range[1]; i = i + _quater) {
 			var item = {
 				"date": i,
 				"y" : randomRange(1,100)
