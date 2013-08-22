@@ -26,12 +26,16 @@
         stroke : #ddd;
     }
 
+    div.date-tooltip{
+
+    }
+
 </style>
 <title>Great Wall Chart</title>
 </head>
 <body>
 <h3>Great Wall Chart</h3>
-<div class="chart"></div>
+<div id="chart"></div>
 <script>
     $(function () {
         var length = mockdata.length;
@@ -39,7 +43,7 @@
             width = 960 - margin.left - margin.right,
             height = 500 - margin.top - margin.bottom;
 
-        var parseDate = d3.time.format("%d-%b-%y").parse;
+        var format = d3.time.format("%d-%b-%y");
 
         var barWidth = parseInt(width/length)+4;
         var halfBarWidth = parseInt(barWidth/2);
@@ -95,7 +99,13 @@
           .style("stroke-width",barWidth)
           .attr("class","bar");
 
+        var dateTooltip = d3.select('body').append("div")
+            .attr("class","tooltip")
+            .style("visibility","hidden");
+
         svg.selectAll("line").on("mouseover",function (d) {
+                var date = format(new Date(d.date));
+                dateTooltip.text(date).style("visibility","visible");
                 d3.select(this)
                     .attr("class","bar hover");
             }).on("mouseout",function () {
