@@ -1,13 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8">
-    <!--<script type="text/javascript" src="lib/jquery-1.7.1.min.js"></script>
+  <meta charset="utf-8">
+  <!--<script type="text/javascript" src="lib/jquery-1.7.1.min.js"></script>
 -->
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
-<!--<script type="text/javascript" src="d3.js"></script>
--->
-<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+<script type="text/javascript" src="../d3.js"></script>
 <script src="great-wall-data.js" charset="utf-8"></script>
 
 <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
@@ -35,6 +33,7 @@
 </head>
 <body>
 <h3>Great Wall Chart</h3>
+
 <div id="chart"></div>
 <script>
     $(function () {
@@ -77,6 +76,8 @@
             .x(function(d) { return x(d.date); })
             .y(function(d) { return y(d.y); })
             .interpolate("step-after");
+            // .interpolate("monotone");
+
 
         svg.append("g")
           .attr("class","bars")
@@ -116,7 +117,8 @@
         svg.append("path")
           .datum(mockdata)
           .attr("class", "line")
-          .attr("d", line);
+          // .attr("d", line);
+          .attr("d", function(d) { return line(d) + "Z"; });
 
         svg.append("g")
           .attr("class", "x axis")
