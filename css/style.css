@@ -398,8 +398,7 @@ li[class^="icon-"].icon-large:before, li[class*=" icon-"].icon-large:before {
 .post blockquote { padding: 0.5em 1em 0.4em 1em; margin-bottom: 1em;  border-left: .9em solid rgb(238, 238, 238); }
 .post pre {
     background: #f8f8f8; 
-    border-top:  1px solid #d8d8d8; 
-    border-bottom: 1px solid #d8d8d8; 
+    border:  1px solid #d8d8d8; 
     border-radius: 10px;
     padding: 1em 0 1em 10px; 
 }
