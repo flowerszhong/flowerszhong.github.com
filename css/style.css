@@ -588,8 +588,7 @@ padding: 0.2em 0.9em;
 .highlight code, .highlight pre {
     font-family: "Consolas", "Courier New", "Courier", "FreeMono", monospace;
     margin: 1em 0 1.5em 0;
-    border-top: 0 none;
-    border-bottom: 0 none;
+    border: 0 none;
     background-color:#111111;
 }
 
