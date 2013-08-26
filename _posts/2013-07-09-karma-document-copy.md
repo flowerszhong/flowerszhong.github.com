@@ -209,12 +209,14 @@ If any browser does not get captured within the timeout, Karma will kill it and 
 **Type:** Array   
 **Default:** ['progress']    
 **CLI:** --reporters progress,growl    
-**Possible Values:**        
-+ dots  
-+ progress  
-+ junit  
-+ growl  
-+ coverage    
+**Possible Values:**  
+      
++dots  
++progress  
++junit  
++growl  
++coverage 
+
 **Description:** A list of reporters to use.    
 
 ####runnerPort
