@@ -553,35 +553,27 @@ h1, h2, h3, h4, h5, h6{ font-weight: 500; color:#333; }
 }
 
 
-
 /* plugin */
 p.ds-powered-by{
   display: none;
 }
 
 
-
 /* highlight */
 
 .highlight .hll { background-color: #333333 }
 .highlight  { 
-
-background: #111111; 
-
-color: #ffffff ;
-
-padding: 0.2em 0.9em;
-  margin-bottom: 1em;
+    background: #111111; 
+    color: #ffffff ;
+    padding: 0.2em 0.9em;
+    margin-bottom: 1em;
     font: normal normal normal 115%/normal 'Monaco', 'Courier New', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', monospace !important;
-  line-height: 1.1em;
-  overflow: auto;
+    line-height: 1.1em;
+    overflow: auto;
     border: 1px solid #CCC;
-    
     -moz-border-radius:7px;
     -webkit-border-radius:7px;
     border-radius:7px;
-
-
 }
 
 
@@ -592,9 +584,8 @@ padding: 0.2em 0.9em;
     background-color:#111111;
 }
 
-.highlight span
-{
-font-family: "Consolas", "Courier New", "Courier", "FreeMono", monospace;
+.highlight span{
+    font-family: "Consolas", "Courier New", "Courier", "FreeMono", monospace;
 }
 
 .highlight .hll { background-color: #49483e }

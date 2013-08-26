@@ -49,13 +49,13 @@ keyword: mzhong site
 ###可用性
 ####simple shapes
 ####complex shapes
-    *path
-    *pie
+* path
+* pie
 
 ####common component
-    *scale
-    *range
-    *axis
+* scale
+* range
+* axis
 ####complex component
 
 ###合理性
