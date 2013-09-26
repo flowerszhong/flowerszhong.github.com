@@ -1,0 +1,21 @@
+---
+layout: post
+title: How to Develop Apps/Modules Based on Mercury Framework
+description: How to Develop Apps/Modules Based on Mercury
+keyword: mzhong site default page
+---
+
+#How to Develop Apps/Modules Based on Mercury Framework(new uimodel)?
+
+
+##Step 1 : Setup Front-end Environment
+    
+* [Environment Setup](http://mswiki/display/M4/Environment+Setup)  
+    * projects-util.py 
+* [Create App Scene](https://mswiki.morningstar.com/display/M4/Environment+Setup+-+New+UI+Model+Testing)   
+
+##Step 2 : Create Tool
+
+* [Tool API](https://mswiki.morningstar.com/display/M4/R2+Tool+API)
+    * A App Superclass to realize tool Api
+
