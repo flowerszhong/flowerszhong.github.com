@@ -583,6 +583,10 @@ p.ds-powered-by{
     background-color:#f8f8f8;
 }
 
+.post .highlight pre{
+    padding: 0;
+}
+
 .highlight span{
     font-family: "Consolas", "Courier New", "Courier", "FreeMono", monospace;
 }
