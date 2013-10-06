@@ -560,9 +560,36 @@ p.ds-powered-by{
 
 
 /* highlight */
-.highlight {
+
+
+.highlight  { 
+    padding: 0.2em 0.9em;
+    margin-bottom: 1em;
+    font: normal normal normal 115%/normal "Consolas", "Courier New", "Courier", "FreeMono", monospace !important;
+    line-height: 1.1em;
+    overflow: auto;
+    border: 1px solid #eeeeee;
+    -moz-border-radius:7px;
+    -webkit-border-radius:7px;
+    border-radius:7px;
+    background-color: #f8f8f8;
+}
+
+
+.highlight code, .highlight pre {
+    font-family: "Consolas", "Courier New", "Courier", "FreeMono", monospace;
+    margin: 1em 0 1.5em 0;
+    border: 0 none;
+    background-color:#f8f8f8;
+}
+
+.highlight span{
+    font-family: "Consolas", "Courier New", "Courier", "FreeMono", monospace;
+}
+
+/*.highlight {
   background-color: #f8f8f8;
-  border: 1px solid #eeeeee; }
+  border: 1px solid #eeeeee; }*/
 
 .highlight .hll {
   background-color: #ffffcc; }
