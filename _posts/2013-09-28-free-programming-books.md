@@ -731,7 +731,7 @@ keyword: Free Programming Books
 * [Practical PostgreSQL](http://www.commandprompt.com/ppbook/)
 
 
-###Python
+###<b id="python">Python</b>
 
 * [Byte of Python](http://www.swaroopch.com/notes/Python)
 * [Data Structures and Algorithms in Python](http://www.brpreiss.com/books/opus7/html/book.html)
