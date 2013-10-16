@@ -89,7 +89,7 @@ keyword: Free Programming Books
 * [Windows Phone](#windows-phone)
 
 
-###Meta-Lists
+###<b id="meta-lists">Meta-Lists</b>
 
 * [25 Free Computer Science Ebooks](http://www.coderholic.com/25-free-computer-science-books/)
 * [Cheat Sheets (Free)](http://refcardz.dzone.com/)
@@ -102,7 +102,7 @@ keyword: Free Programming Books
 * [Wikibooks: Programming](http://en.wikibooks.org/wiki/Category%3aComputer_programming)
 * [Free Smalltalk Books, collected by Stéphane Ducasse](http://stephane.ducasse.free.fr/FreeBooks.html)
 
-###Graphics Programming
+###<b id="graphics-user-interfaces">Graphics Programming</b>
 
 * [DirectX manual](http://www.xmission.com/~legalize/book/download/index.html) (draft)
 * [Learning Modern 3D Graphics Programming](http://www.arcsynthesis.org/gltut/) (draft)
@@ -115,12 +115,12 @@ keyword: Free Programming Books
 * [ShaderX series](http://tog.acm.org/resources/shaderx/)
 * [Tutorials for modern OpenGL](http://www.opengl-tutorial.org/)
 
-###Graphics User Interfaces
+###<b id="graphics-programming">Graphics User Interfaces</b>
 
 * [Programming with gtkmm 3](https://developer.gnome.org/gtkmm-tutorial/stable/)
 
 
-###Language Agnostic
+###<b id="language-agnostic">Language Agnostic</b>
 
 ####Algorithms & Datastructures
 * [Algorithms and Data-Structures](http://www.ethoberon.ethz.ch/WirthPubl/AD.pdf) (PDF)
@@ -221,7 +221,7 @@ keyword: Free Programming Books
 * [Mining of Massive Datasets](http://infolab.stanford.edu/~ullman/mmds.html)
 * [The Elements of Statistical Learning](http://www-stat.stanford.edu/~tibs/ElemStatLearn/)
 
-####Machine Learning
+####<b id="mercurial">Machine Learning</b>
 * [Programming Computer Vision with Python](https://github.com/dolaameng/free-programming-books.git)
 * [A Course in Machine Learning](http://hackershelf.com/book/492/a-course-in-machine-learning/)
 * [Bayesian Methods for Hackers](http://hackershelf.com/book/455/bayesian-methods-for-hackers/)
@@ -274,30 +274,30 @@ keyword: Free Programming Books
 * [Coursera](https://www.coursera.org/)
 * [Udacity](https://www.udacity.com/)
 
-###Ada
+###<b id="ada">Ada</b>
 * [Ada 95: The Craft of Object-Oriented Programming](http://faculty.cs.wwu.edu/reedyc/AdaResources/bookhtml/contents.htm)
 * [Ada Distilled](http://www.adapower.com/pdfs/AdaDistilled07-27-2003.pdf)
 * [Ada for Software Engineers](http://www.adapower.com/pdfs/AdaDistilled07-27-2003.pdf)
 
-###Android
+###<b id="android">Android</b>
 
 * [Google Android Developer Training](https://developer.android.com/training/index.html)
 * [Coreservlets Android Programming Tutorial](http://www.coreservlets.com/android-tutorial/)
 * [Expert Android and Eclipse development knowledge](http://www.vogella.com/android.html)
 
-###Autotools
+###<b id="autotools">Autotools</b>
 
 * [GNU Autoconf, Automake and Libtool](http://sourceware.org/autobook/)
 * [Autotools Mythbuster](https://www.flameeyes.eu/autotools-mythbuster/)
 
 
-###ASP.NET MVC
+###<b id="aspnet-mvc">ASP.NET MVC</b>
 
 * [ASP.NET MVC Music Store](http://mvcmusicstore.codeplex.com/)
 * [NerdDinner Walkthrough](http://weblogs.asp.net/scottgu/archive/2009/03/10/free-asp-net-mvc-ebook-tutorial.aspx)
 
 
-###Assembly Language
+###<b id="assembly-language">Assembly Language</b>
 
 * [Paul Carter's Tutorial on x86 Assembly](http://drpaulcarter.com/pcasm/)
 * [Professional Assembly Language](http://blog.hit.edu.cn/jsx/upload/AT%EF%BC%86TAssemblyLanguage.pdf) (PDF)
@@ -308,7 +308,7 @@ keyword: Free Programming Books
 * [Ralf Brown's Interrupt List](http://www.ctyme.com/rbrown.htm)
 
 
-###Bash
+###<b id="bash">Bash</b>
 
 * [Advanced Bash-Scripting Guide](http://tldp.org/LDP/abs/html/)
 * [Bash Guide for Beginners](http://www.tldp.org/LDP/Bash-Beginners-Guide/html/) by Machtelt Garrels
@@ -316,7 +316,7 @@ keyword: Free Programming Books
 * [The Command Line Crash Course](http://learncodethehardway.org/cli/book/) (also a Powershell reference)
 
 
-###C
+###<b id="c">C</b>
 
 * [Beej's Guide to C Programming](http://beej.us/guide/bgc/)
 * [Beej's Guide to Network Programming](http://beej.us/guide/bgnet/)
@@ -328,7 +328,7 @@ keyword: Free Programming Books
 * [C Programming - Wikibooks](http://en.wikibooks.org/wiki/Programming:C)
 
 
-###C++
+###<b id="c-1">C++</b>
 
 * [C++ Annotations](http://cppannotations.sourceforge.net/)
 * [C++ GUI Programming With Qt 3](http://www.computer-books.us/cpp_0010.php)
@@ -340,7 +340,7 @@ keyword: Free Programming Books
 * Also see: [The Definitive C++ Book Guide and List](http://stackoverflow.com/q/388242/511601)
 
 
-###Clojure
+###<b id="clojure">Clojure</b>
 
 * [A Brief Beginner’s Guide To Clojure](http://www.unexpected-vortices.com/clojure/brief-beginners-guide/)
 * [Clojure - Functional Programming for the JVM](http://java.ociweb.com/mark/clojure/article.html)
@@ -352,36 +352,36 @@ keyword: Free Programming Books
 * [Modern cljs](https://github.com/magomimmo/modern-cljs)
 
 
-###CoffeeScript
+###<b id="coffeescript">CoffeeScript</b>
 
 * [Smooth CoffeeScript](http://autotelicum.github.com/Smooth-CoffeeScript/SmoothCoffeeScript.html)
 * [The Little Book on CoffeeScript](http://arcturo.github.com/library/coffeescript/)
 
 
-###ColdFusion
+###<b id="coldfusion">ColdFusion</b>
 
 * [CFML In 100 Minutes](https://github.com/mhenke/CFML-in-100-minutes/blob/master/cfml100mins.markdown)
 * [Learn CF in a Week](http://learncfinaweek.com/)
 
-###D
+###<b id="d">D</b>
 * [Programming in D](http://ddili.org/ders/d.en/)
 
-###DTrace
+###<b id="DTrace">DTrace</b>
 * [IllumOS Dynamic Tracing Guide](http://dtrace.org/guide/preface.html)
 
-###DB2
+###<b id="db2">DB2</b>
 
 * [Getting started with DB2 Express-C](http://public.dhe.ibm.com/software/dw/db2/express-c/wiki/Getting_Started_with_DB2_Express_v9.7_p4.pdf) (PDF)
 * [Getting started with IBM Data Studio for DB2](http://public.dhe.ibm.com/software/dw/db2/express-c/wiki/Getting_Started_with_IBM_Data_Studio_for_DB2_p3.pdf) (PDF)
 * [Getting started with IBM DB2 development](http://public.dhe.ibm.com/software/dw/db2/express-c/wiki/Getting_Started_with_DB2_App_Dev_p2.pdf) (PDF)
 
 
-###Delphi / Pascal
+###<b id="delphi--pascal">Delphi / Pascal</b>
 
 * [Essential Pascal Version 1 and 2](http://www.marcocantu.com/epascal/)
 
 
-###Django
+###<b id="django">Django</b>
 
 * [Djen of Django](http://agiliq.com/books/djenofdjango/)
 * [Django by Example](http://www.lightbird.net/dbe/)
