@@ -393,7 +393,7 @@ li[class^="icon-"].icon-large:before, li[class*=" icon-"].icon-large:before {
  * Post style
  *************************/
 .post { margin: 40px 0 0px 40px; padding-bottom: 40px; width: auto; border-bottom: 1px dotted #d8d8d8;}
-.post p, .post pre, .post ul, .post ol, .post dl, .post form, .post hr, .post table { margin-bottom: 2em; }
+.post p, .post pre, .post ul, .post ol, .post dl, .post form, .post hr, .post table { margin-bottom: 0; }
 .post .time { margin-bottom: .5em; color: #d8d8d8; }
 .post blockquote { padding: 0.5em 1em 0.4em 1em; margin-bottom: 1em;  border-left: .9em solid rgb(238, 238, 238); }
 .post pre {
