@@ -116,8 +116,10 @@ if ( elem ) {
 refs :   
 [jquery-html-vs-empty-append][jquery-html-vs-empty-append]   
 [kill-lots-kids][kill-lots-kids]   
-[deleting-child-nodes-of-a-div-node][deleting-child-nodes-of-a-div-node]  
+[deleting-child-nodes-of-a-div-node][deleting-child-nodes-of-a-div-node]   
+[Element.innerHTML][Element.innerHTML]  
 
+[Element.innerHTML]:https://developer.mozilla.org/en-US/docs/Web/API/Element.innerHTML
 [deleting-child-nodes-of-a-div-node]: http://stackoverflow.com/questions/9461301/deleting-child-nodes-of-a-div-node　　
 [kill-lots-kids]: http://jsperf.com/killing-lots-of-kids
 [jquery-html-vs-empty-append]: http://jsperf.com/jquery-html-vs-empty-append-test/6
