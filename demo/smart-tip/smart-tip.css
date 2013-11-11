@@ -11,8 +11,7 @@
 .smart-tip{
     width: 100px;
     height: 160px;
-    margin: 40px;
-    position: relative;
+    position: absolute;
 }
 
 .st-content{
@@ -81,49 +80,49 @@
 /* ======================== */
 
 /* left bottom */
-.st-arrow-lb{
+.st-lb .st-arrow{
     left: -10px;
     bottom: 0;
 }
 
 /* bottom left */
-.st-arrow-bl{
+.st-bl .st-arrow{
     left: 0;
     bottom: -10px;
 }
 
 /* bottom right */
-.st-arrow-br{
+.st-br .st-arrow{
     right: 0;
     bottom: -10px;
 }
 
 /* right bottom*/
-.st-arrow-rb{
+.st-rb .st-arrow{
     right: -10px;
     bottom: 0;
 }
 
 /* right top*/
-.st-arrow-rt{
+.st-rt .st-arrow{
     right: -10px;
     top: 0;
 }
 
 /* top right*/
-.st-arrow-tr{
+.st-tr .st-arrow{
     right: 0;
     top: -10px;
 }
 
 /* top left*/
-.st-arrow-tl{
+.st-tl .st-arrow{
     left: 0;
     top: -10px;
 }
 
 /* left top */
-.st-arrow-lt{
+.st-lt .st-arrow{
     left: -10px;
     top: 0;
 }
@@ -135,7 +134,7 @@
     height: 0px;
     border-style: solid;
 }
-.st-arrow-1{
+/*.st-arrow-1{
    border-width: 5px;
    border-color: blue blue transparent transparent;
    top:0;
@@ -147,7 +146,7 @@
     border-color: white white transparent transparent;
     right: -1px;
     top: 1px;
-}
+}*/
 
 .st-tr .st-arrow-1{
    border-width: 5px;
@@ -236,32 +235,16 @@
 
 .st-lt .st-arrow-1{
     border-width: 5px;
-    border-color: transparent blue blue transparent;
+    border-color:blue blue transparent transparent;
     top:0;
     left:0;
 }
 
 .st-lt .st-arrow-2{
     border-width: 4px;
-    border-color: transparent white white transparent;
+    border-color: white white transparent transparent;
     right: -1px;
-    bottom: 1px;
+    top: 1px;
 }
 
 
-#container{
-    margin-left:100px;
-    width: 800px;
-    height: 400px;
-    position: relative;
-    border: 1px solid red;
-    border-radius: 10px;
-}
-
-#btn{
-    position: absolute;
-    border:1px solid green;
-    left:10px;
-    top:10px;
-    cursor: pointer;
-}

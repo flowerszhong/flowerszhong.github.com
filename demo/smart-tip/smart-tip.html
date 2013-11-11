@@ -1,63 +1,36 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8">
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
-    <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
-    <link href="smart-tip.css" rel="stylesheet">
+  <meta charset="utf-8">
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+  <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+  <script src="smart-tip.js"></script>
+  <script src="demo.js"></script>
+  <link href="smart-tip.css" rel="stylesheet">
+  <title>Smart-Tips demo</title>
 
-    <title>Smart-Tips demo</title>
+  <style>
+      #container{
+          margin:30px auto;
+          width: 800px;
+          height: 400px;
+          position: relative;
+          border: 1px solid red;
+          border-radius: 10px;
+      }
 
-    <meta name="description" content="">
-    <meta name="keywords" content="">
-
-    <link href="" rel="stylesheet"></head>
+      #btn{
+          position: absolute;
+          border:1px solid green;
+          left:10px;
+          top:10px;
+          cursor: pointer;
+      }
+    </style>
 <body>
-    <div id="smart-tip" class="smart-tip">
-        <div class="st-arrow st-arrow-tl">
-            <em class="st-arrow-1"></em>
-            <em class="st-arrow-2"></em>
-        </div>
-       <!--  <div class="st-arrow st-arrow-tr">
-           <em class="st-arrow-1"></em>
-           <em class="st-arrow-2"></em>
-       </div>
-       <div class="st-arrow st-arrow-rt">
-           <em class="st-arrow-1"></em>
-           <em class="st-arrow-2"></em>
-       </div>
-       <div class="st-arrow st-arrow-rb">
-           <em class="st-arrow-1"></em>
-           <em class="st-arrow-2"></em>
-       </div>
-       <div class="st-arrow st-arrow-br">
-           <em class="st-arrow-1"></em>
-           <em class="st-arrow-2"></em>
-       </div>
-       <div class="st-arrow st-arrow-bl">
-           <em class="st-arrow-1"></em>
-           <em class="st-arrow-2"></em>
-       </div>
-       <div class="st-arrow st-arrow-lb">
-           <em class="st-arrow-1"></em>
-           <em class="st-arrow-2"></em>
-       </div>
-       <div class="st-arrow st-arrow-lt">
-           <em class="st-arrow-1"></em>
-           <em class="st-arrow-2"></em>
-       </div> -->
-        <div class="st-content">
-            苍井优的出道要追溯到公演于1999年的音乐剧《安妮》，万人候选，她脱颖而出，被选中出演波丽一角。后来她又被选为三井不动产的少女代言人，其清丽的形象一时间变得家喻户晓。
-        </div>
-    </div>
-    
-    <!-- <div id="test">
-        
-    </div> -->
-    
-    <div id="container">
-        <span id="btn">click me</span>
-    </div>
+  <div id="container">
+    <span id="btn" title="Move Me">蒼井優 / Yû Natsui</span>
+  </div>
 
 </body>
 </html>
