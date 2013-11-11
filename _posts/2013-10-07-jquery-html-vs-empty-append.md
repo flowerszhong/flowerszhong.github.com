@@ -109,7 +109,7 @@ if ( elem ) {
 	this.empty().append( value );
 }  
 {% endhighlight %}  
-不言而喻，当传入的参数不为html字符串或html字符串较长时，$().empty().append(value)的性能会优于$().html(value),性能测试之[jquery html vs empty ppend][jquery-html-vs-empty-append];  
+不言而喻，当传入的参数不为html字符串或html字符串较长时，$().empty().append(value)的性能会优于$().html(value),性能测试之[jquery html vs empty append][jquery-html-vs-empty-append];  
 同时，基于代码可读性也建议优先使用*$().empty().append(value)*
 
 
