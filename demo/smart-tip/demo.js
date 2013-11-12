@@ -8,7 +8,15 @@ $(function() {
 	var smartTipInstance = new SmartTip({
 		container: $container,
 		trigger: $btn,
-		content: content
+		content: content,
+
+		borderColor: "green",
+		borderWidth: 0,
+		borderRadius: 5,
+		bgColor: "lightblue",
+		width: 100,
+		height: 120,
+		arrowSize: 10
 	});
 
 	$("#btn").draggable({

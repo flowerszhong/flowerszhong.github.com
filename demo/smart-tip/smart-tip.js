@@ -1,10 +1,6 @@
-
 var SmartTip = function(options) {
-    this.options = options;
-    this.el = null;
-    this._init();
+    this._init(options);
 }
-
 
 var reverseMapping = {
     "left": "right",
@@ -14,15 +10,28 @@ var reverseMapping = {
 };
 
 SmartTip.prototype = {
-    _init: function() {
-        var options = this.options;
+    defaultOptions: {
+        trigger: null,
+        container: $(document.body),
+        content: "bala bala...",
+        borderColor: null,
+        borderWidth: 1,
+        borderRadius: 5,
+        bgColor: null,
+        width: null,
+        height: null,
+        arrowSize: 10
+    },
+
+    _init: function(options) {
+        this.options = $.extend({}, this.defaultOptions, options);
         this.container = options.container;
         this.trigger = options.trigger;
         this.content = options.content;
-        this.drawTip();
+        this.render();
     },
 
-    drawTip: function() {
+    render: function() {
         var dom = ['<div class="smart-tip">',
             '<div class="st-arrow">',
             '<em class="st-arrow-1"></em>',
@@ -31,7 +40,10 @@ SmartTip.prototype = {
             '<div class="st-content"></div>',
             '</div>'
         ];
-        var $el = this.el = $(dom.join('')).hide();
+        var $el = this.el = $(dom.join('')).css({
+            width: this.options.width,
+            height: this.options.height
+        }).hide();
         this.$contentWrap = this.el.find('.st-content').append(this.content);
         this.$arrow = this.el.find(".st-arrow");
         this.container.append(this.el);
@@ -39,15 +51,16 @@ SmartTip.prototype = {
     },
 
     getArrowDirection: function() {
+        var options = this.options;
         var containerOffset = this.container.get(0).getBoundingClientRect();
         var triggerOffset = this.trigger.get(0).getBoundingClientRect();
         var tipSize = {
-            width: 100,
-            height: 130
+            width: options.width,
+            height: options.height
         };
         var arrowSize = {
-            width: 10,
-            height: 10
+            width: options.arrowSize,
+            height: options.arrowSize
         }
         var dir = caculateDirection(containerOffset, triggerOffset, tipSize, arrowSize);
         var offsetLeft = triggerOffset.left - containerOffset.left,
@@ -85,7 +98,7 @@ SmartTip.prototype = {
             offsetTop = offsetTop + triggerOffset.height + arrowSize.height;
         }
 
-        this.setArrowStyle(dir);
+        this.setStyles(dir);
 
         this.el.attr("class", "smart-tip " + dir).css({
             top: offsetTop,
@@ -93,16 +106,33 @@ SmartTip.prototype = {
         });
     },
 
-    setArrowStyle: function(dir) {
-        var arrowSize = 10;
+    setStyles: function(dir) {
+        var options = this.options;
+        var arrowSize = options.arrowSize;
 
         var dirs = dir.split('-');
         dir1 = dirs[0];
         dir2 = dirs[1];
 
-        var borderColor = "red",
-            bgColor = "green";
-        var tipBorderWidth = 1;
+        var borderColor = options.borderColor,
+            bgColor = options.bgColor;
+        var tipBorderWidth = options.borderWidth;
+
+        var contentStyle = {
+            border: tipBorderWidth + "px solid " + borderColor,
+            "background-color": bgColor,
+            "border-radius": options.borderRadius
+        };
+
+        var borderRadiusDirMapping = {
+            "right-bottom": "bottom-right",
+            "right-top": "top-right",
+            "left-bottom": "bottom-left",
+            "left-top": "top-left"
+        }
+        var _dir = borderRadiusDirMapping[dir] || dir;
+        contentStyle["border-" + _dir + "-radius"] = 0;
+        this.$contentWrap.css(contentStyle);
 
         var arrowStyle = {
             top: "",
@@ -126,8 +156,6 @@ SmartTip.prototype = {
             "top": 0,
             "left": 0
         });
-
-
 
         var arrow2Style = {
             top: "",
@@ -155,9 +183,6 @@ SmartTip.prototype = {
     },
     renderContent: function(content) {
         this.$contentWrap.empty().append(content);
-    },
-    setStyle: function() {
-
     }
 
 };
