@@ -1,8 +1,17 @@
+
 var SmartTip = function(options) {
     this.options = options;
     this.el = null;
     this._init();
 }
+
+
+var reverseMapping = {
+    "left": "right",
+    "top": "bottom",
+    "right": "left",
+    "bottom": "top"
+};
 
 SmartTip.prototype = {
     _init: function() {
@@ -43,36 +52,36 @@ SmartTip.prototype = {
         var dir = caculateDirection(containerOffset, triggerOffset, tipSize, arrowSize);
         var offsetLeft = triggerOffset.left - containerOffset.left,
             offsetTop = triggerOffset.top - containerOffset.top;
-        if (dir == "st-lt") {
+        if (dir == "left-top") {
             offsetLeft = triggerOffset.width + offsetLeft + arrowSize.width;
             offsetTop = offsetTop + triggerOffset.height / 2;
         }
 
-        if (dir == "st-lb") {
+        if (dir == "left-bottom") {
             offsetLeft = triggerOffset.width + offsetLeft + arrowSize.width;
             offsetTop = offsetTop - tipSize.height + triggerOffset.height / 2;
         }
 
-        if (dir == "st-rt") {
+        if (dir == "right-top") {
             offsetLeft = offsetLeft - tipSize.width - arrowSize.width;
             offsetTop = offsetTop + triggerOffset.height / 2;
         }
 
-        if (dir == "st-rb") {
+        if (dir == "right-bottom") {
             offsetLeft = offsetLeft - tipSize.width - arrowSize.width;
             offsetTop = offsetTop + triggerOffset.height / 2 - tipSize.height;
         }
 
-        if (dir == "st-bl") {
+        if (dir == "bottom-left") {
             offsetTop = offsetTop - tipSize.height - arrowSize.height;
         }
 
-        if (dir == "st-br") {
+        if (dir == "bottom-right") {
             offsetLeft = offsetLeft + triggerOffset.width - tipSize.width;
             offsetTop = offsetTop - arrowSize.height - tipSize.height;
         }
 
-        if (dir == "st-tl") {
+        if (dir == "top-left") {
             offsetTop = offsetTop + triggerOffset.height + arrowSize.height;
         }
 
@@ -84,66 +93,55 @@ SmartTip.prototype = {
         });
     },
 
-    setArrowStyle : function (dir) {
-        var arrowSize =  10;
+    setArrowStyle: function(dir) {
+        var arrowSize = 10;
 
-        var dir = dir.split('-')[1];
-        var positionMapping = {
-            "l" : "left",
-            "r" : "right",
-            "b" : "bottom",
-            "t" : "top"
-        }
-
-        this.$arrow.css({
-            top : "",
-            left : "",
-            bottom : "",
-            right : ""
-        });
+        var dirs = dir.split('-');
+        dir1 = dirs[0];
+        dir2 = dirs[1];
 
         var borderColor = "red",
             bgColor = "green";
-        var tipBorderColor = 1;
+        var tipBorderWidth = 1;
 
-        this.$arrow.css(positionMapping[dir[0]], - arrowSize + "px").css(positionMapping[dir[1]],0);
-        // .st-lt .st-arrow-1{
-        //     border-width: 5px;
-        //     border-color:blue blue transparent transparent;
-        //     top:0;
-        //     left:0;
-        // }
+        var arrowStyle = {
+            top: "",
+            left: "",
+            bottom: "",
+            right: ""
+        };
 
-        // .st-lt .st-arrow-2{
-        //     border-width: 4px;
-        //     border-color: white white transparent transparent;
-        //     right: -1px;
-        //     top: 1px;
-        // }
+        arrowStyle[dir1] = 0 - arrowSize;
+        arrowStyle[dir2] = 0;
 
-        var _maping = ["t","r","b","l"];
+        this.$arrow.css(arrowStyle);
 
-        var arrowBorderWidth = arrowSize/5;
+        var arrowBorderWidth = arrowSize / 2;
         var $arrow1 = this.$arrow.find(".st-arrow-1"),
             $arrow2 = this.$arrow.find(".st-arrow-2");
 
-        var reverseMapping = {
-            "l" : "right",
-            "t" : "bottom",
-            "r" : "left",
-            "b" : "top"
-        };
-
         $arrow1.css({
-            "border-width" : arrowBorderWidth,
-            "border-color" : "",
-            "top" : 0,
-            "left" : 0
+            "border-width": arrowBorderWidth + "px",
+            "border-color": getBorderColor(dir1, dir2, borderColor),
+            "top": 0,
+            "left": 0
         });
 
-        $arrow2.css({
 
-        })
+
+        var arrow2Style = {
+            top: "",
+            left: "",
+            bottom: "",
+            right: "",
+            "border-width": arrowBorderWidth - tipBorderWidth,
+            "border-color": getBorderColor(dir1, dir2, bgColor),
+        }
+
+        arrow2Style[reverseMapping[dir1]] = (0 - tipBorderWidth) + "px";
+        arrow2Style[dir2] = tipBorderWidth + "px";
+
+        $arrow2.css(arrow2Style);
 
     },
 
@@ -181,35 +179,52 @@ function caculateDirection(containerOffset, triggerOffset, tipSize, arrowSize) {
         a_w = arrowSize.width;
 
     if ((_b + tip_h < B) && (_r + tip_w + a_w < R)) {
-        return "st-lt";
+        return "left-top";
     }
 
     if ((_t - tip_h > T) && (_r + tip_w + a_w < R)) {
-        return "st-lb";
+        return "left-bottom";
     }
 
     if ((_t - tip_h - a_h > T) && (_l + tip_w < R)) {
-        return "st-bl";
+        return "bottom-left";
     }
 
     if ((_t - tip_h - a_h > T) && (_r - tip_w > L)) {
-        return "st-br";
+        return "bottom-right";
     }
 
     if ((_b + tip_h + a_h < B) && (_l + tip_w < R)) {
-        return "st-tl";
+        return "top-left";
     }
 
     if ((_t + tip_h < B) && (_l - tip_w - a_w) > L) {
-        return "st-rt";
+        return "right-top";
     }
 
     if ((_t - tip_h - a_h > T) && (_l - tip_w - a_w > L)) {
-        return "st-rb";
+        return "right-bottom";
     }
 
     var leftLargeThanRight = (_l - L) > (R - _r);
     var topLargeThanBottom = (_t - T) > (B - _b);
-    dir = "st-" + (leftLargeThanRight ? "r" : "l") + (topLargeThanBottom ? "b" : "t");
+    dir = (leftLargeThanRight ? "right" : "left") + "-" + (topLargeThanBottom ? "bottom" : "top");
     return dir;
+}
+
+
+function getBorderColor(dir1, dir2, color) {
+    var colorMapping = {
+        top: "transparent",
+        right: "transparent",
+        bottom: "transparent",
+        left: "transparent"
+    }
+
+    dir1 = reverseMapping[dir1];
+
+    colorMapping[dir1] = color;
+    colorMapping[dir2] = color;
+    return colorMapping.top + " " + colorMapping.right + " " +
+        colorMapping.bottom + " " + colorMapping.left;
 }
