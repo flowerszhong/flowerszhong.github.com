@@ -10,7 +10,7 @@
 
 .smart-tip{
     width: 100px;
-    height: 160px;
+    height: 130px;
     position: absolute;
 }
 
@@ -23,6 +23,9 @@
     box-sizing: border-box;
 }
 
+
+
+/* ======================== */
 .st-arrow{
     position: absolute;
     width: 10px;
@@ -30,102 +33,52 @@
 }
 
 /* left bottom */
-.st-arrow-lb{
+/* .st-lb .st-arrow{
     left: -10px;
     bottom: 0;
 }
 
-/* bottom left */
-.st-arrow-bl{
-    left: 0;
-    bottom: -10px;
-}
-
-/* bottom right */
-.st-arrow-br{
-    right: 0;
-    bottom: -10px;
-}
-
-/* right bottom*/
-.st-arrow-rb{
-    right: -10px;
-    bottom: 0;
-}
-
-/* right top*/
-.st-arrow-rt{
-    right: -10px;
-    top: 0;
-}
-
-/* top right*/
-.st-arrow-tr{
-    right: 0;
-    top: -10px;
-}
-
-/* top left*/
-.st-arrow-tl{
-    left: 0;
-    top: -10px;
-}
-
-/* left top */
-.st-arrow-lt{
-    left: -10px;
-    top: 0;
-}
-
-/* ======================== */
-
-/* left bottom */
-.st-lb .st-arrow{
-    left: -10px;
-    bottom: 0;
-}
-
-/* bottom left */
+bottom left
 .st-bl .st-arrow{
     left: 0;
     bottom: -10px;
 }
 
-/* bottom right */
+bottom right
 .st-br .st-arrow{
     right: 0;
     bottom: -10px;
 }
 
-/* right bottom*/
+right bottom
 .st-rb .st-arrow{
     right: -10px;
     bottom: 0;
 }
 
-/* right top*/
+right top
 .st-rt .st-arrow{
     right: -10px;
     top: 0;
 }
 
-/* top right*/
+top right
 .st-tr .st-arrow{
     right: 0;
     top: -10px;
 }
 
-/* top left*/
+top left
 .st-tl .st-arrow{
     left: 0;
     top: -10px;
 }
 
-/* left top */
+left top
 .st-lt .st-arrow{
     left: -10px;
     top: 0;
-}
+} */
 
 /* ============================ */
 .st-arrow em{
@@ -134,19 +87,6 @@
     height: 0px;
     border-style: solid;
 }
-/*.st-arrow-1{
-   border-width: 5px;
-   border-color: blue blue transparent transparent;
-   top:0;
-   left:0;
-}
-
-.st-arrow-2{
-    border-width: 4px;
-    border-color: white white transparent transparent;
-    right: -1px;
-    top: 1px;
-}*/
 
 .st-tr .st-arrow-1{
    border-width: 5px;
@@ -179,7 +119,7 @@
 
 .st-rb .st-arrow-1{
    border-width: 5px;
-   border-color: transparent  transparent blue  blue;
+   border-color: transparent transparent blue blue;
    top:0;
    left:0;
 }
@@ -199,24 +139,24 @@
 }
 
 .st-br .st-arrow-2{
-    border-width: 5px;
-    border-color: transparent blue blue transparent;
-    top:0;
-    left:0;
+    border-width: 4px;
+    border-color: white white transparent transparent;
+    top:-1px;
+    right:1px;
 }
 
 .st-bl .st-arrow-1{
     border-width: 5px;
-    border-color: blue blue transparent transparent;
+    border-color:  blue transparent transparent blue;
     top:0;
     left:0;
 }
 
 .st-bl .st-arrow-2{
-    border-width: 5px;
-    border-color: transparent blue blue transparent;
-    top:0;
-    left:0;
+    border-width: 4px;
+    border-color: white transparent transparent white;
+    top:-1px;
+    left:1px;
 }
 
 .st-lb .st-arrow-1{
@@ -246,5 +186,20 @@
     right: -1px;
     top: 1px;
 }
+
+.st-tl .st-arrow-1{
+    border-width: 5px;
+    border-color: transparent transparent blue blue;
+    top:0;
+    left:0;
+}
+
+.st-tl .st-arrow-2{
+    border-width: 4px;
+    border-color: transparent transparent white white;
+    left: 1px;
+    bottom: -1px;
+}
+
 
 
