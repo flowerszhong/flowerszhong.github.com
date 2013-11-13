@@ -10,19 +10,31 @@ $(function() {
 		trigger: $btn,
 		content: content,
 
-		borderColor: "green",
+		borderColor: "#adadad",
 		borderWidth: 1,
 		borderRadius: 5,
-		bgColor: "lightblue",
-		width: 100,
-		height: 120,
+		bgColor: "white",
+		width: 160,
+		height: 200,
 		arrowSize: 10
 	});
+
+	smartTipInstance.show();
 
 	$("#btn").draggable({
 		containment: "parent"
 	});
+
+	$("#btn1").draggable({
+		containment: "parent"
+	});
 	$("#btn").on("dragstop", function(event, ui) {
+		smartTipInstance.attachTo($("#btn"));
+		smartTipInstance.show();
+	});
+
+	$("#btn1").on("dragstop", function(event, ui) {
+		smartTipInstance.attachTo($("#btn1"));
 		smartTipInstance.show();
 	});
 })
