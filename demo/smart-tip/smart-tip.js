@@ -107,10 +107,15 @@ SmartTip.prototype = {
     },
 
     setOffset: function(offsetTop, offsetLeft) {
-        this.el.css({
+        // this.el.css({
+        //     top: offsetTop,
+        //     left: offsetLeft
+        // });
+
+        this.el.animate({
             top: offsetTop,
             left: offsetLeft
-        });
+        },200);
     },
 
     setStyle: function(dir) {
