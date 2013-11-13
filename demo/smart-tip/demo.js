@@ -11,7 +11,7 @@ $(function() {
 		content: content,
 
 		borderColor: "green",
-		borderWidth: 0,
+		borderWidth: 1,
 		borderRadius: 5,
 		bgColor: "lightblue",
 		width: 100,

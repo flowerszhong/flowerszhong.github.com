@@ -15,6 +15,7 @@ SmartTip.prototype = {
         container: $(document.body),
         content: "bala bala...",
         borderColor: null,
+        color : "black",
         borderWidth: 1,
         borderRadius: 5,
         bgColor: null,
@@ -47,10 +48,13 @@ SmartTip.prototype = {
         this.$contentWrap = this.el.find('.st-content').append(this.content);
         this.$arrow = this.el.find(".st-arrow");
         this.container.append(this.el);
-        this.show();
+        // this.show();
     },
 
-    getArrowDirection: function() {
+    calculateDirection: function() {
+        if (!this.trigger) {
+            return;
+        }
         var options = this.options;
         var containerOffset = this.container.get(0).getBoundingClientRect();
         var triggerOffset = this.trigger.get(0).getBoundingClientRect();
@@ -98,17 +102,25 @@ SmartTip.prototype = {
             offsetTop = offsetTop + triggerOffset.height + arrowSize.height;
         }
 
-        this.setStyles(dir);
+        this.setStyle(dir);
+        this.setOffset(offsetTop, offsetLeft);
+    },
 
-        this.el.attr("class", "smart-tip " + dir).css({
+    setOffset: function(offsetTop, offsetLeft) {
+        this.el.css({
             top: offsetTop,
             left: offsetLeft
         });
     },
 
-    setStyles: function(dir) {
+    setStyle: function(dir) {
         var options = this.options;
         var arrowSize = options.arrowSize;
+
+        this.el.attr("class", "smart-tip st-" + dir).css({
+            width: options.width,
+            height: options.height
+        });
 
         var dirs = dir.split('-');
         dir1 = dirs[0];
@@ -121,7 +133,8 @@ SmartTip.prototype = {
         var contentStyle = {
             border: tipBorderWidth + "px solid " + borderColor,
             "background-color": bgColor,
-            "border-radius": options.borderRadius
+            "border-radius": options.borderRadius,
+            color: options.color
         };
 
         var borderRadiusDirMapping = {
@@ -138,7 +151,9 @@ SmartTip.prototype = {
             top: "",
             left: "",
             bottom: "",
-            right: ""
+            right: "",
+            width: arrowSize,
+            height: arrowSize
         };
 
         arrowStyle[dir1] = 0 - arrowSize;
@@ -173,18 +188,36 @@ SmartTip.prototype = {
 
     },
 
-    show: function() {
-        this.getArrowDirection();
+    show: function(dir, offsetTop, offsetLeft) {
+        if (arguments.length) {
+            this.setStyle(dir);
+            this.setOffset(offsetTop, offsetLeft);
+        } else {
+            this.calculateDirection();
+        }
+
         this.el.show();
         return this.el;
+    },
+    toggle: function(showFlag) {
+        this.el.toggle(showFlag);
+    },
+    hide: function() {
+        this.el.hide();
+    },
+
+    hideArrow: function() {
+        this.$arrow.hide();
     },
     attachTo: function($trigger) {
         this.trigger = $trigger;
     },
     renderContent: function(content) {
         this.$contentWrap.empty().append(content);
+    },
+    destroy: function() {
+        this.el.remove();
     }
-
 };
 
 function caculateDirection(containerOffset, triggerOffset, tipSize, arrowSize) {
