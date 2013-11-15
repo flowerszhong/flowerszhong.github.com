@@ -418,7 +418,7 @@ li[class^="icon-"].icon-large:before, li[class*=" icon-"].icon-large:before {
 .post table { width: 680px; }
 
 h1, h2, h3, h4, h5, h6{ font-weight: 500; color:#333; }
-.post h1, .post h2, .post h3, .post h4, .post h5, .post h6 { margin-bottom: 0.4em; line-height: 1.5; }
+.post h1, .post h2, .post h3, .post h4, .post h5, .post h6 { margin-top: 10px; margin-bottom: 0.4em; line-height: 1.5; }
 .post h1 { font-size: 1.8em; margin-bottom: 1.2em; }
 .post h2 { font-size: 1.6em; margin-bottom: 1em; }
 .post h3 { font-size: 1.4em; border-bottom: 1px dotted #d8d8d8; }
