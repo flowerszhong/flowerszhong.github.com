@@ -7,7 +7,8 @@ keyword: code review
 每次做code review，先贤谆谆教诲便在耳畔响起:   
 >“There are only two hard problems in Computer Science: cache invalidation and naming things.” —Phil Karlton  
 
-将发现的问题整理如下:  
+将发现的问题整理如下:
+             
 ####*Hard Code*    
 这个永远是容易发现，也是最容易出现的问题，主要集中在 :     
 
@@ -47,6 +48,7 @@ keyword: code review
     {% endhighlight %}        
 
 
+                     
 ####*单var模式与多var模式*      
 #####[单var模式][single-var-mode]  
 
@@ -72,7 +74,7 @@ function func() {
 {% endhighlight %}   
 
 对于单 var 模式和多 var 模式，建议不做强行约定，但同一个文件里，风格必须一致。   
-
+                  
 ####*命名规范*
 + 引入外部资源  
     * 应对引入的资源分组并以空行隔开，如mercury资源与mr资源，chartComponent资源与Grid资源，类与object...
@@ -97,6 +99,7 @@ function func() {
 + 方法名    
     * 方法名拼写错误,如restFilterOption..
     * 太多的方法名以draw，load开头,有些名字不是很顾名思义   
+       
 
 ####*方法参数不需要带下划线*  
 这一点我还没查到具体文档，待讨论   
@@ -111,11 +114,12 @@ function func() {
 }
 {% endhighlight %}  
 
-
+          
 ####*多用$el.empty().append(value),少用$el.html(value)*  
 [$().html(value) vs $().empty().append(value)比较][html-vs-empty-append]
-
+                
 refs :    
+
 [single-var-mode][single-var-mode]    
 [html-vs-empty-append][html-vs-empty-append]    
 [requireJs-config](http://requirejs.org/docs/api.html#config)   
