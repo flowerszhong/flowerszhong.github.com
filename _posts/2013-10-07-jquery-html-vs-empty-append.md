@@ -22,12 +22,12 @@ while (element.firstChild) {
 在子结点个数多过的情况下，方式1是优于方式2的。性能测试之[killing a lots of kids][kill-lots-kids]　　　
 
 jquery提供了两个类似的接口与之相对应:  
-1.$().empty()   
-2.$().html('')   
+*1.$().empty()*   
+*2.$().html('')*   
 
 所以，替换dom内容也同样有两种方式:  
-1.$().empty().append(HTMLString|HTMLElement|jQueryElement)    
-2.$().html(HTMLString)  
+*1.$().empty().append(HTMLString|HTMLElement|jQueryElement)*    
+*2.$().html(HTMLString)*  
 
 jQuery 1.9.1 empty方法实现如下，与方式1相似     
 {% highlight javascript %}      
