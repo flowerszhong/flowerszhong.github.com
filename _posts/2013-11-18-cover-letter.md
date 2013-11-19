@@ -10,11 +10,11 @@ keyword: cover-letter front-end developer
 
 I am writing to apply for the Front End Web Developer position posted on our company website.       
 
-I have a master's degree in computer educational technology and focused on web front-end development for seven years.I joined Morningstar on 2011 and joined Mercury Manager Research on 2012.  
+I have a master's degree in computer educational technology and focused on web front-end development for seven years.I joined Morningstar in 2011 and joined Mercury Manager Research in 2012.  
 
-I am proficient using Semantic HTML, CSS3, Javascript, jQuery, Backbone and Angular.I have much experiences for building SPA(Single Page Application). I implement some modules with TDD and set up the front-end unit test environment with karma and jasmine for Mercury Manager Research.My previous experience also includes building landing pages, performing split tests, tracking and analyzing websites to look for ways to make improvements.
+I am proficient using Semantic HTML, CSS3, Javascript, jQuery, Backbone and Angular.I have many experiences for building SPA(Single Page Application). I implemented some modules with TDD and set up the front-end unit test environment with karma and jasmine for Mercury Manager Research.My previous experience also includes building landing pages, performing split tests, tracking and analyzing websites to look for ways to make improvements.
 
-I enjoy working in a team.I am also productive and focussed working independently.I am confident that I am the best applicant for this job.I look forward to getting the chance.         
+I enjoy working in a team.I am also productive and focused working independently.I am confident that I am the best applicant for this job.I look forward to getting the chance.         
 
 Thank you very kindly for your consideration.
 
