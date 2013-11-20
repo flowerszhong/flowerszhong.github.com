@@ -34,7 +34,8 @@ keyword: code review
 
 + Labels    
     {% highlight javascript %} 
-        if (data.length == 0) { // no ma    nager info
+        if (data.length == 0) {
+            //message hard code
             this.showMsgBox("No valid manager data available for the strategy.", true);
             this.hideBodyEl();
         }     
@@ -121,9 +122,11 @@ function func() {
 refs :    
 
 [single-var-mode][single-var-mode]    
-[html-vs-empty-append][html-vs-empty-append]    
-[requireJs-config](http://requirejs.org/docs/api.html#config)   
+[html-vs-empty-append][html-vs-empty-append]   
+[requireJs-config](http://requirejs.org/docs/api.html#config)     
+[Airbnb JavaScript Style Guide][Airbnb JavaScript Style Guide]               
 
 
 [single-var-mode]: https://github.com/TooBug/javascript.patterns/blob/master/chapter2.markdown
 [html-vs-empty-append]: http://flowerszhong.github.io/2013/10/07/jquery-html-vs-empty-append.html
+[Airbnb JavaScript Style Guide]: https://github.com/airbnb/javascript
