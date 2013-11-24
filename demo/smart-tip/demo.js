@@ -1,3 +1,5 @@
+'use strict';
+alert(this);
 $(function() {
 	var $container = $("#container"),
 		$btn = $("#btn"),
