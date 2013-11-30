@@ -1,3 +1,10 @@
+---
+layout: post
+title: 完美主义
+description: 完美主义
+keyword: perfectionism play
+---    
+
 【视频】地球好声音颁奖典礼
 
 **自信哥**被媒体记者团团包围，闪光灯不停闪烁，和阵阵的欢呼声，其中一些媒体麦克风上印 有:SBTV，USBTV，WCTV，CCCV,半岛电台，香蕉芒果波罗蜜电台，活人台，死人台。。。
