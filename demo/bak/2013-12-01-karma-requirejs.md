@@ -35,7 +35,7 @@ The Require.js config for `baseUrl` gives a starting context for modules that lo
 当构建APP_A的测试环境,不可避免要配置所有依赖文件路径.karma.config.js文件自然而然会放在APP_A目录下，那basePath应当定位在哪个目录呢？  
 有两个方案:     
 
-* APP_A目录 - 这种方式karma server只能访问APP_A自身目录下的文件，访问不到_FRAMEWORK目录下的文件.想要访问,需要把`framework`和`framework-component`作为server运行起来，APP_A通过HTTP请求访问依赖.而这里又存在[跨域问题][1].   
+* APP_A目录 - 这种方式karma server只能访问APP_A自身目录下的文件，访问不到_FRAMEWORK目录下的文件.想要访问,需要把`framework`和`framework-component`作为server运行起来，APP_A通过HTTP请求访问依赖.而这里又存在跨域问题,如[require.js text plugin adds “.js” to the file name][require-js-text-plugin-adds-js-to-the-file-name]
 
 * DIR目录 
 	这种方式没有上述问题.
@@ -43,5 +43,9 @@ The Require.js config for `baseUrl` gives a starting context for modules that lo
 
 
 
-[karma + requirejs]:http://karma-runner.github.io/0.8/plus/RequireJS.html
-[1]:
+[karma + requirejs]: http://karma-runner.github.io/0.8/plus/RequireJS.html
+[require-js-text-plugin-adds-js-to-the-file-name]: http://stackoverflow.com/questions/10607370/require-js-text-plugin-adds-js-to-the-file-name
+[karma-issues]:https://github.com/karma-runner/karma/issues/740
+[karma-requirejs]:https://github.com/kjbekkelund/karma-requirejs
+[xhr-restrictions]:https://github.com/requirejs/text#xhr-restrictions
+[preprocessors]:http://karma-runner.github.io/0.10/config/preprocessors.html
