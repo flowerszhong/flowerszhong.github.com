@@ -11,11 +11,11 @@ keyword: Front-end Developer Interview Questions
 
 I tested myself and recorded it.
 
-* General Questions
+* [General Questions][General Questions]
 * [HTML Questions][HTML Questions]
 * [CSS Questions][CSS Questions]
 * [JS Questions][JS Questions]
-* jQuery Questions
+* [jQuery Questions][jQuery Questions]
 * Coding Questions
 * Fun Questions
 
@@ -33,6 +33,8 @@ I tested myself and recorded it.
 [HTML Questions]:http://flowerszhong.github.io/2013/11/20/html-questions.html
 [CSS Questions]:http://flowerszhong.github.io/2013/11/19/css-questions.html
 [JS Questions]:http://flowerszhong.github.io/2013/11/20/javascript-questions.html
+[jQuery Questions]:http://flowerszhong.github.io/2013/11/20/jquery-questions.html
+[General Questions]:http://flowerszhong.github.io/2013/11/20/general-questions.html
 [Front-end-Developer-Interview-Questions]:https://github.com/darcyclarke/Front-end-Developer-Interview-Questions
 [preparing-front-end-job-interview]:http://www.smashingmagazine.com/2013/01/04/preparing-front-end-job-interview/
 [most-common-technical-interview-question-for-frontend-developers]:http://www.frontendjournal.com/most-common-technical-interview-question-for-frontend-developers/
