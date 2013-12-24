@@ -41,11 +41,20 @@ The Require.js config for `baseUrl` gives a starting context for modules that lo
 	这种方式没有上述问题.
 
 
+[karma + requirejs][karma + requirejs]
+[require-js-text-plugin-adds-js-to-the-file-name][require-js-text-plugin-adds-js-to-the-file-name]
+[karma-issues][karma-issues]
+[karma-requirejs-demo][karma-requirejs]
+[reuqire-text-plugin-xhr-restrictions][karma-requirejs]
+[preprocessors][preprocessors]
+[coverage][coverage]
+[karma-coverage-project][karma-coverage-project]
 
-
+[karma-coverage-project]:https://github.com/karma-runner/karma-coverage
 [karma + requirejs]: http://karma-runner.github.io/0.8/plus/RequireJS.html
 [require-js-text-plugin-adds-js-to-the-file-name]: http://stackoverflow.com/questions/10607370/require-js-text-plugin-adds-js-to-the-file-name
 [karma-issues]:https://github.com/karma-runner/karma/issues/740
 [karma-requirejs]:https://github.com/kjbekkelund/karma-requirejs
 [xhr-restrictions]:https://github.com/requirejs/text#xhr-restrictions
 [preprocessors]:http://karma-runner.github.io/0.10/config/preprocessors.html
+[coverage]:http://karma-runner.github.io/0.8/config/coverage.html
