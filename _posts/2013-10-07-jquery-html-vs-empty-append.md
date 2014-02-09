@@ -4,6 +4,7 @@ title: $().html(value) vs $().empty().append(value)
 description: mzhong
 keyword: jsPerf $.html vs empty().append
 ---
+{% include JB/setup %}
 
 当需要清空某个dom结点内容时，我所知道的有两种方法：  
 1.*Element.removeChild(child)*    

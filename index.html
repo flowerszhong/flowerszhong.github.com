@@ -1,18 +1,20 @@
 ---
 layout: default
-date: mzhong's blog
+title: Hello World!
+tagline: Supporting tagline
 ---
-{% for rpost in paginator.posts %}
-  <article class="post fn-clear">
+{% include JB/setup %}
+
+<ul class="posts">
+  {% for rpost in paginator.posts %}
+    <article class="post fn-clear">
         <h2 class="post-title"><a href="{{ site.url }}{{ rpost.url }}" title="{{ rpost.title }}" rel="bookmark">{{ rpost.title }}</a></h2>
         <p class="time"><time pubdate="{{ rpost.date }}">{{ rpost.date | date_to_string }}</time></p>
-        {% if site.indexContent == true %}
         {{ rpost.content }}
-        {% else %}
-        <p>{{ rpost.description }}</p>
-        {% endif %}
     </article>
-{% endfor %}
+  {% endfor %}
+</ul>
+
 {% if paginator.total_pages > 1 %}
     <nav id="pagination" class="fn-clear">
         <ul class="pagination">

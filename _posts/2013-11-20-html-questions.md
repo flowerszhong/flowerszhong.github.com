@@ -4,6 +4,7 @@ title: HTML Questions:Front-end Developer Interview Questions
 description: HTML Questions:Front-end Developer Interview Questions
 keyword: HTML Questions:Front-end Developer Interview Questions
 ---
+{% include JB/setup %}
 
 
 ###What's a doctype do?

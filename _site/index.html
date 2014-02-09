@@ -1,0 +1,706 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <!--
+    **
+    *
+    * Author:         flowerszhong
+    * Contact:        flowerszhong@gmail.com
+    * Theme Name:     theOne
+    * Version:        1.0
+    * Date:           2013.04.02
+    *
+    **
+    -->
+    <meta charset="utf-8" />
+    <title>Hello World! | Keep Coding</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="generator" content="Jekyll" />
+    <meta name="author" content="mzhong" />
+    <meta name="description" content="" />
+    <link rel="stylesheet" href="/assets/themes/mzhong/css/style.css" type="text/css" />
+
+    <link rel="alternate" type="application/atom+xml" title="Recent Entries" href="" />
+
+    <link rel="shortcut icon" href="http://flowerszhong.github.io/colors.ico" type="image/x-icon" />
+    <!--[if lt IE 9]>
+    <script src="/assets/themes/mzhong/js/html5.js" type="text/javascript"></script>
+    <![endif]-->
+</head>
+<body id="mzhong-theme">
+<div id="head-line"></div>
+<div id="content">
+    <header id="head">
+        <div id="logo">
+            <h1>mzhong</h1>
+            <h2>matthew.zhong's site</h2>
+        </div>
+        <nav id="nav">
+            <ul>
+                <li><a href="/" rel="nofollow" class="action"><i class="icon-home"></i> Home</a></li>
+                <li><a href="/contact.html"><i class="icon-envelope-alt"></i> Contact</a></li>
+                <li><a href="/archive.html"><i class="icon-list-ul"></i> Archives</a></li>
+                <li><a href="/categories.html"><i class="icon-list-ul"></i> Categories</a></li>
+                <li><a href="/tags.html"><i class="icon-tags"></i> Tag</a></li>
+                <li><a href="/rss.xml"><i class="icon-rss"></i> RSS</a></li>
+                <!-- <li><a href="/pages.html"><i class="icon-file"></i> Pages</a></li> -->
+            </ul>
+        </nav>
+    </header>
+    <section id="contain">
+        <!--<header id="begin">
+            <span></span>
+        </header>-->
+        
+
+<ul class="posts">
+  
+    <article class="post fn-clear">
+        <h2 class="post-title"><a href="/2013/11/21/front-end-developer-interview" title="Front-end Developer Interview Questions" rel="bookmark">Front-end Developer Interview Questions</a></h2>
+        <p class="time"><time pubdate="2013-11-21 00:00:00 +0800">21 Nov 2013</time></p>
+        <p><a href="https://github.com/darcyclarke/Front-end-Developer-Interview-Questions">Front-end-Developer-Interview-Questions</a></p>
+
+<blockquote><p>A list of helpful front-end related questions you can use to interview potential candidates, test yourself or completely ignore.</p></blockquote>
+
+<p>I tested myself and recorded it.</p>
+
+<ul>
+<li><a href="http://flowerszhong.github.io/2013/11/20/general-questions.html">General Questions</a></li>
+<li><a href="http://flowerszhong.github.io/2013/11/20/html-questions.html">HTML Questions</a></li>
+<li><a href="http://flowerszhong.github.io/2013/11/19/css-questions.html">CSS Questions</a></li>
+<li><a href="http://flowerszhong.github.io/2013/11/20/javascript-questions.html">JS Questions</a></li>
+<li><a href="http://flowerszhong.github.io/2013/11/20/jquery-questions.html">jQuery Questions</a></li>
+<li>Coding Questions</li>
+<li>Fun Questions</li>
+</ul>
+
+
+<h4>Read More :</h4>
+
+<p><a href="http://www.smashingmagazine.com/2013/01/04/preparing-front-end-job-interview/">preparing-front-end-job-interview</a></p>
+
+<p><a href="http://www.frontendjournal.com/most-common-technical-interview-question-for-frontend-developers/">most-common-technical-interview-question-for-frontend-developers</a></p>
+
+<p><a href="https://developer.mozilla.org/en-US/docs/Mozilla_Web_Developer_FAQ#accept">Mozilla-Web-Developer</a></p>
+
+<p><a href="http://developer.yahoo.com/performance/rules.html">performance-rules</a></p>
+
+    </article>
+  
+    <article class="post fn-clear">
+        <h2 class="post-title"><a href="/2013/11/20/jquery-questions" title="jQuery Questions:Front-end Developer Interview Questions" rel="bookmark">jQuery Questions:Front-end Developer Interview Questions</a></h2>
+        <p class="time"><time pubdate="2013-11-20 00:00:00 +0800">20 Nov 2013</time></p>
+        <h3>Explain "chaining".</h3>
+
+<p>Chaining allows us to run multiple jQuery methods (on the same element) within a single statement.like this:
+<code>$(selector).doA().doB().doC()</code></p>
+
+<h3>Explain "deferreds".</h3>
+
+<blockquote><p>The Deferred object, introduced in jQuery 1.5, is a chainable utility object created by calling the jQuery.Deferred() method. It can register multiple callbacks into callback queues, invoke callback queues, and relay the success or failure state of any synchronous or asynchronous function.</p>
+
+<p>The Deferred object is chainable, similar to the way a jQuery object is chainable, but it has its own methods. After creating a Deferred object, you can use any of the methods below by either chaining directly from the object creation or saving the object in a variable and invoking one or more methods on that variable.</p></blockquote>
+
+<p>Simplely,the deferred object is the salution of callback function and aslo a asynchronous task runner.</p>
+
+<h3>What are some jQuery specific optimizations you can implement?</h3>
+
+<ul>
+<li>selector optimization</li>
+<li>event delegation</li>
+<li>Cache jQuery selector results</li>
+<li>Minimize DOM operations</li>
+<li>Avoid repeated object creation</li>
+<li>Stop using jQuery when you only need selectors(you can import selector only)</li>
+</ul>
+
+
+<h3>What does .end() do?</h3>
+
+<p>End the most recent filtering operation in the current chain and return the set of matched elements to its previous state.</p>
+
+<h3>How, and why, would you namespace a bound event handler?</h3>
+
+<p>Event namespacing provides a way to manage specific event handlers. For example, a plugin could namespace its event handlers to make them easier to unbind while still using anonymous functions. To namespace an event, just suffix the event type with a period and a name</p>
+
+<h3>Name 4 different values you can pass to the jQuery method.</h3>
+
+<ul>
+<li>Selector (string)</li>
+<li>HTML (string)</li>
+<li>Callback (function)</li>
+<li>HTMLElement</li>
+<li>object</li>
+<li>array</li>
+<li>element array</li>
+<li>jQuery Object etc.</li>
+</ul>
+
+
+<h3>What is the effects (or fx) queue?</h3>
+
+<p>Show or manipulate the queue of functions to be executed on the matched elements.</p>
+
+<h3>What is the difference between .get(), [], and .eq()?</h3>
+
+<ul>
+<li>.get() return a raw DOM element</li>
+<li>[] equal .get()
+
+<ul>
+<li>.get(index):index could be a negative number</li>
+<li>[index]:index >=0</li>
+</ul>
+</li>
+<li>.eq() return a jquery element</li>
+</ul>
+
+
+<h3>What is the difference between .bind(), .live(), and .delegate()?</h3>
+
+<ul>
+<li>Using the .bind() method is very costly as it attaches the same event handler to every item matched in your selector.</li>
+<li>You should stop using the .live() method as it is deprecated and has a lot of problems with it.</li>
+<li>The .delegate() method gives a lot of "bang for your buck" when dealing with performance and reacting to dynamically added elements.</li>
+<li>That the new .on() method is mostly syntax sugar that can mimic .bind(), .live(), or .delegate() depending on how you call it.</li>
+<li>The new direction is to use the new .on method. Get familiar with the syntax and start using it on all your jQuery 1.7+ projects.</li>
+</ul>
+
+
+<h3>What is the difference between $ and $.fn? Or just what is $.fn.</h3>
+
+<pre><code class="javascript">$ = function(){}
+$.fn = $.prototype = {};
+</code></pre>
+
+<h3>Optimize this selector: javascript $(".foo div#bar:eq(0)")</h3>
+
+<p><code>$("#bar")</code></p>
+
+<p>refs:<br/>
+<a href="http://api.jquery.com/category/deferred-object/">deferred-object</a><br/>
+<a href="http://www.elijahmanor.com/differences-between-jquery-bind-vs-live-vs-delegate-vs-on/">differences-between-jquery-bind-vs-live-vs-delegate-vs-on</a><br/>
+<a href="http://api.jquery.com/queue/">queue</a></p>
+
+    </article>
+  
+    <article class="post fn-clear">
+        <h2 class="post-title"><a href="/2013/11/20/javascript-questions" title="JS Questions:Front-end Developer Interview Questions" rel="bookmark">JS Questions:Front-end Developer Interview Questions</a></h2>
+        <p class="time"><time pubdate="2013-11-20 00:00:00 +0800">20 Nov 2013</time></p>
+        <h3>Explain event delegation</h3>
+
+<p>Event delegation allows us to attach a single event listener, to a parent element, that will fire for all children matching a selector, whether those children exist now or are added in the future.the underlying cause is browser's <em>event bubbling</em> ;</p>
+
+<h3>Explain how <code>this</code> works in JavaScript</h3>
+
+<p>The <code>this</code> object is bound at runtime based on the context in which a function is executed:</p>
+
+<ul>
+<li>when used inside global functions,this is equal to <em>window</em> in nostrict mode and <em>undefined</em> in strict mode.</li>
+<li>whereas <code>this</code> is equal to the object when called as an object method.</li>
+<li>as a constructor</li>
+<li>call and apply</li>
+<li>bound functions</li>
+<li>as dom event handler</li>
+</ul>
+
+
+<h3>Explain how prototypal inheritance works</h3>
+
+<p>Whenever a function is created, its prototype property is also created according to a specific set of rules.  <br/>
+When it comes to inheritance, JavaScript only has one construct: objects. Each object has an internal link to another object called its prototype. That prototype object has a <em>prototype</em> of its own, and so on until an object is reached with null as its prototype. null, by definition, has no prototype, and acts as the final link in this <em>prototype chain</em>.</p>
+
+<h3>How do you go about testing your JavaScript?</h3>
+
+<p>Grunt/Karma + Jasmine/QUnit</p>
+
+<h3>AMD vs. CommonJS?</h3>
+
+<h3>What's a hashtable?</h3>
+
+<p>Hashtable is a data structure that associates keys with values;</p>
+
+<h3>Explain why the following doesn't work as an <a href="http://benalman.com/news/2010/11/immediately-invoked-function-expression/">IIFE</a>: <code>function foo(){ }();</code>.</h3>
+
+<p>What needs to be changed to properly make it an IIFE?</p>
+
+<p>The most widely accepted way to tell the parser to expect a function expression is just to wrap in in parens, because in JavaScript, parens can’t contain statements. At this point, when the parser encounters the function keyword, it knows to parse it as a function expression and not a function declaration.</p>
+
+<h3>What's the difference between a variable that is: <code>null</code>, <code>undefined</code> or <code>undeclared</code>?</h3>
+
+<p>How would you go about checking for any of these states?</p>
+
+<p>the <code>undefined</code> variable is a declared but has a value of undefined. To use a undeclared variable will cause an error.</p>
+
+<h3>What is a closure, and how/why would you use one?</h3>
+
+<p>Closures are functions that have access to variables from anthor function's scope. <br/>
+This is often accomplished by creating a function inside a function.</p>
+
+<h3>What's a typical use case for anonymous functions?</h3>
+
+<ul>
+<li>event handler</li>
+<li><a href="http://benalman.com/news/2010/11/immediately-invoked-function-expression/">IIFE</a></li>
+</ul>
+
+
+<h3>Explain the "JavaScript module pattern" and when you'd use it.</h3>
+
+<h4>Bonus points for mentioning clean namespacing.</h4>
+
+<h4>What if your modules are namespace-less?</h4>
+
+<p>The module pattern use a anonymous function that returns a object. <br/>
+Inside of the anonymous function, the private variables and functions are defined first.<br/>
+After that, an object literal is returned as the function value. That object literal contains only properties and methods that should be public.
+Since the object is defined inside the anonymous function, all of the public methods have access to the private variables and functions.</p>
+
+<h3>How do you organize your code? (module pattern, classical inheritance?)</h3>
+
+<p>I developing SPA with requirejs and MVC Framework recently. So I organize my code with AMD.</p>
+
+<h3>What's the difference between host objects and native objects?</h3>
+
+<ul>
+<li><p><strong>Native objects</strong> are those objects supplied by JavaScript. Examples of these are String, Number, Array, Image, Date, Math, etc.</p></li>
+<li><p><strong>Host objects</strong> are objects that are supplied to JavaScript by the browser environment. Examples of these are window, document, forms, etc.</p></li>
+</ul>
+
+
+<h3>Difference between:</h3>
+
+<pre><code class="javascript">function Person(){} 
+var person = Person() 
+var person = new Person()
+</code></pre>
+
+<p><a href="http://stackoverflow.com/questions/336859/var-functionname-function-vs-function-functionname">var-functionname-function-vs-function-functionname</a></p>
+
+<h3>What's the difference between <code>.call</code> and <code>.apply</code>?</h3>
+
+<p>These methods both call the function with a specific <code>this</code> value.
+* the <strong>apply()</strong> method accepts two arguments: the value of <code>this</code> and an array of arguments.
+* the <strong>call()</strong> method exhibits the same behavior as apply(),but arguments are passed to it differently.Using call() arguments must be enumerated specifically.</p>
+
+<h3>explain <code>Function.prototype.bind</code>?</h3>
+
+<p>ECMAScript 5 defines an addition method called 'bind()'.the 'bind()' method create a new function instance whose <em>this</em> value is bound to the value to that was passed into 'bind()'.</p>
+
+<h3>When do you optimize your code?</h3>
+
+<p>For release, we will compress and combine code.<br/>
+Whenever I have a time I will review my code and refactor it.</p>
+
+<h3>Can you explain how inheritance works in JavaScript?</h3>
+
+<h3>When would you use <code>document.write()</code>?</h3>
+
+<h4>Most generated ads still utilize <code>document.write()</code> although its use is frowned upon</h4>
+
+<p>Use less as far as possible</p>
+
+<h3>What's the difference between feature detection, feature inference, and using the UA string</h3>
+
+<ul>
+<li>Feature Detection is to identify the browser's capabilities.</li>
+<li>Feature Inference is guess whether browser has certain feature through others feature or UA string.
+
+<ul>
+<li>One inappropriate use of feature detection is called feature inference. Feature inference attempts to use multiple features after validating the presence of only one. The presence of one feature is inferred by the presence of another. The problem is, of course, that inference is an assumption rather than a fact, and that can lead to maintenance issues.</li>
+</ul>
+</li>
+<li>UA String is User-Agent Detection.</li>
+</ul>
+
+
+<h3>Explain AJAX in as much detail as possible</h3>
+
+<p>AJAX is short for Asynchronous Javascript + XML. The technique consisted of making server requests for additional data without unloading the page,resulting in a better user experience.</p>
+
+<h3>Explain how JSONP works (and how it's not really AJAX)</h3>
+
+<h3>Have you ever used JavaScript templating?</h3>
+
+<h4>If so, what libraries have you used? (Mustache.js, Handlebars etc.)</h4>
+
+<ul>
+<li>Handlebars</li>
+<li>_.tmpl</li>
+<li>$.tmpl</li>
+</ul>
+
+
+<h3>Explain "hoisting".</h3>
+
+<p>There is a preproccess or precompile in javascript runtime. and 'Hoisting' occur in the preproccess.</p>
+
+<p>Function declarations and variable declarations are always moved (“hoisted”) invisibly to the top of their containing scope by the JavaScript interpreter. This means that code like this:</p>
+
+<div class="highlight"><pre><code class="javascript"><span class="kd">function</span> <span class="nx">foo</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">bar</span><span class="p">();</span>
+    <span class="kd">var</span> <span class="nx">x</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+
+<p>is actually interpreted like this:</p>
+
+<div class="highlight"><pre><code class="javascript"><span class="kd">function</span> <span class="nx">foo</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">x</span><span class="p">;</span>
+    <span class="nx">bar</span><span class="p">();</span>
+    <span class="nx">x</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+
+<p><a href="http://www.adequatelygood.com/JavaScript-Scoping-and-Hoisting.html">JavaScript-Scoping-and-Hoisting</a></p>
+
+<h3>Describe event bubbling.</h3>
+
+<p><strong>Event Flow</strong> describles the order in which events are received on the page.An event has three phases to its life cycle: capture, target, and bubbling.<br/>
+<strong>Event Bubbling</strong> mean that an event start at the most specific element(the deepest possible point to the document tree) and then flow upward toward the least specific node(the document);</p>
+
+<h3>What's the difference between an "attribute" and a "property"?</h3>
+
+<p>Often an attribute is used to describe the mechanism or real-world thing.</p>
+
+<p>A property is used to describe the model.</p>
+
+<p>In HTML / Javascript the terms get confused because DOM Elements have attributes (per the HTML source) which are backed by properties when those elements are represented as Javascript objects.</p>
+
+<p>To further confuse things, changes to the properties can sometimes update the attributes.</p>
+
+<p>For example, changing the <code>element.href</code> property will update the href attribute on the element, and that'll be reflected in a call to <code>element.getAttribute('href')</code>.</p>
+
+<p>However if you subsequently read that property, it will have been normalised to an absolute URL, even though the attribute might be a relative URL!</p>
+
+<h3>Why is extending built in JavaScript objects not a good idea?</h3>
+
+<p>Depend on the way of extending.</p>
+
+<h3>Why is extending built ins a good idea?</h3>
+
+<p>Depend on the way of extending.</p>
+
+<h3>Difference between document load event and document ready event?</h3>
+
+<ul>
+<li>ready means DOM is ready.</li>
+<li>load means the page fully loaded. Includes inner frames, images etc.</li>
+</ul>
+
+
+<h3>What is the difference between <code>==</code> and <code>===</code>?</h3>
+
+<p>The <code>==</code> operator will compare for equality after doing any necessary type conversions. The <code>===</code> operator will not do the conversion, so if two values are not the same type <code>===</code> will simply return false. It's this case where <code>===</code> will be faster, and may return a different result than <code>==</code>. In all other cases performance will be the same.</p>
+
+<h3>Explain how you would get a query string parameter from the browser window's URL.</h3>
+
+<p>1.var queryString = location.search
+2.parse queryString
+    * queryString.split("=")
+    * regExp
+3.return specific parameter.</p>
+
+<h3>Explain the same-origin policy with regards to JavaScript.</h3>
+
+<h3>Describe inheritance patterns in JavaScript.</h3>
+
+<ul>
+<li>Make this work:
+<code>javascript
+[1,2,3,4,5].duplicate(); // [1,2,3,4,5,1,2,3,4,5]
+</code>
+
+<h3>Describe a strategy for memoization (avoiding calculation repetition) in JavaScript.</h3></li>
+</ul>
+
+
+<h3>Why is it called a Ternary expression, what does the word "Ternary" indicate?</h3>
+
+<h3>What is the arity of a function?</h3>
+
+<h3>What is <code>"use strict";</code>?</h3>
+
+<p>what are the advantages and disadvantages to using it?</p>
+
+    </article>
+  
+    <article class="post fn-clear">
+        <h2 class="post-title"><a href="/2013/11/20/html-questions" title="HTML Questions:Front-end Developer Interview Questions" rel="bookmark">HTML Questions:Front-end Developer Interview Questions</a></h2>
+        <p class="time"><time pubdate="2013-11-20 00:00:00 +0800">20 Nov 2013</time></p>
+        <h3>What's a doctype do?</h3>
+
+<p>Instruct the browser to render the page.</p>
+
+<h3>What's the difference between standards mode and quirks mode?</h3>
+
+<p>Obviously,the css box model.</p>
+
+<h3>What are the limitations when serving XHTML pages?</h3>
+
+<h4>Are there any problems with serving pages as application/xhtml+xml?</h4>
+
+<p>The XHTML page must be well formed.If you forgot to closed a element and the browser will not to closed it and cause error.</p>
+
+<p>For "application/xhtml+xml", some old browsers no supports.</p>
+
+<h3>How do you serve a page with content in multiple languages?</h3>
+
+<h4>What kind of things must you be wary of when design or developing for multilingual sites?</h4>
+
+<p>Use i18n framework.</p>
+
+<h3>What are data- attributes good for?</h3>
+
+<p>The W3C specification for data-attributes states that:</p>
+
+<blockquote><p>Custom data attributes are intended to store custom data private to the page or application, for which there are no more appropriate attributes or elements.</p></blockquote>
+
+<p>Custom data- attributes are a great way to simplify the storage of application data in your web pages.</p>
+
+<h3>Consider HTML5 as an open web platform. What are the building blocks of HTML5?</h3>
+
+<ul>
+<li>more semantic text markup</li>
+<li>new form elements</li>
+<li>vedio and audio</li>
+<li>new javascript API</li>
+<li>canvas and SVG</li>
+<li>new communication API</li>
+<li>geolocation API</li>
+<li>web worker API</li>
+<li>new data storage</li>
+</ul>
+
+
+<h3>Describe the difference between cookies, sessionStorage and localStorage.</h3>
+
+<p>Now there are such way to keep data on front-end side.</p>
+
+<ul>
+<li>HTML5 web storage
+
+<ul>
+<li>HTML5 local Storage</li>
+<li>HTML5 session storage</li>
+<li>HTML5 web database</li>
+</ul>
+</li>
+<li>Cookies</li>
+</ul>
+
+
+<p>localStorage - stores data with no expiration date
+sessionStorage - stores data for one session</p>
+
+<ul>
+<li>HTML5 web storage = generic umbrella term for the new client-side data storage options:
+
+<ul>
+<li>Web Storage is more secure and faster. The data is not included with every server request, but used ONLY when asked for. It is also possible to store large amounts of data, without affecting the website's performance.</li>
+<li>Local Storage = persistant and scoped to the domain(store data with no expiration date). At the moment two flavors are usually mentioned:
+
+<ul>
+<li>'default' = stores things in name/value pairs</li>
+<li>Web SQL (aka Web Database) = uses a SQL database</li>
+</ul>
+</li>
+<li>Session Storage = non persistent and scoped only to the current window(stores data for one session)</li>
+</ul>
+</li>
+<li>Cookies = the old school way of doing all of the above. Stores name/value pairs per domain.</li>
+</ul>
+
+
+    </article>
+  
+    <article class="post fn-clear">
+        <h2 class="post-title"><a href="/2013/11/20/general-questions" title="General Questions:Front-end Developer Interview Questions" rel="bookmark">General Questions:Front-end Developer Interview Questions</a></h2>
+        <p class="time"><time pubdate="2013-11-20 00:00:00 +0800">20 Nov 2013</time></p>
+        <h3>What did you learn yesterday/this week?</h3>
+
+<p>Learning Angular.</p>
+
+<h3>What excites or interests you about coding?</h3>
+
+<ul>
+<li>Cool</li>
+<li>Reduce the boring &amp; repeating works</li>
+<li>The learning process is happiness</li>
+</ul>
+
+
+<h3>What UI, Security, Performance, SEO, Maintainability or Technology considerations do you make while building a web application or site?</h3>
+
+<p>So big question...</p>
+
+<h3>Talk about your preferred development environment. (OS, Editor, Browsers, Tools etc.)</h3>
+
+<ul>
+<li>win/Unix(Mac OS)</li>
+<li>sublime text 2/3, visual studio,vi</li>
+<li>chrome/firefox/ie9</li>
+<li>browsers devTools,git,node</li>
+</ul>
+
+
+<h3>Can you describe your workflow when you create a web page?</h3>
+
+<ul>
+<li>study prototype</li>
+<li>set structures(html tag)</li>
+<li>render with style</li>
+<li>add interactive by scripts</li>
+</ul>
+
+
+<h3>Can you describe the difference between progressive enhancement and graceful degradation?</h3>
+
+<p>Bonus points for describing feature detection</p>
+
+<p><strong> Graceful degradation </strong></p>
+
+<p>Providing an alternative version of your functionality or making the user aware of shortcomings of a product as a safety measure to ensure that the product is usable.</p>
+
+<p><strong> Progressive enhancement</strong></p>
+
+<p>Starting with a baseline of usable functionality, then increasing the richness of the user experience step by step by testing for support for enhancements before applying them.</p>
+
+<p>I agree with progressive enhancement, and increaseing user experience with feature detection.For example,once i detectived that the browser support round-corner or shadow text,i will apply the futures to pages.</p>
+
+<h3>Explain what "Semantic HTML" means.</h3>
+
+<blockquote><p>Semantic HTML is the use of HTML markup to reinforce the semantics, or meaning, of the information in webpages rather than merely to define its presentation or look. Semantic HTML is processed by regular web browsers as well as by many other user agents. CSS is used to suggest its presentation to human users.</p>
+
+<p>As an example, recent HTML standards discourage use of the tag <code>&lt;i&gt;</code> (italic, a typeface)[1] in preference of more accurate tags such as <code>&lt;em&gt;</code> (emphasis); the CSS stylesheet should then specify whether emphasis is denoted by an italic font, a bold font, underlining, slower or louder audible speech etc. This is because italics are used for purposes other than emphasis, such as citing a source; for this, HTML 4 provides the tag <code>&lt;cite&gt;</code>.[2] Another use for italics is foreign phrases or loanwords; web designers may use built-in XHTML language attributes[3] or specify their own semantic markup by choosing appropriate names for the class attribute values of HTML elements (e.g. class="loanword"). Marking emphasis, citations and loanwords in different ways makes it easier for web agents such as search engines and other software to ascertain the significance of the text.</p></blockquote>
+
+<p>Semantic = Meaning.</p>
+
+<p>Semantic elements = Elements with meaning.</p>
+
+<h4>How to write 'Semantic HTML'?</h4>
+
+<ul>
+<li>write correct tags</li>
+<li>Semantics applies to IDs and Classnames as well as tags</li>
+<li>html first, then css</li>
+<li>always separate style from content</li>
+</ul>
+
+
+<h3>How would you optimize a websites assets/resources?</h3>
+
+<p>Looking for a number of solutions which can include:</p>
+
+<ul>
+<li>File concatenation</li>
+<li>File minification</li>
+<li>CDN Hosted</li>
+<li>Caching</li>
+<li>...</li>
+</ul>
+
+
+<h3>Why is it better to serve site assets from multiple domains?</h3>
+
+<p>How many resources will a browser download from a given domain at a time?</p>
+
+<p>Multiple domains could increase the number of parallel downloads that the browser can perform.</p>
+
+<p>about 4 to 6 connections per domain</p>
+
+<p>Not all browsers are restricted to just two parallel downloads per hostname. Opera 9+ and Safari 3+ do four downloads per hostname. Internet Explorer 8, Firefox 3, and Chrome 1+ do six downloads per hostname. Sharding across two domains is a good compromise that improves performance in all browsers.</p>
+
+<p><a href="http://yuiblog.com/blog/2007/04/11/performance-research-part-4/">The optimal number of domains to shard across is 2-4. After 4 domains, response time degrades.</a></p>
+
+<h3>Name 3 ways to decrease page load. (perceived or actual load time)</h3>
+
+<ul>
+<li>Reduce the number of requests</li>
+<li>Minimize HTTP Requests
+
+<ul>
+<li>optimize images</li>
+<li>minify css&amp;js file</li>
+<li>compress(gzip)</li>
+</ul>
+</li>
+<li>yahoo 14 rules</li>
+</ul>
+
+
+<h3>If you jumped on a project and they used tabs and you used spaces, what would you do?</h3>
+
+<ul>
+<li>Suggest the project utilize something like EditorConfig (http://editorconfig.org)</li>
+<li>Conform to the conventions (stay consistent)</li>
+<li>issue :retab! command (sublime text retab setting)</li>
+</ul>
+
+
+<h3>Write a simple slideshow page</h3>
+
+<p>Bonus points if it does not use JS.</p>
+
+<h3>What tools do you use to test your code's performance?</h3>
+
+<ul>
+<li>Profiler</li>
+<li>JSPerf</li>
+<li>Dromaeo</li>
+<li>chrome devTool(profiles panel)</li>
+</ul>
+
+
+<h3>If you could master one technology this year, what would it be?</h3>
+
+<p>Ruby On Rails. For a good job.</p>
+
+<h3>Explain the importance of standards and standards bodies.</h3>
+
+<h3>What is FOUC? How do you avoid FOUC?</h3>
+
+<p>FOUC meaning flash of unstyled content.</p>
+
+    </article>
+  
+</ul>
+
+
+    <nav id="pagination" class="fn-clear">
+        <ul class="pagination">
+            
+                
+                    <li class="current"><a href="javascript:void(0);">1</a></li>
+                
+            
+                
+                    <li><a href="/page2/">2</a></li>
+                
+            
+                
+                    <li><a href="/page3/">3</a></li>
+                
+            
+        </ul>
+    </nav>
+ 
+
+        <footer id="foot">
+            <p>Copyright © 2011-2013 <a href='http://flowerszhong.github.io/contact.html'>Mzhong</a> All rights reserved.</p>
+            <!-- <p>Design by <a href="http://www.pizn.net" target="_blank" title="the One theme author">PIZn</a></p> -->
+        </footer>
+    </section>
+</div>
+<div id="foot-line"></div>
+<script src="/assets/themes/mzhong/js/jquery.js" type="text/javascript"></script>
+<script src="/assets/themes/mzhong/js/jquery.scrollTo.js" type="text/javascript"></script>
+<script src="/assets/themes/mzhong/js/theOne.js" type="text/javascript"></script>
+
+
+</body>
+</html>
+

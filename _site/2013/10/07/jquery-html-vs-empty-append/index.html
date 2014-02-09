@@ -1,0 +1,256 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <!--
+    **
+    *
+    * Author:         flowerszhong
+    * Contact:        flowerszhong@gmail.com
+    * Theme Name:     theOne
+    * Version:        1.0
+    * Date:           2013.04.02
+    *
+    **
+    -->
+    <meta charset="utf-8" />
+    <title>$().html(value) vs $().empty().append(value) | Keep Coding</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="generator" content="Jekyll" />
+    <meta name="author" content="mzhong" />
+    <meta name="description" content="" />
+    <link rel="stylesheet" href="/assets/themes/mzhong/css/style.css" type="text/css" />
+
+    <link rel="alternate" type="application/atom+xml" title="Recent Entries" href="" />
+
+    <link rel="shortcut icon" href="http://flowerszhong.github.io/colors.ico" type="image/x-icon" />
+    <!--[if lt IE 9]>
+    <script src="/assets/themes/mzhong/js/html5.js" type="text/javascript"></script>
+    <![endif]-->
+</head>
+<body id="mzhong-theme">
+<div id="head-line"></div>
+<div id="content">
+    <header id="head">
+        <div id="logo">
+            <h1>mzhong</h1>
+            <h2>matthew.zhong's site</h2>
+        </div>
+        <nav id="nav">
+            <ul>
+                <li><a href="/" rel="nofollow" class="action"><i class="icon-home"></i> Home</a></li>
+                <li><a href="/contact.html"><i class="icon-envelope-alt"></i> Contact</a></li>
+                <li><a href="/archive.html"><i class="icon-list-ul"></i> Archives</a></li>
+                <li><a href="/categories.html"><i class="icon-list-ul"></i> Categories</a></li>
+                <li><a href="/tags.html"><i class="icon-tags"></i> Tag</a></li>
+                <li><a href="/rss.xml"><i class="icon-rss"></i> RSS</a></li>
+                <!-- <li><a href="/pages.html"><i class="icon-file"></i> Pages</a></li> -->
+            </ul>
+        </nav>
+    </header>
+    <section id="contain">
+        <!--<header id="begin">
+            <span>2013-10-07 00:00:00 +0800</span>
+        </header>-->
+        
+<article class="post">
+	<h1 class="post-title">$().html(value) vs $().empty().append(value)</h1>
+	<p>当需要清空某个dom结点内容时，我所知道的有两种方法：<br/>
+1.<em>Element.removeChild(child)</em></p>
+
+<div class="highlight"><pre><code class="javascript">   
+<span class="c1">// Removing all children from an element  </span>
+<span class="kd">var</span> <span class="nx">element</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&quot;test&quot;</span><span class="p">);</span>  
+<span class="k">while</span> <span class="p">(</span><span class="nx">element</span><span class="p">.</span><span class="nx">firstChild</span><span class="p">)</span> <span class="p">{</span>  
+  <span class="nx">element</span><span class="p">.</span><span class="nx">removeChild</span><span class="p">(</span><span class="nx">element</span><span class="p">.</span><span class="nx">firstChild</span><span class="p">);</span>  
+<span class="p">}</span>     
+</code></pre></div>
+
+
+<p>2.<em>Element.innerHTML=""</em></p>
+
+<p>第一种方式虽然可读性较好，但显然不如第二种方法简洁。 <br/>
+理论上方式2会比方式1快很多，从代码上来分析也是如此，至少方式二不用做while循环，也不用判断属性。事实上也的确如此，但只限于子结点较少的情况下。<br/>
+在子结点个数多过的情况下，方式1是优于方式2的。性能测试之<a href="http://jsperf.com/killing-lots-of-kids">killing a lots of kids</a>　　　</p>
+
+<p>jquery提供了两个类似的接口与之相对应:<br/>
+<em>1.$().empty()</em> <br/>
+<em>2.$().html('')</em></p>
+
+<p>所以，替换dom内容也同样有两种方式:<br/>
+<em>1.$().empty().append(HTMLString|HTMLElement|jQueryElement)</em>  <br/>
+<em>2.$().html(HTMLString)</em></p>
+
+<p>jQuery 1.9.1 empty方法实现如下，与方式1相似</p>
+
+<div class="highlight"><pre><code class="javascript">      
+<span class="nx">empty</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">elem</span><span class="p">,</span>
+        <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+    <span class="k">for</span> <span class="p">(</span> <span class="p">;</span> <span class="p">(</span><span class="nx">elem</span> <span class="o">=</span> <span class="k">this</span><span class="p">[</span><span class="nx">i</span><span class="p">])</span> <span class="o">!=</span> <span class="kc">null</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span> <span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// Remove element nodes and prevent memory leaks</span>
+        <span class="k">if</span> <span class="p">(</span> <span class="nx">elem</span><span class="p">.</span><span class="nx">nodeType</span> <span class="o">===</span> <span class="mi">1</span> <span class="p">)</span> <span class="p">{</span>
+            <span class="nx">jQuery</span><span class="p">.</span><span class="nx">cleanData</span><span class="p">(</span> <span class="nx">getAll</span><span class="p">(</span> <span class="nx">elem</span><span class="p">,</span> <span class="kc">false</span> <span class="p">)</span> <span class="p">);</span>
+        <span class="p">}</span>
+
+        <span class="c1">// Remove any remaining nodes</span>
+        <span class="k">while</span> <span class="p">(</span> <span class="nx">elem</span><span class="p">.</span><span class="nx">firstChild</span> <span class="p">)</span> <span class="p">{</span>
+            <span class="nx">elem</span><span class="p">.</span><span class="nx">removeChild</span><span class="p">(</span> <span class="nx">elem</span><span class="p">.</span><span class="nx">firstChild</span> <span class="p">);</span>
+        <span class="p">}</span>
+
+        <span class="c1">// If this is a select, ensure that it displays empty (#12336)</span>
+        <span class="c1">// Support: IE&lt;9</span>
+        <span class="k">if</span> <span class="p">(</span> <span class="nx">elem</span><span class="p">.</span><span class="nx">options</span> <span class="o">&amp;&amp;</span> <span class="nx">jQuery</span><span class="p">.</span><span class="nx">nodeName</span><span class="p">(</span> <span class="nx">elem</span><span class="p">,</span> <span class="s2">&quot;select&quot;</span> <span class="p">)</span> <span class="p">)</span> <span class="p">{</span>
+            <span class="nx">elem</span><span class="p">.</span><span class="nx">options</span><span class="p">.</span><span class="nx">length</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="k">this</span><span class="p">;</span>
+<span class="p">}</span>  
+</code></pre></div>
+
+
+<p>jQuery 1.9.1 html方法的实现:</p>
+
+<div class="highlight"><pre><code class="javascript">    
+<span class="nx">html</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span> <span class="nx">value</span> <span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="nx">jQuery</span><span class="p">.</span><span class="nx">access</span><span class="p">(</span> <span class="k">this</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span> <span class="nx">value</span> <span class="p">)</span> <span class="p">{</span>
+            <span class="kd">var</span> <span class="nx">elem</span> <span class="o">=</span> <span class="k">this</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">||</span> <span class="p">{},</span>
+                <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+                <span class="nx">l</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span>
+
+            <span class="k">if</span> <span class="p">(</span> <span class="nx">value</span> <span class="o">===</span> <span class="kc">undefined</span> <span class="p">)</span> <span class="p">{</span>
+                <span class="k">return</span> <span class="nx">elem</span><span class="p">.</span><span class="nx">nodeType</span> <span class="o">===</span> <span class="mi">1</span> <span class="o">?</span>
+                    <span class="nx">elem</span><span class="p">.</span><span class="nx">innerHTML</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span> <span class="nx">rinlinejQuery</span><span class="p">,</span> <span class="s2">&quot;&quot;</span> <span class="p">)</span> <span class="o">:</span>
+                    <span class="kc">undefined</span><span class="p">;</span>
+            <span class="p">}</span>
+
+            <span class="c1">// See if we can take a shortcut and just use innerHTML</span>
+            <span class="k">if</span> <span class="p">(</span> <span class="k">typeof</span> <span class="nx">value</span> <span class="o">===</span> <span class="s2">&quot;string&quot;</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="nx">rnoInnerhtml</span><span class="p">.</span><span class="nx">test</span><span class="p">(</span> <span class="nx">value</span> <span class="p">)</span> <span class="o">&amp;&amp;</span>
+                <span class="p">(</span> <span class="nx">jQuery</span><span class="p">.</span><span class="nx">support</span><span class="p">.</span><span class="nx">htmlSerialize</span> <span class="o">||</span> <span class="o">!</span><span class="nx">rnoshimcache</span><span class="p">.</span><span class="nx">test</span><span class="p">(</span> <span class="nx">value</span> <span class="p">)</span>  <span class="p">)</span> <span class="o">&amp;&amp;</span>
+                <span class="p">(</span> <span class="nx">jQuery</span><span class="p">.</span><span class="nx">support</span><span class="p">.</span><span class="nx">leadingWhitespace</span> <span class="o">||</span> <span class="o">!</span><span class="nx">rleadingWhitespace</span><span class="p">.</span><span class="nx">test</span><span class="p">(</span> <span class="nx">value</span> <span class="p">)</span> <span class="p">)</span> <span class="o">&amp;&amp;</span>
+                <span class="o">!</span><span class="nx">wrapMap</span><span class="p">[</span> <span class="p">(</span> <span class="nx">rtagName</span><span class="p">.</span><span class="nx">exec</span><span class="p">(</span> <span class="nx">value</span> <span class="p">)</span> <span class="o">||</span> <span class="p">[</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">]</span> <span class="p">)[</span><span class="mi">1</span><span class="p">].</span><span class="nx">toLowerCase</span><span class="p">()</span> <span class="p">]</span> <span class="p">)</span> <span class="p">{</span>
+
+                <span class="nx">value</span> <span class="o">=</span> <span class="nx">value</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span> <span class="nx">rxhtmlTag</span><span class="p">,</span> <span class="s2">&quot;&lt;$1&gt;&lt;/$2&gt;&quot;</span> <span class="p">);</span>
+
+                <span class="k">try</span> <span class="p">{</span>
+                    <span class="k">for</span> <span class="p">(;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">l</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span> <span class="p">)</span> <span class="p">{</span>
+                        <span class="c1">// Remove element nodes and prevent memory leaks</span>
+                        <span class="nx">elem</span> <span class="o">=</span> <span class="k">this</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">||</span> <span class="p">{};</span>
+                        <span class="k">if</span> <span class="p">(</span> <span class="nx">elem</span><span class="p">.</span><span class="nx">nodeType</span> <span class="o">===</span> <span class="mi">1</span> <span class="p">)</span> <span class="p">{</span>
+                            <span class="nx">jQuery</span><span class="p">.</span><span class="nx">cleanData</span><span class="p">(</span> <span class="nx">getAll</span><span class="p">(</span> <span class="nx">elem</span><span class="p">,</span> <span class="kc">false</span> <span class="p">)</span> <span class="p">);</span>
+                            <span class="nx">elem</span><span class="p">.</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="nx">value</span><span class="p">;</span>
+                        <span class="p">}</span>
+                    <span class="p">}</span>
+
+                    <span class="nx">elem</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+                <span class="c1">// If using innerHTML throws an exception, use the fallback method</span>
+                <span class="p">}</span> <span class="k">catch</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{}</span>
+            <span class="p">}</span>
+
+            <span class="k">if</span> <span class="p">(</span> <span class="nx">elem</span> <span class="p">)</span> <span class="p">{</span>
+                <span class="k">this</span><span class="p">.</span><span class="nx">empty</span><span class="p">().</span><span class="nx">append</span><span class="p">(</span> <span class="nx">value</span> <span class="p">);</span>
+            <span class="p">}</span>
+        <span class="p">},</span> <span class="kc">null</span><span class="p">,</span> <span class="nx">value</span><span class="p">,</span> <span class="nx">arguments</span><span class="p">.</span><span class="nx">length</span> <span class="p">);</span>
+    <span class="p">},</span>
+</code></pre></div>
+
+
+<p>可以看到，当传入的参数不为html字符串时，会执行这样的语句:</p>
+
+<div class="highlight"><pre><code class="javascript">  
+<span class="k">if</span> <span class="p">(</span> <span class="nx">elem</span> <span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">empty</span><span class="p">().</span><span class="nx">append</span><span class="p">(</span> <span class="nx">value</span> <span class="p">);</span>
+<span class="p">}</span>  
+</code></pre></div>
+
+
+<p>不言而喻，当传入的参数不为html字符串或html字符串较长时，$().empty().append(value)的性能会优于$().html(value),性能测试之<a href="http://jsperf.com/jquery-html-vs-empty-append-test/6">jquery html vs empty append</a>;<br/>
+同时，基于代码可读性也建议优先使用<em>$().empty().append(value)</em></p>
+
+<p>refs : <br/>
+<a href="http://jsperf.com/jquery-html-vs-empty-append-test/6">jquery-html-vs-empty-append</a> <br/>
+<a href="http://jsperf.com/killing-lots-of-kids">kill-lots-kids</a> <br/>
+<a href="http://stackoverflow.com/questions/9461301/deleting-child-nodes-of-a-div-node%E3%80%80%E3%80%80">deleting-child-nodes-of-a-div-node</a> <br/>
+<a href="https://developer.mozilla.org/en-US/docs/Web/API/Element.innerHTML">Element.innerHTML</a></p>
+
+	<div class="meta">
+		<p class="date-publish">
+			Published:
+			<date class="date-pub" title="2013-10-07T00:00:00+08:00" datetime="2013-10-07T00:00:00+08:00" pubdate>
+				<span class="month"> <abbr>October</abbr>
+				</span>
+				<span class="day">07</span>
+				<span class="year">2013</span>
+			</date>
+		</p>
+		<ul class="list-category list-linear">
+			<li class="list-head">category:</li>
+			
+							
+
+
+  
+    
+  
+
+
+		</ul>
+		<ul class="list-tag list-linear">
+			<li class="list-head">tags:</li>
+			
+							
+
+
+  
+    
+  
+
+
+
+		</ul>
+	</div>
+	<!-- meta -->
+	<nav class="pagination-link">
+		
+		<a class="prev" href="/book/2013/09/28/free-programming-books" rel="bookmark">&laquo;&nbsp;免费编程书</a>
+		
+        
+		<a class="next" href="/2013/11/12/smart-tip" rel="bookmark">Smart Tip&nbsp;&raquo;</a>
+		
+	</nav>
+	<div id="disqus_thread"></div>
+	<div id="mz-duoshou-comment-wrap">
+		<!-- Duoshuo Comment BEGIN -->
+		<div class="ds-thread"></div>
+		<script type="text/javascript">
+         var duoshuoQuery = {short_name:"flowerszhong"};
+            (function() {
+                var ds = document.createElement('script');
+                ds.type = 'text/javascript';ds.async = true;
+                ds.src = 'http://static.duoshuo.com/embed.js';
+                ds.charset = 'UTF-8';
+                (document.getElementsByTagName('head')[0] 
+                || document.getElementsByTagName('body')[0]).appendChild(ds);
+            })();
+            </script>
+        <!-- Duoshuo Comment END --> </div>
+</article>
+
+        <footer id="foot">
+            <p>Copyright © 2011-2013 <a href='http://flowerszhong.github.io/contact.html'>Mzhong</a> All rights reserved.</p>
+            <!-- <p>Design by <a href="http://www.pizn.net" target="_blank" title="the One theme author">PIZn</a></p> -->
+        </footer>
+    </section>
+</div>
+<div id="foot-line"></div>
+<script src="/assets/themes/mzhong/js/jquery.js" type="text/javascript"></script>
+<script src="/assets/themes/mzhong/js/jquery.scrollTo.js" type="text/javascript"></script>
+<script src="/assets/themes/mzhong/js/theOne.js" type="text/javascript"></script>
+
+
+</body>
+</html>
+

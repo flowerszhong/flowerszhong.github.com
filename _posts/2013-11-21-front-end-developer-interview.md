@@ -4,6 +4,7 @@ title: Front-end Developer Interview Questions
 description: Front-end Developer Interview Questions
 keyword: Front-end Developer Interview Questions
 ---
+{% include JB/setup %}
 
 [Front-end-Developer-Interview-Questions][Front-end-Developer-Interview-Questions]  
 >A list of helpful front-end related questions you can use to interview potential candidates, test yourself or completely ignore.

@@ -1,8 +1,10 @@
 ---
 layout: post
 title: 免费编程书
-description: mzhong
+description: Free Programming Books
+category : Book
 keyword: Free Programming Books
+tag: [book]
 ---
 
 ###Index

@@ -4,6 +4,7 @@ title: jQuery Questions:Front-end Developer Interview Questions
 description: jQuery Questions:Front-end Developer Interview Questions
 keyword: jQuery Questions:Front-end Developer Interview Questions
 ---
+{% include JB/setup %}
 
 ### Explain "chaining".
 Chaining allows us to run multiple jQuery methods (on the same element) within a single statement.like this:

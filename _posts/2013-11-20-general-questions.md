@@ -4,6 +4,7 @@ title: General Questions:Front-end Developer Interview Questions
 description: General Questions:Front-end Developer Interview Questions
 keyword: General Questions:Front-end Developer Interview Questions
 ---
+{% include JB/setup %}
 
 ### What did you learn yesterday/this week?  
 Learning Angular.

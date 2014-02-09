@@ -4,6 +4,7 @@ title: MZhong's Cover Letter
 description: MZhong's Cover Leter
 keyword: cover-letter front-end developer
 ---
+{% include JB/setup %}
 
 ###Application for front-end developer position in Chicago Office        
 ####Dear HR,  

@@ -1,0 +1,373 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <!--
+    **
+    *
+    * Author:         flowerszhong
+    * Contact:        flowerszhong@gmail.com
+    * Theme Name:     theOne
+    * Version:        1.0
+    * Date:           2013.04.02
+    *
+    **
+    -->
+    <meta charset="utf-8" />
+    <title>JS Questions:Front-end Developer Interview Questions | Keep Coding</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="generator" content="Jekyll" />
+    <meta name="author" content="mzhong" />
+    <meta name="description" content="" />
+    <link rel="stylesheet" href="/assets/themes/mzhong/css/style.css" type="text/css" />
+
+    <link rel="alternate" type="application/atom+xml" title="Recent Entries" href="" />
+
+    <link rel="shortcut icon" href="http://flowerszhong.github.io/colors.ico" type="image/x-icon" />
+    <!--[if lt IE 9]>
+    <script src="/assets/themes/mzhong/js/html5.js" type="text/javascript"></script>
+    <![endif]-->
+</head>
+<body id="mzhong-theme">
+<div id="head-line"></div>
+<div id="content">
+    <header id="head">
+        <div id="logo">
+            <h1>mzhong</h1>
+            <h2>matthew.zhong's site</h2>
+        </div>
+        <nav id="nav">
+            <ul>
+                <li><a href="/" rel="nofollow" class="action"><i class="icon-home"></i> Home</a></li>
+                <li><a href="/contact.html"><i class="icon-envelope-alt"></i> Contact</a></li>
+                <li><a href="/archive.html"><i class="icon-list-ul"></i> Archives</a></li>
+                <li><a href="/categories.html"><i class="icon-list-ul"></i> Categories</a></li>
+                <li><a href="/tags.html"><i class="icon-tags"></i> Tag</a></li>
+                <li><a href="/rss.xml"><i class="icon-rss"></i> RSS</a></li>
+                <!-- <li><a href="/pages.html"><i class="icon-file"></i> Pages</a></li> -->
+            </ul>
+        </nav>
+    </header>
+    <section id="contain">
+        <!--<header id="begin">
+            <span>2013-11-20 00:00:00 +0800</span>
+        </header>-->
+        
+<article class="post">
+	<h1 class="post-title">JS Questions:Front-end Developer Interview Questions</h1>
+	<h3>Explain event delegation</h3>
+
+<p>Event delegation allows us to attach a single event listener, to a parent element, that will fire for all children matching a selector, whether those children exist now or are added in the future.the underlying cause is browser's <em>event bubbling</em> ;</p>
+
+<h3>Explain how <code>this</code> works in JavaScript</h3>
+
+<p>The <code>this</code> object is bound at runtime based on the context in which a function is executed:</p>
+
+<ul>
+<li>when used inside global functions,this is equal to <em>window</em> in nostrict mode and <em>undefined</em> in strict mode.</li>
+<li>whereas <code>this</code> is equal to the object when called as an object method.</li>
+<li>as a constructor</li>
+<li>call and apply</li>
+<li>bound functions</li>
+<li>as dom event handler</li>
+</ul>
+
+
+<h3>Explain how prototypal inheritance works</h3>
+
+<p>Whenever a function is created, its prototype property is also created according to a specific set of rules.  <br/>
+When it comes to inheritance, JavaScript only has one construct: objects. Each object has an internal link to another object called its prototype. That prototype object has a <em>prototype</em> of its own, and so on until an object is reached with null as its prototype. null, by definition, has no prototype, and acts as the final link in this <em>prototype chain</em>.</p>
+
+<h3>How do you go about testing your JavaScript?</h3>
+
+<p>Grunt/Karma + Jasmine/QUnit</p>
+
+<h3>AMD vs. CommonJS?</h3>
+
+<h3>What's a hashtable?</h3>
+
+<p>Hashtable is a data structure that associates keys with values;</p>
+
+<h3>Explain why the following doesn't work as an <a href="http://benalman.com/news/2010/11/immediately-invoked-function-expression/">IIFE</a>: <code>function foo(){ }();</code>.</h3>
+
+<p>What needs to be changed to properly make it an IIFE?</p>
+
+<p>The most widely accepted way to tell the parser to expect a function expression is just to wrap in in parens, because in JavaScript, parens can’t contain statements. At this point, when the parser encounters the function keyword, it knows to parse it as a function expression and not a function declaration.</p>
+
+<h3>What's the difference between a variable that is: <code>null</code>, <code>undefined</code> or <code>undeclared</code>?</h3>
+
+<p>How would you go about checking for any of these states?</p>
+
+<p>the <code>undefined</code> variable is a declared but has a value of undefined. To use a undeclared variable will cause an error.</p>
+
+<h3>What is a closure, and how/why would you use one?</h3>
+
+<p>Closures are functions that have access to variables from anthor function's scope. <br/>
+This is often accomplished by creating a function inside a function.</p>
+
+<h3>What's a typical use case for anonymous functions?</h3>
+
+<ul>
+<li>event handler</li>
+<li><a href="http://benalman.com/news/2010/11/immediately-invoked-function-expression/">IIFE</a></li>
+</ul>
+
+
+<h3>Explain the "JavaScript module pattern" and when you'd use it.</h3>
+
+<h4>Bonus points for mentioning clean namespacing.</h4>
+
+<h4>What if your modules are namespace-less?</h4>
+
+<p>The module pattern use a anonymous function that returns a object. <br/>
+Inside of the anonymous function, the private variables and functions are defined first.<br/>
+After that, an object literal is returned as the function value. That object literal contains only properties and methods that should be public.
+Since the object is defined inside the anonymous function, all of the public methods have access to the private variables and functions.</p>
+
+<h3>How do you organize your code? (module pattern, classical inheritance?)</h3>
+
+<p>I developing SPA with requirejs and MVC Framework recently. So I organize my code with AMD.</p>
+
+<h3>What's the difference between host objects and native objects?</h3>
+
+<ul>
+<li><p><strong>Native objects</strong> are those objects supplied by JavaScript. Examples of these are String, Number, Array, Image, Date, Math, etc.</p></li>
+<li><p><strong>Host objects</strong> are objects that are supplied to JavaScript by the browser environment. Examples of these are window, document, forms, etc.</p></li>
+</ul>
+
+
+<h3>Difference between:</h3>
+
+<pre><code class="javascript">function Person(){} 
+var person = Person() 
+var person = new Person()
+</code></pre>
+
+<p><a href="http://stackoverflow.com/questions/336859/var-functionname-function-vs-function-functionname">var-functionname-function-vs-function-functionname</a></p>
+
+<h3>What's the difference between <code>.call</code> and <code>.apply</code>?</h3>
+
+<p>These methods both call the function with a specific <code>this</code> value.
+* the <strong>apply()</strong> method accepts two arguments: the value of <code>this</code> and an array of arguments.
+* the <strong>call()</strong> method exhibits the same behavior as apply(),but arguments are passed to it differently.Using call() arguments must be enumerated specifically.</p>
+
+<h3>explain <code>Function.prototype.bind</code>?</h3>
+
+<p>ECMAScript 5 defines an addition method called 'bind()'.the 'bind()' method create a new function instance whose <em>this</em> value is bound to the value to that was passed into 'bind()'.</p>
+
+<h3>When do you optimize your code?</h3>
+
+<p>For release, we will compress and combine code.<br/>
+Whenever I have a time I will review my code and refactor it.</p>
+
+<h3>Can you explain how inheritance works in JavaScript?</h3>
+
+<h3>When would you use <code>document.write()</code>?</h3>
+
+<h4>Most generated ads still utilize <code>document.write()</code> although its use is frowned upon</h4>
+
+<p>Use less as far as possible</p>
+
+<h3>What's the difference between feature detection, feature inference, and using the UA string</h3>
+
+<ul>
+<li>Feature Detection is to identify the browser's capabilities.</li>
+<li>Feature Inference is guess whether browser has certain feature through others feature or UA string.
+
+<ul>
+<li>One inappropriate use of feature detection is called feature inference. Feature inference attempts to use multiple features after validating the presence of only one. The presence of one feature is inferred by the presence of another. The problem is, of course, that inference is an assumption rather than a fact, and that can lead to maintenance issues.</li>
+</ul>
+</li>
+<li>UA String is User-Agent Detection.</li>
+</ul>
+
+
+<h3>Explain AJAX in as much detail as possible</h3>
+
+<p>AJAX is short for Asynchronous Javascript + XML. The technique consisted of making server requests for additional data without unloading the page,resulting in a better user experience.</p>
+
+<h3>Explain how JSONP works (and how it's not really AJAX)</h3>
+
+<h3>Have you ever used JavaScript templating?</h3>
+
+<h4>If so, what libraries have you used? (Mustache.js, Handlebars etc.)</h4>
+
+<ul>
+<li>Handlebars</li>
+<li>_.tmpl</li>
+<li>$.tmpl</li>
+</ul>
+
+
+<h3>Explain "hoisting".</h3>
+
+<p>There is a preproccess or precompile in javascript runtime. and 'Hoisting' occur in the preproccess.</p>
+
+<p>Function declarations and variable declarations are always moved (“hoisted”) invisibly to the top of their containing scope by the JavaScript interpreter. This means that code like this:</p>
+
+<div class="highlight"><pre><code class="javascript"><span class="kd">function</span> <span class="nx">foo</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">bar</span><span class="p">();</span>
+    <span class="kd">var</span> <span class="nx">x</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+
+<p>is actually interpreted like this:</p>
+
+<div class="highlight"><pre><code class="javascript"><span class="kd">function</span> <span class="nx">foo</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">x</span><span class="p">;</span>
+    <span class="nx">bar</span><span class="p">();</span>
+    <span class="nx">x</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+
+<p><a href="http://www.adequatelygood.com/JavaScript-Scoping-and-Hoisting.html">JavaScript-Scoping-and-Hoisting</a></p>
+
+<h3>Describe event bubbling.</h3>
+
+<p><strong>Event Flow</strong> describles the order in which events are received on the page.An event has three phases to its life cycle: capture, target, and bubbling.<br/>
+<strong>Event Bubbling</strong> mean that an event start at the most specific element(the deepest possible point to the document tree) and then flow upward toward the least specific node(the document);</p>
+
+<h3>What's the difference between an "attribute" and a "property"?</h3>
+
+<p>Often an attribute is used to describe the mechanism or real-world thing.</p>
+
+<p>A property is used to describe the model.</p>
+
+<p>In HTML / Javascript the terms get confused because DOM Elements have attributes (per the HTML source) which are backed by properties when those elements are represented as Javascript objects.</p>
+
+<p>To further confuse things, changes to the properties can sometimes update the attributes.</p>
+
+<p>For example, changing the <code>element.href</code> property will update the href attribute on the element, and that'll be reflected in a call to <code>element.getAttribute('href')</code>.</p>
+
+<p>However if you subsequently read that property, it will have been normalised to an absolute URL, even though the attribute might be a relative URL!</p>
+
+<h3>Why is extending built in JavaScript objects not a good idea?</h3>
+
+<p>Depend on the way of extending.</p>
+
+<h3>Why is extending built ins a good idea?</h3>
+
+<p>Depend on the way of extending.</p>
+
+<h3>Difference between document load event and document ready event?</h3>
+
+<ul>
+<li>ready means DOM is ready.</li>
+<li>load means the page fully loaded. Includes inner frames, images etc.</li>
+</ul>
+
+
+<h3>What is the difference between <code>==</code> and <code>===</code>?</h3>
+
+<p>The <code>==</code> operator will compare for equality after doing any necessary type conversions. The <code>===</code> operator will not do the conversion, so if two values are not the same type <code>===</code> will simply return false. It's this case where <code>===</code> will be faster, and may return a different result than <code>==</code>. In all other cases performance will be the same.</p>
+
+<h3>Explain how you would get a query string parameter from the browser window's URL.</h3>
+
+<p>1.var queryString = location.search
+2.parse queryString
+    * queryString.split("=")
+    * regExp
+3.return specific parameter.</p>
+
+<h3>Explain the same-origin policy with regards to JavaScript.</h3>
+
+<h3>Describe inheritance patterns in JavaScript.</h3>
+
+<ul>
+<li>Make this work:
+<code>javascript
+[1,2,3,4,5].duplicate(); // [1,2,3,4,5,1,2,3,4,5]
+</code>
+
+<h3>Describe a strategy for memoization (avoiding calculation repetition) in JavaScript.</h3></li>
+</ul>
+
+
+<h3>Why is it called a Ternary expression, what does the word "Ternary" indicate?</h3>
+
+<h3>What is the arity of a function?</h3>
+
+<h3>What is <code>"use strict";</code>?</h3>
+
+<p>what are the advantages and disadvantages to using it?</p>
+
+	<div class="meta">
+		<p class="date-publish">
+			Published:
+			<date class="date-pub" title="2013-11-20T00:00:00+08:00" datetime="2013-11-20T00:00:00+08:00" pubdate>
+				<span class="month"> <abbr>November</abbr>
+				</span>
+				<span class="day">20</span>
+				<span class="year">2013</span>
+			</date>
+		</p>
+		<ul class="list-category list-linear">
+			<li class="list-head">category:</li>
+			
+							
+
+
+  
+    
+  
+
+
+		</ul>
+		<ul class="list-tag list-linear">
+			<li class="list-head">tags:</li>
+			
+							
+
+
+  
+    
+  
+
+
+
+		</ul>
+	</div>
+	<!-- meta -->
+	<nav class="pagination-link">
+		
+		<a class="prev" href="/2013/11/20/html-questions" rel="bookmark">&laquo;&nbsp;HTML Questions:Front-end Developer Interview Questions...</a>
+		
+        
+		<a class="next" href="/2013/11/20/jquery-questions" rel="bookmark">jQuery Questions:Front-end Developer Interview Questions...&nbsp;&raquo;</a>
+		
+	</nav>
+	<div id="disqus_thread"></div>
+	<div id="mz-duoshou-comment-wrap">
+		<!-- Duoshuo Comment BEGIN -->
+		<div class="ds-thread"></div>
+		<script type="text/javascript">
+         var duoshuoQuery = {short_name:"flowerszhong"};
+            (function() {
+                var ds = document.createElement('script');
+                ds.type = 'text/javascript';ds.async = true;
+                ds.src = 'http://static.duoshuo.com/embed.js';
+                ds.charset = 'UTF-8';
+                (document.getElementsByTagName('head')[0] 
+                || document.getElementsByTagName('body')[0]).appendChild(ds);
+            })();
+            </script>
+        <!-- Duoshuo Comment END --> </div>
+</article>
+
+        <footer id="foot">
+            <p>Copyright © 2011-2013 <a href='http://flowerszhong.github.io/contact.html'>Mzhong</a> All rights reserved.</p>
+            <!-- <p>Design by <a href="http://www.pizn.net" target="_blank" title="the One theme author">PIZn</a></p> -->
+        </footer>
+    </section>
+</div>
+<div id="foot-line"></div>
+<script src="/assets/themes/mzhong/js/jquery.js" type="text/javascript"></script>
+<script src="/assets/themes/mzhong/js/jquery.scrollTo.js" type="text/javascript"></script>
+<script src="/assets/themes/mzhong/js/theOne.js" type="text/javascript"></script>
+
+
+</body>
+</html>
+

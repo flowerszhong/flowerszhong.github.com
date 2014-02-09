@@ -4,6 +4,7 @@ title: JS Questions:Front-end Developer Interview Questions
 description: JS Questions:Front-end Developer Interview Questions
 keyword: JS Questions:Front-end Developer Interview Questions
 ---
+{% include JB/setup %}
 
 ### Explain event delegation 
 Event delegation allows us to attach a single event listener, to a parent element, that will fire for all children matching a selector, whether those children exist now or are added in the future.the underlying cause is browser's *event bubbling* ;
@@ -123,6 +124,26 @@ AJAX is short for Asynchronous Javascript + XML. The technique consisted of maki
 ### Explain "hoisting".
 There is a preproccess or precompile in javascript runtime. and 'Hoisting' occur in the preproccess.
 
+Function declarations and variable declarations are always moved (“hoisted”) invisibly to the top of their containing scope by the JavaScript interpreter. This means that code like this:
+
+{% highlight javascript %}
+function foo() {
+    bar();
+    var x = 1;
+}
+{% endhighlight %}
+
+is actually interpreted like this:
+{% highlight javascript %}
+function foo() {
+    var x;
+    bar();
+    x = 1;
+}
+{% endhighlight %}
+
+[JavaScript-Scoping-and-Hoisting][JavaScript-Scoping-and-Hoisting]
+
 ### Describe event bubbling.  
 **Event Flow** describles the order in which events are received on the page.An event has three phases to its life cycle: capture, target, and bubbling.  
 **Event Bubbling** mean that an event start at the most specific element(the deepest possible point to the document tree) and then flow upward toward the least specific node(the document);
@@ -196,5 +217,7 @@ what are the advantages and disadvantages to using it?
 [attribute-property]:http://omiga.org/blog/archives/2055
 [what-is-the-difference-between-attribute-and-property]:http://stackoverflow.com/questions/258469/what-is-the-difference-between-attribute-and-property
 [ways-to-circumvent-the-same-origin-policy]:http://stackoverflow.com/questions/3076414/ways-to-circumvent-the-same-origin-policy
+[JavaScript-Scoping-and-Hoisting]:http://www.adequatelygood.com/JavaScript-Scoping-and-Hoisting.html
+
 
 

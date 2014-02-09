@@ -1,0 +1,280 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <!--
+    **
+    *
+    * Author:         flowerszhong
+    * Contact:        flowerszhong@gmail.com
+    * Theme Name:     theOne
+    * Version:        1.0
+    * Date:           2013.04.02
+    *
+    **
+    -->
+    <meta charset="utf-8" />
+    <title>General Questions:Front-end Developer Interview Questions | Keep Coding</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="generator" content="Jekyll" />
+    <meta name="author" content="mzhong" />
+    <meta name="description" content="" />
+    <link rel="stylesheet" href="/assets/themes/mzhong/css/style.css" type="text/css" />
+
+    <link rel="alternate" type="application/atom+xml" title="Recent Entries" href="" />
+
+    <link rel="shortcut icon" href="http://flowerszhong.github.io/colors.ico" type="image/x-icon" />
+    <!--[if lt IE 9]>
+    <script src="/assets/themes/mzhong/js/html5.js" type="text/javascript"></script>
+    <![endif]-->
+</head>
+<body id="mzhong-theme">
+<div id="head-line"></div>
+<div id="content">
+    <header id="head">
+        <div id="logo">
+            <h1>mzhong</h1>
+            <h2>matthew.zhong's site</h2>
+        </div>
+        <nav id="nav">
+            <ul>
+                <li><a href="/" rel="nofollow" class="action"><i class="icon-home"></i> Home</a></li>
+                <li><a href="/contact.html"><i class="icon-envelope-alt"></i> Contact</a></li>
+                <li><a href="/archive.html"><i class="icon-list-ul"></i> Archives</a></li>
+                <li><a href="/categories.html"><i class="icon-list-ul"></i> Categories</a></li>
+                <li><a href="/tags.html"><i class="icon-tags"></i> Tag</a></li>
+                <li><a href="/rss.xml"><i class="icon-rss"></i> RSS</a></li>
+                <!-- <li><a href="/pages.html"><i class="icon-file"></i> Pages</a></li> -->
+            </ul>
+        </nav>
+    </header>
+    <section id="contain">
+        <!--<header id="begin">
+            <span>2013-11-20 00:00:00 +0800</span>
+        </header>-->
+        
+<article class="post">
+	<h1 class="post-title">General Questions:Front-end Developer Interview Questions</h1>
+	<h3>What did you learn yesterday/this week?</h3>
+
+<p>Learning Angular.</p>
+
+<h3>What excites or interests you about coding?</h3>
+
+<ul>
+<li>Cool</li>
+<li>Reduce the boring &amp; repeating works</li>
+<li>The learning process is happiness</li>
+</ul>
+
+
+<h3>What UI, Security, Performance, SEO, Maintainability or Technology considerations do you make while building a web application or site?</h3>
+
+<p>So big question...</p>
+
+<h3>Talk about your preferred development environment. (OS, Editor, Browsers, Tools etc.)</h3>
+
+<ul>
+<li>win/Unix(Mac OS)</li>
+<li>sublime text 2/3, visual studio,vi</li>
+<li>chrome/firefox/ie9</li>
+<li>browsers devTools,git,node</li>
+</ul>
+
+
+<h3>Can you describe your workflow when you create a web page?</h3>
+
+<ul>
+<li>study prototype</li>
+<li>set structures(html tag)</li>
+<li>render with style</li>
+<li>add interactive by scripts</li>
+</ul>
+
+
+<h3>Can you describe the difference between progressive enhancement and graceful degradation?</h3>
+
+<p>Bonus points for describing feature detection</p>
+
+<p><strong> Graceful degradation </strong></p>
+
+<p>Providing an alternative version of your functionality or making the user aware of shortcomings of a product as a safety measure to ensure that the product is usable.</p>
+
+<p><strong> Progressive enhancement</strong></p>
+
+<p>Starting with a baseline of usable functionality, then increasing the richness of the user experience step by step by testing for support for enhancements before applying them.</p>
+
+<p>I agree with progressive enhancement, and increaseing user experience with feature detection.For example,once i detectived that the browser support round-corner or shadow text,i will apply the futures to pages.</p>
+
+<h3>Explain what "Semantic HTML" means.</h3>
+
+<blockquote><p>Semantic HTML is the use of HTML markup to reinforce the semantics, or meaning, of the information in webpages rather than merely to define its presentation or look. Semantic HTML is processed by regular web browsers as well as by many other user agents. CSS is used to suggest its presentation to human users.</p>
+
+<p>As an example, recent HTML standards discourage use of the tag <code>&lt;i&gt;</code> (italic, a typeface)[1] in preference of more accurate tags such as <code>&lt;em&gt;</code> (emphasis); the CSS stylesheet should then specify whether emphasis is denoted by an italic font, a bold font, underlining, slower or louder audible speech etc. This is because italics are used for purposes other than emphasis, such as citing a source; for this, HTML 4 provides the tag <code>&lt;cite&gt;</code>.[2] Another use for italics is foreign phrases or loanwords; web designers may use built-in XHTML language attributes[3] or specify their own semantic markup by choosing appropriate names for the class attribute values of HTML elements (e.g. class="loanword"). Marking emphasis, citations and loanwords in different ways makes it easier for web agents such as search engines and other software to ascertain the significance of the text.</p></blockquote>
+
+<p>Semantic = Meaning.</p>
+
+<p>Semantic elements = Elements with meaning.</p>
+
+<h4>How to write 'Semantic HTML'?</h4>
+
+<ul>
+<li>write correct tags</li>
+<li>Semantics applies to IDs and Classnames as well as tags</li>
+<li>html first, then css</li>
+<li>always separate style from content</li>
+</ul>
+
+
+<h3>How would you optimize a websites assets/resources?</h3>
+
+<p>Looking for a number of solutions which can include:</p>
+
+<ul>
+<li>File concatenation</li>
+<li>File minification</li>
+<li>CDN Hosted</li>
+<li>Caching</li>
+<li>...</li>
+</ul>
+
+
+<h3>Why is it better to serve site assets from multiple domains?</h3>
+
+<p>How many resources will a browser download from a given domain at a time?</p>
+
+<p>Multiple domains could increase the number of parallel downloads that the browser can perform.</p>
+
+<p>about 4 to 6 connections per domain</p>
+
+<p>Not all browsers are restricted to just two parallel downloads per hostname. Opera 9+ and Safari 3+ do four downloads per hostname. Internet Explorer 8, Firefox 3, and Chrome 1+ do six downloads per hostname. Sharding across two domains is a good compromise that improves performance in all browsers.</p>
+
+<p><a href="http://yuiblog.com/blog/2007/04/11/performance-research-part-4/">The optimal number of domains to shard across is 2-4. After 4 domains, response time degrades.</a></p>
+
+<h3>Name 3 ways to decrease page load. (perceived or actual load time)</h3>
+
+<ul>
+<li>Reduce the number of requests</li>
+<li>Minimize HTTP Requests
+
+<ul>
+<li>optimize images</li>
+<li>minify css&amp;js file</li>
+<li>compress(gzip)</li>
+</ul>
+</li>
+<li>yahoo 14 rules</li>
+</ul>
+
+
+<h3>If you jumped on a project and they used tabs and you used spaces, what would you do?</h3>
+
+<ul>
+<li>Suggest the project utilize something like EditorConfig (http://editorconfig.org)</li>
+<li>Conform to the conventions (stay consistent)</li>
+<li>issue :retab! command (sublime text retab setting)</li>
+</ul>
+
+
+<h3>Write a simple slideshow page</h3>
+
+<p>Bonus points if it does not use JS.</p>
+
+<h3>What tools do you use to test your code's performance?</h3>
+
+<ul>
+<li>Profiler</li>
+<li>JSPerf</li>
+<li>Dromaeo</li>
+<li>chrome devTool(profiles panel)</li>
+</ul>
+
+
+<h3>If you could master one technology this year, what would it be?</h3>
+
+<p>Ruby On Rails. For a good job.</p>
+
+<h3>Explain the importance of standards and standards bodies.</h3>
+
+<h3>What is FOUC? How do you avoid FOUC?</h3>
+
+<p>FOUC meaning flash of unstyled content.</p>
+
+	<div class="meta">
+		<p class="date-publish">
+			Published:
+			<date class="date-pub" title="2013-11-20T00:00:00+08:00" datetime="2013-11-20T00:00:00+08:00" pubdate>
+				<span class="month"> <abbr>November</abbr>
+				</span>
+				<span class="day">20</span>
+				<span class="year">2013</span>
+			</date>
+		</p>
+		<ul class="list-category list-linear">
+			<li class="list-head">category:</li>
+			
+							
+
+
+  
+    
+  
+
+
+		</ul>
+		<ul class="list-tag list-linear">
+			<li class="list-head">tags:</li>
+			
+							
+
+
+  
+    
+  
+
+
+
+		</ul>
+	</div>
+	<!-- meta -->
+	<nav class="pagination-link">
+		
+		<a class="prev" href="/2013/11/19/css-questions" rel="bookmark">&laquo;&nbsp;CSS Questions:Front-end Developer Interview Questions...</a>
+		
+        
+		<a class="next" href="/2013/11/20/html-questions" rel="bookmark">HTML Questions:Front-end Developer Interview Questions...&nbsp;&raquo;</a>
+		
+	</nav>
+	<div id="disqus_thread"></div>
+	<div id="mz-duoshou-comment-wrap">
+		<!-- Duoshuo Comment BEGIN -->
+		<div class="ds-thread"></div>
+		<script type="text/javascript">
+         var duoshuoQuery = {short_name:"flowerszhong"};
+            (function() {
+                var ds = document.createElement('script');
+                ds.type = 'text/javascript';ds.async = true;
+                ds.src = 'http://static.duoshuo.com/embed.js';
+                ds.charset = 'UTF-8';
+                (document.getElementsByTagName('head')[0] 
+                || document.getElementsByTagName('body')[0]).appendChild(ds);
+            })();
+            </script>
+        <!-- Duoshuo Comment END --> </div>
+</article>
+
+        <footer id="foot">
+            <p>Copyright © 2011-2013 <a href='http://flowerszhong.github.io/contact.html'>Mzhong</a> All rights reserved.</p>
+            <!-- <p>Design by <a href="http://www.pizn.net" target="_blank" title="the One theme author">PIZn</a></p> -->
+        </footer>
+    </section>
+</div>
+<div id="foot-line"></div>
+<script src="/assets/themes/mzhong/js/jquery.js" type="text/javascript"></script>
+<script src="/assets/themes/mzhong/js/jquery.scrollTo.js" type="text/javascript"></script>
+<script src="/assets/themes/mzhong/js/theOne.js" type="text/javascript"></script>
+
+
+</body>
+</html>
+
