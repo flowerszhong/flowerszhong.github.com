@@ -1,0 +1,28 @@
+Let me give you a quick overview of the contents of the folder.
+• The resources folder contains the standard set of themes that you can use in your application.
+• The src folder contains the entire API organized into numerous JavaScript files.
+• The docs folder contains the API documentation and guides.
+• The ext.js file contains the core API.
+• The ext-all.js file contains the complete API in a compressed or minified format. It’s a large-sized file that is suitable for development purposes only.
+10
+• The ext-all-dev.js contains the complete API with comments.
+• The ext-all-debug-w-comments.js contains the complete API with comments and console
+warnings. This file is meant to be used for development.
+
+
+SDK:
+
+sencha generate app MyApp ../MyApp
+sencha gen ap MyApp ../MyApp
+
+
+Class
+Ext.define('className',{})
+
+Object
+Ext.create('className')
+new className()
+
+
+Inheritance
+extend
