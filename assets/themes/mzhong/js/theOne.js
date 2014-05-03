@@ -5,70 +5,94 @@
  */
 $(document).ready(function() {
 
-/** hightlight Menu **/
-var navs, url, cur, i;
-navs = $("#nav li a");
-for(i = 1 ; i < navs.length; i++ ){
-    url = navs[i].href;
-    cur = window.location.href;
-    if(cur.indexOf(url) !=-1) {
-        navs[i].className = "action";
-        navs[0].className = "";
+    /** hightlight Menu **/
+    var navs, url, cur, i;
+    navs = $("#nav li a");
+    for (i = 1; i < navs.length; i++) {
+        url = navs[i].href;
+        cur = window.location.href;
+        if (cur.indexOf(url) != -1) {
+            navs[i].className = "action";
+            navs[0].className = "";
+        }
+        if (cur != navs[0].href) {
+            navs[0].className = "";
+        }
     }
-    if(cur != navs[0].href) {
-        navs[0].className = "";
-    }
-}
-/** scroll To **/
-var scrollTo = {
-    nodeName: "J-backTop",
+    /** scroll To **/
+    var scrollTo = {
+        nodeName: "J-backTop",
         scrollHeight: "100",
         linkBottom: "200px",
         linkRight: "20px",
         _scrollTop: function() {
-        if(jQuery.scrollTo) {
-            jQuery.scrollTo(0, 800, {queue:true});
-        }
-    },
-    _scrollScreen: function() {
-        var that = this, topLink = $('#' + that.nodeName);
-        if(jQuery(document).scrollTop() <= that.scrollHeight) {
-            topLink.hide();
-            return true;
-        }  else {
-            topLink.fadeIn();
-        }
-    },
-    _resizeWindow: function() {
-        var that = this, topLink = $('#' + that.nodeName);
-        topLink.css({
-            'right' : that.linkRight,
-            'bottom': that.linkBottom
-        });
-    },
-    run: function() {
-        var that = this, topLink = $('<a id="' + that.nodeName + '" href="#" class="toTop"><i class="icon-circle-arrow-up"></i></a>');
-        topLink.appendTo($('body'));
-        topLink.css({
-            'display': 'none',
-            'position': 'fixed',
-            'right': that.linkRight,
-            'bottom': that.linkBottom
-        });
-        if(jQuery.scrollTo) {
-            topLink.click(function() {
-                that._scrollTop();
-                return false;
+            if (jQuery.scrollTo) {
+                jQuery.scrollTo(0, 800, {
+                    queue: true
+                });
+            }
+        },
+        _scrollScreen: function() {
+            var that = this,
+                topLink = $('#' + that.nodeName);
+            if (jQuery(document).scrollTop() <= that.scrollHeight) {
+                topLink.hide();
+                return true;
+            } else {
+                topLink.fadeIn();
+            }
+        },
+        _scrollProgressBar: function() {
+            var that = this;
+            var documentHeight = $(document).height(),
+                scrollTop = $(document).scrollTop();
+            var progress = (scrollTop / documentHeight) * 100;
+
+            if($(window).scrollTop() + $(window).height() + 50 > documentHeight){
+                progress = 100;
+            }
+
+            var topProgress = progress + "%",
+                bottomProgress = (100 - progress) + "%";
+                console.log(progress);
+                console.log(documentHeight,scrollTop);
+            $('#head-line').width(topProgress);
+            $('#foot-line').width(bottomProgress);
+        },
+        _resizeWindow: function() {
+            var that = this,
+                topLink = $('#' + that.nodeName);
+            topLink.css({
+                'right': that.linkRight,
+                'bottom': that.linkBottom
+            });
+        },
+        run: function() {
+            var that = this,
+                topLink = $('<a id="' + that.nodeName + '" href="#" class="toTop"><i class="icon-circle-arrow-up"></i></a>');
+            topLink.appendTo($('body'));
+            topLink.css({
+                'display': 'none',
+                'position': 'fixed',
+                'right': that.linkRight,
+                'bottom': that.linkBottom
+            });
+            if (jQuery.scrollTo) {
+                topLink.click(function() {
+                    that._scrollTop();
+                    return false;
+                });
+            }
+            jQuery(window).resize(function() {
+                that._scrollProgressBar();
+                that._scrollScreen();
+            });
+            jQuery(window).scroll(function() {
+                that._scrollProgressBar();
+                that._scrollScreen();
             });
         }
-        jQuery(window).resize(function() {
-            that._scrollScreen();
-        });
-        jQuery(window).scroll(function() {
-            that._scrollScreen();
-        });
     }
-}
-scrollTo.run();
+    scrollTo.run();
 
 })

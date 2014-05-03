@@ -8,7 +8,9 @@ $(function() {
 
     var parseDate = d3.time.format("%d-%b-%y").parse;
 
-
+    function testClosure () {
+        console.log(data,averageData,buysellData,margin,width,height,customTimeFormat,timeFormat,x,y,y_extent,x_extent)
+    }
 
     var customTimeFormat = timeFormat([
       [d3.time.format("%Y"), function() { return true; }],
@@ -209,4 +211,6 @@ $(function() {
     }).on("mousemove", function() {
         return tooltip.style("top", (event.pageY) + "px").style("left", (event.pageX + 10) + "px");
     });
+
+    svg.on("mouseover",testClosure)
 });
